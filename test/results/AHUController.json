@@ -1,0 +1,1550 @@
+{
+    "type": "model",
+    "name": "AHUController",
+    "description": "",
+    "Elements": [
+        {
+            "name": "tempDeadBand",
+            "value": 4.0,
+            "type": "Modelica.Units.SI.TemperatureDifference",
+            "variability": "parameter"
+        },
+        {
+            "name": "booToRea",
+            "annotation": {
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "origin": {
+                            "value": "{-70,90}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Controls.OBC.CDL.Conversions.BooleanToReal"
+        },
+        {
+            "name": "supFanCtrl",
+            "Ti": {
+                "value": 10.0
+            },
+            "k": {
+                "value": 0.1
+            },
+            "annotation": {
+                "__cdl": {
+                    "generatePointlist": {
+                        "value": "true"
+                    }
+                },
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "origin": {
+                            "value": "{10,90}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Controls.OBC.CDL.Continuous.PIDWithReset"
+        },
+        {
+            "name": "rotorCtrl",
+            "Ti": {
+                "value": 10.0
+            },
+            "k": {
+                "value": 0.1
+            },
+            "annotation": {
+                "__cdl": {
+                    "generatePointlist": {
+                        "value": "true"
+                    }
+                },
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "origin": {
+                            "value": "{-30,10}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Controls.OBC.CDL.Continuous.PIDWithReset"
+        },
+        {
+            "name": "mul",
+            "annotation": {
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "origin": {
+                            "value": "{-30,90}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Controls.OBC.CDL.Continuous.Multiply"
+        },
+        {
+            "name": "multiply",
+            "annotation": {
+                "__cdl": {
+                    "generatePointlist": {
+                        "value": "true"
+                    }
+                },
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "origin": {
+                            "value": "{-30,50}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Controls.OBC.CDL.Continuous.Multiply"
+        },
+        {
+            "name": "retFanCtrl",
+            "Ti": {
+                "value": 10.0
+            },
+            "k": {
+                "value": 0.1
+            },
+            "annotation": {
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "origin": {
+                            "value": "{10,50}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Controls.OBC.CDL.Continuous.PIDWithReset"
+        },
+        {
+            "name": "schedule",
+            "description": "On/off - usually from a schedule",
+            "annotation": {
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "origin": {
+                            "value": "{-110,90}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    },
+                    "iconTransformation": {
+                        "origin": {
+                            "value": "{-70,90}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Controls.OBC.CDL.Interfaces.BooleanInput"
+        },
+        {
+            "name": "supPreStp",
+            "annotation": {
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "origin": {
+                            "value": "{-110,70}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    },
+                    "iconTransformation": {
+                        "origin": {
+                            "value": "{-70,70}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Controls.OBC.CDL.Interfaces.RealInput"
+        },
+        {
+            "name": "retPreStp",
+            "annotation": {
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "origin": {
+                            "value": "{-110,50}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    },
+                    "iconTransformation": {
+                        "origin": {
+                            "value": "{-70,50}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Controls.OBC.CDL.Interfaces.RealInput"
+        },
+        {
+            "name": "supPre",
+            "annotation": {
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "origin": {
+                            "value": "{-110,30}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    },
+                    "iconTransformation": {
+                        "origin": {
+                            "value": "{-70,30}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Controls.OBC.CDL.Interfaces.RealInput"
+        },
+        {
+            "name": "retPre",
+            "annotation": {
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "origin": {
+                            "value": "{-110,10}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    },
+                    "iconTransformation": {
+                        "origin": {
+                            "value": "{-70,10}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Controls.OBC.CDL.Interfaces.RealInput"
+        },
+        {
+            "name": "supTempStp",
+            "annotation": {
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "origin": {
+                            "value": "{-110,-10}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    },
+                    "iconTransformation": {
+                        "origin": {
+                            "value": "{-70,-30}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Controls.OBC.CDL.Interfaces.RealInput"
+        },
+        {
+            "name": "supTemp",
+            "annotation": {
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "origin": {
+                            "value": "{-110,-30}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    },
+                    "iconTransformation": {
+                        "origin": {
+                            "value": "{-70,-50}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Controls.OBC.CDL.Interfaces.RealInput"
+        },
+        {
+            "name": "supFan_y",
+            "annotation": {
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "origin": {
+                            "value": "{110,90}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    },
+                    "iconTransformation": {
+                        "origin": {
+                            "value": "{70,90}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Controls.OBC.CDL.Interfaces.RealOutput"
+        },
+        {
+            "name": "retFan_y",
+            "annotation": {
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "origin": {
+                            "value": "{110,70}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    },
+                    "iconTransformation": {
+                        "origin": {
+                            "value": "{70,70}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Controls.OBC.CDL.Interfaces.RealOutput"
+        },
+        {
+            "name": "rotor_y",
+            "annotation": {
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "origin": {
+                            "value": "{110,30}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    },
+                    "iconTransformation": {
+                        "origin": {
+                            "value": "{70,48}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Controls.OBC.CDL.Interfaces.RealOutput"
+        },
+        {
+            "name": "heatingCoil_y",
+            "annotation": {
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "origin": {
+                            "value": "{110,-30}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    },
+                    "iconTransformation": {
+                        "origin": {
+                            "value": "{70,30}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Controls.OBC.CDL.Interfaces.RealOutput"
+        },
+        {
+            "name": "coolingCoil_y",
+            "annotation": {
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "origin": {
+                            "value": "{110,-70}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    },
+                    "iconTransformation": {
+                        "origin": {
+                            "value": "{70,10}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Controls.OBC.CDL.Interfaces.RealOutput"
+        },
+        {
+            "name": "damper_y",
+            "annotation": {
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "origin": {
+                            "value": "{110,-90}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    },
+                    "iconTransformation": {
+                        "origin": {
+                            "value": "{70,-10}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Controls.OBC.CDL.Interfaces.RealOutput"
+        },
+        {
+            "name": "min",
+            "annotation": {
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "origin": {
+                            "value": "{10,10}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Controls.OBC.CDL.Continuous.Min"
+        },
+        {
+            "name": "hys",
+            "uHigh": {
+                "value": 0.99
+            },
+            "uLow": {
+                "value": 0.98
+            },
+            "annotation": {
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "origin": {
+                            "value": "{40,10}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Controls.OBC.CDL.Continuous.Hysteresis"
+        },
+        {
+            "name": "swi",
+            "annotation": {
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "origin": {
+                            "value": "{10,-30}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Controls.OBC.CDL.Continuous.Switch"
+        },
+        {
+            "name": "heatingCoilCtrl",
+            "Ti": {
+                "value": 10.0
+            },
+            "k": {
+                "value": 0.1
+            },
+            "annotation": {
+                "__cdl": {
+                    "generatePointlist": {
+                        "value": "true"
+                    }
+                },
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "origin": {
+                            "value": "{-30,-30}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Controls.OBC.CDL.Continuous.PIDWithReset"
+        },
+        {
+            "name": "heatingStp",
+            "p": {
+                "value": "-tempDeadBand/2"
+            },
+            "annotation": {
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "origin": {
+                            "value": "{-80,-10}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Controls.OBC.CDL.Continuous.AddParameter"
+        },
+        {
+            "name": "zero",
+            "k": {
+                "value": 0.0
+            },
+            "annotation": {
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "origin": {
+                            "value": "{-90,-90}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Controls.OBC.CDL.Continuous.Sources.Constant"
+        },
+        {
+            "name": "coolingStp",
+            "p": {
+                "value": "tempDeadBand/2"
+            },
+            "annotation": {
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "origin": {
+                            "value": "{-78,-60}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Controls.OBC.CDL.Continuous.AddParameter"
+        },
+        {
+            "name": "coolingCoilCtrl",
+            "Ti": {
+                "value": 10.0
+            },
+            "k": {
+                "value": 0.1
+            },
+            "reverseActing": {
+                "value": "false"
+            },
+            "annotation": {
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "origin": {
+                            "value": "{-30,-70}"
+                        },
+                        "extent": {
+                            "value": "{{-10,-10},{10,10}}"
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Controls.OBC.CDL.Continuous.PIDWithReset"
+        }
+    ],
+    "equations": [],
+    "connections": [
+        {
+            "from": {
+                "name": "schedule"
+            },
+            "to": {
+                "name": "booToRea",
+                "port": "u"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{-110,90},{-82,90}}"
+                        },
+                        "color": {
+                            "value": "{255,0,255}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "booToRea",
+                "port": "y"
+            },
+            "to": {
+                "name": "mul",
+                "port": "u1"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{-58,90},{-56,90},{-56,96},{-42,96}}"
+                        },
+                        "color": {
+                            "value": "{0,0,127}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "supPreStp"
+            },
+            "to": {
+                "name": "mul",
+                "port": "u2"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{-110,70},{-52,70},{-52,84},{-42,84}}"
+                        },
+                        "color": {
+                            "value": "{0,0,127}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "mul",
+                "port": "y"
+            },
+            "to": {
+                "name": "supFanCtrl",
+                "port": "u_s"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{-18,90},{-2,90}}"
+                        },
+                        "color": {
+                            "value": "{0,0,127}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "multiply",
+                "port": "y"
+            },
+            "to": {
+                "name": "retFanCtrl",
+                "port": "u_s"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{-18,50},{-2,50}}"
+                        },
+                        "color": {
+                            "value": "{0,0,127}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "booToRea",
+                "port": "y"
+            },
+            "to": {
+                "name": "multiply",
+                "port": "u1"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{-58,90},{-56,90},{-56,56},{-42,56}}"
+                        },
+                        "color": {
+                            "value": "{0,0,127}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "retPreStp"
+            },
+            "to": {
+                "name": "multiply",
+                "port": "u2"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{-110,50},{-76,50},{-76,44},{-42,44}}"
+                        },
+                        "color": {
+                            "value": "{0,0,127}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "supFanCtrl",
+                "port": "y"
+            },
+            "to": {
+                "name": "supFan_y"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{22,90},{110,90}}"
+                        },
+                        "color": {
+                            "value": "{0,0,127}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "retFanCtrl",
+                "port": "y"
+            },
+            "to": {
+                "name": "retFan_y"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{22,50},{40,50},{40,70},{110,70}}"
+                        },
+                        "color": {
+                            "value": "{0,0,127}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "supPre"
+            },
+            "to": {
+                "name": "supFanCtrl",
+                "port": "u_m"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{-110,30},{-91,30},{-91,38},{-48,38},{-48,70},{10,70},{10,78}}"
+                        },
+                        "color": {
+                            "value": "{0,0,127}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "retPre"
+            },
+            "to": {
+                "name": "retFanCtrl",
+                "port": "u_m"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{-110,10},{-84,10},{-84,30},{10,30},{10,38}}"
+                        },
+                        "color": {
+                            "value": "{0,0,127}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "schedule"
+            },
+            "to": {
+                "name": "supFanCtrl",
+                "port": "trigger"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{-110,90},{-96,90},{-96,76},{4,76},{4,78}}"
+                        },
+                        "color": {
+                            "value": "{255,0,255}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "schedule"
+            },
+            "to": {
+                "name": "retFanCtrl",
+                "port": "trigger"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{-110,90},{-96,90},{-96,34},{4,34},{4,38}}"
+                        },
+                        "color": {
+                            "value": "{255,0,255}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "schedule"
+            },
+            "to": {
+                "name": "rotorCtrl",
+                "port": "trigger"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{-110,90},{-96,90},{-96,6},{-60,6},{-60,-8},{-36,-8},{-36,-2}}"
+                        },
+                        "color": {
+                            "value": "{255,0,255}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "supTemp"
+            },
+            "to": {
+                "name": "rotorCtrl",
+                "port": "u_m"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{-110,-30},{-64,-30},{-64,-14},{-30,-14},{-30,-2}}"
+                        },
+                        "color": {
+                            "value": "{0,0,127}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "booToRea",
+                "port": "y"
+            },
+            "to": {
+                "name": "min",
+                "port": "u1"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{-58,90},{-56,90},{-56,26},{-10,26},{-10,16},{-2,16}}"
+                        },
+                        "color": {
+                            "value": "{0,0,127}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "rotorCtrl",
+                "port": "y"
+            },
+            "to": {
+                "name": "min",
+                "port": "u2"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{-18,10},{-10,10},{-10,4},{-2,4}}"
+                        },
+                        "color": {
+                            "value": "{0,0,127}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "min",
+                "port": "y"
+            },
+            "to": {
+                "name": "rotor_y"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{22,10},{26,10},{26,30},{110,30}}"
+                        },
+                        "color": {
+                            "value": "{0,0,127}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "min",
+                "port": "y"
+            },
+            "to": {
+                "name": "hys",
+                "port": "u"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{22,10},{28,10}}"
+                        },
+                        "color": {
+                            "value": "{0,0,127}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "supTempStp"
+            },
+            "to": {
+                "name": "heatingStp",
+                "port": "u"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{-110,-10},{-92,-10}}"
+                        },
+                        "color": {
+                            "value": "{0,0,127}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "heatingStp",
+                "port": "y"
+            },
+            "to": {
+                "name": "rotorCtrl",
+                "port": "u_s"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{-68,-10},{-50,-10},{-50,10},{-42,10}}"
+                        },
+                        "color": {
+                            "value": "{0,0,127}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "heatingStp",
+                "port": "y"
+            },
+            "to": {
+                "name": "heatingCoilCtrl",
+                "port": "u_s"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{-68,-10},{-60,-10},{-60,-30},{-42,-30}}"
+                        },
+                        "color": {
+                            "value": "{0,0,127}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "supTemp"
+            },
+            "to": {
+                "name": "heatingCoilCtrl",
+                "port": "u_m"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{-110,-30},{-64,-30},{-64,-48},{-30,-48},{-30,-42}}"
+                        },
+                        "color": {
+                            "value": "{0,0,127}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "hys",
+                "port": "y"
+            },
+            "to": {
+                "name": "heatingCoilCtrl",
+                "port": "trigger"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{52,10},{60,10},{60,-16},{-48,-16},{-48,-44},{-36,-44},{-36,-42}}"
+                        },
+                        "color": {
+                            "value": "{255,0,255}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "heatingCoilCtrl",
+                "port": "y"
+            },
+            "to": {
+                "name": "swi",
+                "port": "u1"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{-18,-30},{-12,-30},{-12,-22},{-2,-22}}"
+                        },
+                        "color": {
+                            "value": "{0,0,127}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "hys",
+                "port": "y"
+            },
+            "to": {
+                "name": "swi",
+                "port": "u2"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{52,10},{60,10},{60,-16},{-8,-16},{-8,-30},{-2,-30}}"
+                        },
+                        "color": {
+                            "value": "{255,0,255}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "zero",
+                "port": "y"
+            },
+            "to": {
+                "name": "swi",
+                "port": "u3"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{-78,-90},{-10,-90},{-10,-38},{-2,-38}}"
+                        },
+                        "color": {
+                            "value": "{0,0,127}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "supTempStp"
+            },
+            "to": {
+                "name": "coolingStp",
+                "port": "u"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{-110,-10},{-94,-10},{-94,-60},{-90,-60}}"
+                        },
+                        "color": {
+                            "value": "{0,0,127}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "coolingStp",
+                "port": "y"
+            },
+            "to": {
+                "name": "coolingCoilCtrl",
+                "port": "u_s"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{-66,-60},{-60,-60},{-60,-70},{-42,-70}}"
+                        },
+                        "color": {
+                            "value": "{0,0,127}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "supTemp"
+            },
+            "to": {
+                "name": "coolingCoilCtrl",
+                "port": "u_m"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{-110,-30},{-64,-30},{-64,-86},{-30,-86},{-30,-82}}"
+                        },
+                        "color": {
+                            "value": "{0,0,127}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "swi",
+                "port": "y"
+            },
+            "to": {
+                "name": "heatingCoil_y"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{22,-30},{110,-30}}"
+                        },
+                        "color": {
+                            "value": "{0,0,127}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "coolingCoilCtrl",
+                "port": "y"
+            },
+            "to": {
+                "name": "coolingCoil_y"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{-18,-70},{110,-70}}"
+                        },
+                        "color": {
+                            "value": "{0,0,127}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "schedule"
+            },
+            "to": {
+                "name": "coolingCoilCtrl",
+                "port": "trigger"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{-110,90},{-96,90},{-96,-74},{-60,-74},{-60,-84},{-36,-84},{-36,-82}}"
+                        },
+                        "color": {
+                            "value": "{255,0,255}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "damper_y"
+            },
+            "to": {
+                "name": "booToRea",
+                "port": "y"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": "{{110,-90},{80,-90},{80,66},{-56,66},{-56,90},{-58,90}}"
+                        },
+                        "color": {
+                            "value": "{0,0,127}"
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}
