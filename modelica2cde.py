@@ -37,6 +37,8 @@ if __name__ == '__main__':
 
     dir = os.path.dirname(args["file"])
 
-    fp = open(os.path.join(dir,"results","JSONoutput.json"), "w")
+    model_name = os.path.basename(args["file"]).split('.')[0]
+
+    fp = open(os.path.join(dir,"results",f"{model_name}.json"), "w")
     json.dump(res, fp,indent=4)
     fp.close()
