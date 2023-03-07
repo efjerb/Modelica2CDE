@@ -131,6 +131,15 @@ class modelicaJSONVisitor(modelicaVisitor):
     def visitElement_replaceable(self, ctx: modelicaParser.Element_replaceableContext):
         return super().visitElement_replaceable(ctx)
     
+    def visitShort_class_specifier(self, ctx:modelicaParser.Short_class_specifierContext):
+        name:str = ctx.children[0].getText()
+        if "medium" in name.lower():    
+            mod = ctx.name().getText()
+            res = {name:mod}
+        else:
+            res = None
+        return res
+
     def visitEquation_section(self, ctx: modelicaParser.Equation_sectionContext):
         self.output["equations"] = []
         self.output["connections"] = []
