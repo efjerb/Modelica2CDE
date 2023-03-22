@@ -1,4 +1,16 @@
 {
+    "@context": {
+        "Elements": "http://example.org/#Elements",
+        "type": {
+            "@id": "https://www.w3.org/TR/rdf-schema/#ch_type",
+            "@type": "@id"
+        },
+        "points": "https://brickschema.org/schema/Brick#hasPoint",
+        "connectedTo": {
+            "@id": "http://example.org/#ConnectedTo",
+            "@type": "@id"
+        }
+    },
     "type": "package",
     "@id": "Model2",
     "description": "Auto-generated model",
@@ -134,6 +146,11 @@
                 }
             },
             "annotation": {
+                "__cdl": {
+                    "generatePointlist": {
+                        "value": "true"
+                    }
+                },
                 "Placement": {
                     "visible": {
                         "value": "true"
@@ -167,7 +184,41 @@
             "points": [
                 {
                     "@id": "fan1332058.y",
+                    "unit": {
+                        "value": "1"
+                    },
+                    "description": "Constant normalized rotational speed",
+                    "type": "RealInput",
                     "connectedTo": "aHUController.retFan_y"
+                },
+                {
+                    "@id": "fan1332058.stage",
+                    "description": "Stage input signal for the pressure head",
+                    "type": "IntegerInput"
+                },
+                {
+                    "@id": "fan1332058.y_actual",
+                    "unit": {
+                        "value": "1"
+                    },
+                    "description": "Actual normalised pump speed that is used for computations",
+                    "type": "RealOutput"
+                },
+                {
+                    "@id": "fan1332058.P",
+                    "quantity": {
+                        "value": "Power"
+                    },
+                    "unit": {
+                        "value": "W"
+                    },
+                    "description": "Electrical power consumed",
+                    "type": "RealOutput"
+                },
+                {
+                    "@id": "fan1332058.index",
+                    "description": "Integer input for control input",
+                    "type": "IntegerInput"
                 }
             ]
         },
@@ -269,6 +320,11 @@
                 "value": 600.0
             },
             "annotation": {
+                "__cdl": {
+                    "generatePointlist": {
+                        "value": "true"
+                    }
+                },
                 "Placement": {
                     "visible": {
                         "value": "true"
@@ -302,6 +358,23 @@
             "points": [
                 {
                     "@id": "senTem1359936.T",
+                    "quantity": {
+                        "value": "ThermodynamicTemperature"
+                    },
+                    "unit": {
+                        "value": "K"
+                    },
+                    "displayUnit": {
+                        "value": "degC"
+                    },
+                    "min": {
+                        "value": 0.0
+                    },
+                    "start": {
+                        "value": "T_start"
+                    },
+                    "description": "Temperature of the passing fluid",
+                    "type": "RealOutput",
                     "connectedTo": "aHUController.supTemp"
                 }
             ]
@@ -668,306 +741,6 @@
                     "type": "RealOutput"
                 }
             ]
-        }
-    ],
-    "equations": [],
-    "connections": [
-        {
-            "from": {
-                "@id": "aHUController",
-                "port": "supFan_y"
-            },
-            "to": {
-                "@id": "fan1331423",
-                "port": "y"
-            },
-            "description": {
-                "annotation": {
-                    "Line": {
-                        "points": {
-                            "value": [
-                                [
-                                    11.0,
-                                    84.0
-                                ],
-                                [
-                                    178.0,
-                                    84.0
-                                ],
-                                [
-                                    178.0,
-                                    56.0
-                                ]
-                            ]
-                        },
-                        "color": {
-                            "value": [
-                                0.0,
-                                0.0,
-                                127.0
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        {
-            "from": {
-                "@id": "aHUController",
-                "port": "retFan_y"
-            },
-            "to": {
-                "@id": "fan1332058",
-                "port": "y"
-            },
-            "description": {
-                "annotation": {
-                    "Line": {
-                        "points": {
-                            "value": [
-                                [
-                                    11.0,
-                                    81.0
-                                ],
-                                [
-                                    132.0,
-                                    81.0
-                                ],
-                                [
-                                    132.0,
-                                    48.0
-                                ]
-                            ]
-                        },
-                        "color": {
-                            "value": [
-                                0.0,
-                                0.0,
-                                127.0
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        {
-            "from": {
-                "@id": "aHUController",
-                "port": "retPre"
-            },
-            "to": {
-                "@id": "senPre1359814",
-                "port": "statPres"
-            },
-            "description": {
-                "annotation": {
-                    "Line": {
-                        "points": {
-                            "value": [
-                                [
-                                    -15.0,
-                                    70.0
-                                ],
-                                [
-                                    -40.0,
-                                    70.0
-                                ],
-                                [
-                                    -40.0,
-                                    1.0
-                                ]
-                            ]
-                        },
-                        "color": {
-                            "value": [
-                                0.0,
-                                0.0,
-                                127.0
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        {
-            "from": {
-                "@id": "aHUController",
-                "port": "supPre"
-            },
-            "to": {
-                "@id": "senPre1356764",
-                "port": "statPres"
-            },
-            "description": {
-                "annotation": {
-                    "Line": {
-                        "points": {
-                            "value": [
-                                [
-                                    -15.0,
-                                    73.0
-                                ],
-                                [
-                                    -70.0,
-                                    73.0
-                                ],
-                                [
-                                    -70.0,
-                                    1.0
-                                ]
-                            ]
-                        },
-                        "color": {
-                            "value": [
-                                0.0,
-                                0.0,
-                                127.0
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        {
-            "from": {
-                "@id": "aHUController",
-                "port": "supTemp"
-            },
-            "to": {
-                "@id": "senTem1359936",
-                "port": "T"
-            },
-            "description": {
-                "annotation": {
-                    "Line": {
-                        "points": {
-                            "value": [
-                                [
-                                    -15.0,
-                                    59.0
-                                ],
-                                [
-                                    -36.0,
-                                    59.0
-                                ],
-                                [
-                                    -36.0,
-                                    14.0
-                                ],
-                                [
-                                    -22.0,
-                                    14.0
-                                ],
-                                [
-                                    -22.0,
-                                    -41.0
-                                ]
-                            ]
-                        },
-                        "color": {
-                            "value": [
-                                0.0,
-                                0.0,
-                                127.0
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        {
-            "from": {
-                "@id": "aHUController",
-                "port": "heatingCoil_y"
-            },
-            "to": {
-                "@id": "motVal1304448",
-                "port": "y"
-            },
-            "description": {
-                "annotation": {
-                    "Line": {
-                        "points": {
-                            "value": [
-                                [
-                                    11.0,
-                                    73.0
-                                ],
-                                [
-                                    80.0,
-                                    73.0
-                                ],
-                                [
-                                    80.0,
-                                    10.0
-                                ],
-                                [
-                                    150.0,
-                                    10.0
-                                ],
-                                [
-                                    150.0,
-                                    -38.0
-                                ]
-                            ]
-                        },
-                        "color": {
-                            "value": [
-                                0.0,
-                                0.0,
-                                127.0
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        {
-            "from": {
-                "@id": "aHUController",
-                "port": "coolingCoil_y"
-            },
-            "to": {
-                "@id": "motVal1151719",
-                "port": "y"
-            },
-            "description": {
-                "annotation": {
-                    "Line": {
-                        "points": {
-                            "value": [
-                                [
-                                    11.0,
-                                    70.0
-                                ],
-                                [
-                                    64.0,
-                                    70.0
-                                ],
-                                [
-                                    64.0,
-                                    -8.0
-                                ],
-                                [
-                                    80.0,
-                                    -8.0
-                                ],
-                                [
-                                    80.0,
-                                    -22.0
-                                ]
-                            ]
-                        },
-                        "color": {
-                            "value": [
-                                0.0,
-                                0.0,
-                                127.0
-                            ]
-                        }
-                    }
-                }
-            }
         }
     ]
 }

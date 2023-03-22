@@ -22,7 +22,7 @@ model Model2 "Auto-generated model"
             per(pressure(V_flow(displayUnit="m3/s")={0.02, 0.04, 0.06, 0.08, 0.1, 0.12, 0.14, 0.16, 0.18, 0.2, 0.22, 0.24, 0.26, 0.28}, dp={438.4, 419.2, 401.2, 384.5, 370.4, 352.5, 332.6, 314.7, 283.8, 236.4, 178.0, 135.0, 86.9, 43.6}),
             use_powerCharacteristic=true,
             power(V_flow(displayUnit="m3/s")={0.02, 0.08, 0.12, 0.16, 0.2, 0.24, 0.28}, P={124.0, 142.7, 157.7, 175.7, 200.0, 221.0, 253.8})))
-            annotation (Placement(visible = true, transformation(origin = {32, -4}, extent = {{90, 30}, {110, 50}}, rotation = 0)));
+            annotation (__cdl(generatePointlist=true),Placement(visible = true, transformation(origin = {32, -4}, extent = {{90, 30}, {110, 50}}, rotation = 0)));
             
         ToolchainLib.PressureSensor senPre1356764(redeclare package MediumA = 
             MediumVentilation)
@@ -38,7 +38,7 @@ model Model2 "Auto-generated model"
             transferHeat=true,
             TAmb=294.15,
             tauHeaTra=600)
-            annotation (Placement(visible = true, transformation(origin = {-60, -36}, extent = {{28, -26}, {48, -6}}, rotation = 0)));
+            annotation (__cdl(generatePointlist=true),Placement(visible = true, transformation(origin = {-60, -36}, extent = {{28, -26}, {48, -6}}, rotation = 0)));
         
         Buildings.Fluid.Actuators.Valves.TwoWayEqualPercentage motVal1151719(
             redeclare package Medium = MediumHeating, 
