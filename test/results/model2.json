@@ -1,0 +1,973 @@
+{
+    "type": "package",
+    "name": "Model2",
+    "description": "Auto-generated model",
+    "Elements": [
+        {
+            "name": "outside",
+            "Medium": "MediumVentilation",
+            "use_C_in": {
+                "value": "false"
+            },
+            "nPorts": {
+                "value": 0.0
+            },
+            "description": "Outside air conditions",
+            "annotation": {
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "origin": {
+                            "value": [
+                                74.0,
+                                -32.0
+                            ]
+                        },
+                        "extent": {
+                            "value": [
+                                [
+                                    -174.0,
+                                    62.0
+                                ],
+                                [
+                                    -154.0,
+                                    82.0
+                                ]
+                            ]
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Fluid.Sources.Outside"
+        },
+        {
+            "name": "fan1332058",
+            "Medium": "MediumVentilation",
+            "energyDynamics": {
+                "value": "Modelica.Fluid.Types.Dynamics.SteadyState"
+            },
+            "addPowerToMedium": {
+                "value": "false"
+            },
+            "show_T": {
+                "value": "true"
+            },
+            "riseTime": {
+                "value": 120.0
+            },
+            "per": {
+                "pressure": {
+                    "V_flow": {
+                        "value": [
+                            0.02,
+                            0.04,
+                            0.06,
+                            0.08,
+                            0.1,
+                            0.12,
+                            0.14,
+                            0.16,
+                            0.18,
+                            0.2,
+                            0.22,
+                            0.24,
+                            0.26,
+                            0.28
+                        ],
+                        "displayUnit": {
+                            "value": "m3/s"
+                        }
+                    },
+                    "dp": {
+                        "value": [
+                            438.4,
+                            419.2,
+                            401.2,
+                            384.5,
+                            370.4,
+                            352.5,
+                            332.6,
+                            314.7,
+                            283.8,
+                            236.4,
+                            178.0,
+                            135.0,
+                            86.9,
+                            43.6
+                        ]
+                    }
+                },
+                "use_powerCharacteristic": {
+                    "value": "true"
+                },
+                "power": {
+                    "V_flow": {
+                        "value": [
+                            0.02,
+                            0.08,
+                            0.12,
+                            0.16,
+                            0.2,
+                            0.24,
+                            0.28
+                        ],
+                        "displayUnit": {
+                            "value": "m3/s"
+                        }
+                    },
+                    "P": {
+                        "value": [
+                            124.0,
+                            142.7,
+                            157.7,
+                            175.7,
+                            200.0,
+                            221.0,
+                            253.8
+                        ]
+                    }
+                }
+            },
+            "annotation": {
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "origin": {
+                            "value": [
+                                32.0,
+                                -4.0
+                            ]
+                        },
+                        "extent": {
+                            "value": [
+                                [
+                                    90.0,
+                                    30.0
+                                ],
+                                [
+                                    110.0,
+                                    50.0
+                                ]
+                            ]
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Fluid.Movers.SpeedControlled_y",
+            "points": [
+                {
+                    "name": "fan1332058.y",
+                    "connectedTo": "aHUController.retFan_y"
+                }
+            ]
+        },
+        {
+            "name": "senPre1356764",
+            "MediumA": "MediumVentilation",
+            "annotation": {
+                "__cdl": {
+                    "generatePointlist": {
+                        "value": "true"
+                    }
+                },
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "extent": {
+                            "value": [
+                                [
+                                    -80.0,
+                                    -20.0
+                                ],
+                                [
+                                    -60.0,
+                                    0.0
+                                ]
+                            ]
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "ToolchainLib.PressureSensor",
+            "points": [
+                {
+                    "name": "senPre1356764.statPres",
+                    "type": "RealOutput",
+                    "connectedTo": "aHUController.supPre"
+                }
+            ]
+        },
+        {
+            "name": "senPre1359814",
+            "MediumA": "MediumVentilation",
+            "annotation": {
+                "__cdl": {
+                    "generatePointlist": {
+                        "value": "true"
+                    }
+                },
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "extent": {
+                            "value": [
+                                [
+                                    -50.0,
+                                    -20.0
+                                ],
+                                [
+                                    -30.0,
+                                    0.0
+                                ]
+                            ]
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "ToolchainLib.PressureSensor",
+            "points": [
+                {
+                    "name": "senPre1359814.statPres",
+                    "type": "RealOutput",
+                    "connectedTo": "aHUController.retPre"
+                }
+            ]
+        },
+        {
+            "name": "senTem1359936",
+            "Medium": "MediumVentilation",
+            "m_flow_nominal": {
+                "value": 0.2016
+            },
+            "transferHeat": {
+                "value": "true"
+            },
+            "TAmb": {
+                "value": 294.15
+            },
+            "tauHeaTra": {
+                "value": 600.0
+            },
+            "annotation": {
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "origin": {
+                            "value": [
+                                -60.0,
+                                -36.0
+                            ]
+                        },
+                        "extent": {
+                            "value": [
+                                [
+                                    28.0,
+                                    -26.0
+                                ],
+                                [
+                                    48.0,
+                                    -6.0
+                                ]
+                            ]
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Fluid.Sensors.TemperatureTwoPort",
+            "points": [
+                {
+                    "name": "senTem1359936.T",
+                    "connectedTo": "aHUController.supTemp"
+                }
+            ]
+        },
+        {
+            "name": "motVal1151719",
+            "Medium": "MediumHeating",
+            "m_flow_nominal": {
+                "value": 0.05862
+            },
+            "CvData": {
+                "value": "Buildings.Fluid.Types.CvTypes.Kv"
+            },
+            "Kv": {
+                "value": 1.6
+            },
+            "annotation": {
+                "__cdl": {
+                    "generatePointlist": {
+                        "value": "true"
+                    }
+                },
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "extent": {
+                            "value": [
+                                [
+                                    70.0,
+                                    -44.0
+                                ],
+                                [
+                                    90.0,
+                                    -24.0
+                                ]
+                            ]
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Fluid.Actuators.Valves.TwoWayEqualPercentage",
+            "points": [
+                {
+                    "name": "motVal1151719.y",
+                    "connectedTo": "aHUController.coolingCoil_y"
+                }
+            ]
+        },
+        {
+            "name": "motVal1304448",
+            "Medium": "MediumCooling",
+            "m_flow_nominal": {
+                "value": 0.04
+            },
+            "CvData": {
+                "value": "Buildings.Fluid.Types.CvTypes.Kv"
+            },
+            "Kv": {
+                "value": 1.6
+            },
+            "annotation": {
+                "__cdl": {
+                    "generatePointlist": {
+                        "value": "true"
+                    }
+                },
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "extent": {
+                            "value": [
+                                [
+                                    140.0,
+                                    -60.0
+                                ],
+                                [
+                                    160.0,
+                                    -40.0
+                                ]
+                            ]
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Fluid.Actuators.Valves.TwoWayEqualPercentage",
+            "points": [
+                {
+                    "name": "motVal1304448.y",
+                    "connectedTo": "aHUController.heatingCoil_y"
+                }
+            ]
+        },
+        {
+            "name": "fan1331423",
+            "addPowerToMedium": {
+                "value": "false"
+            },
+            "energyDynamics": {
+                "value": "Modelica.Fluid.Types.Dynamics.SteadyState"
+            },
+            "per": {
+                "pressure": {
+                    "V_flow": {
+                        "value": [
+                            0.02,
+                            0.04,
+                            0.06,
+                            0.08,
+                            0.1,
+                            0.12,
+                            0.14,
+                            0.16,
+                            0.18,
+                            0.2,
+                            0.22,
+                            0.24,
+                            0.26,
+                            0.28
+                        ],
+                        "displayUnit": {
+                            "value": "m3/s"
+                        }
+                    },
+                    "dp": {
+                        "value": [
+                            438.4,
+                            419.2,
+                            401.2,
+                            384.5,
+                            370.4,
+                            352.5,
+                            332.6,
+                            314.7,
+                            283.8,
+                            236.4,
+                            178.0,
+                            135.0,
+                            86.9,
+                            43.6
+                        ]
+                    }
+                },
+                "use_powerCharacteristic": {
+                    "value": "true"
+                },
+                "power": {
+                    "V_flow": {
+                        "value": [
+                            0.02,
+                            0.08,
+                            0.12,
+                            0.16,
+                            0.2,
+                            0.24,
+                            0.28
+                        ],
+                        "displayUnit": {
+                            "value": "m3/s"
+                        }
+                    },
+                    "P": {
+                        "value": [
+                            124.0,
+                            142.7,
+                            157.7,
+                            175.7,
+                            200.0,
+                            221.0,
+                            253.8
+                        ]
+                    }
+                }
+            },
+            "riseTime": {
+                "value": 120.0
+            },
+            "show_T": {
+                "value": "true"
+            },
+            "annotation": {
+                "__cdl": {
+                    "generatePointlist": {
+                        "value": "true"
+                    }
+                },
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "origin": {
+                            "value": [
+                                178.0,
+                                44.0
+                            ]
+                        },
+                        "extent": {
+                            "value": [
+                                [
+                                    -10.0,
+                                    -10.0
+                                ],
+                                [
+                                    10.0,
+                                    10.0
+                                ]
+                            ]
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "Buildings.Fluid.Movers.SpeedControlled_y",
+            "points": [
+                {
+                    "name": "fan1331423.y",
+                    "unit": {
+                        "value": "1"
+                    },
+                    "description": "Constant normalized rotational speed",
+                    "type": "RealInput",
+                    "connectedTo": "aHUController.supFan_y"
+                },
+                {
+                    "name": "fan1331423.stage",
+                    "description": "Stage input signal for the pressure head",
+                    "type": "IntegerInput"
+                },
+                {
+                    "name": "fan1331423.y_actual",
+                    "unit": {
+                        "value": "1"
+                    },
+                    "description": "Actual normalised pump speed that is used for computations",
+                    "type": "RealOutput"
+                },
+                {
+                    "name": "fan1331423.P",
+                    "quantity": {
+                        "value": "Power"
+                    },
+                    "unit": {
+                        "value": "W"
+                    },
+                    "description": "Electrical power consumed",
+                    "type": "RealOutput"
+                },
+                {
+                    "name": "fan1331423.index",
+                    "description": "Integer input for control input",
+                    "type": "IntegerInput"
+                }
+            ]
+        },
+        {
+            "name": "aHUController",
+            "annotation": {
+                "__cdl": {
+                    "generatePointlist": {
+                        "value": "true"
+                    }
+                },
+                "Placement": {
+                    "visible": {
+                        "value": "true"
+                    },
+                    "transformation": {
+                        "origin": {
+                            "value": [
+                                -2.0,
+                                68.0
+                            ]
+                        },
+                        "extent": {
+                            "value": [
+                                [
+                                    -18.0,
+                                    -18.0
+                                ],
+                                [
+                                    18.0,
+                                    18.0
+                                ]
+                            ]
+                        },
+                        "rotation": {
+                            "value": 0.0
+                        }
+                    }
+                }
+            },
+            "type": "RambollDefaults.Ventilation.Controls.AHUController2",
+            "points": [
+                {
+                    "name": "aHUController.schedule",
+                    "description": "On/off schedule",
+                    "type": "BooleanInput"
+                },
+                {
+                    "name": "aHUController.supPreStp",
+                    "type": "RealInput"
+                },
+                {
+                    "name": "aHUController.retPreStp",
+                    "type": "RealInput"
+                },
+                {
+                    "name": "aHUController.supPre",
+                    "type": "RealInput",
+                    "connectedTo": "senPre1356764.statPres"
+                },
+                {
+                    "name": "aHUController.retPre",
+                    "type": "RealInput",
+                    "connectedTo": "senPre1359814.statPres"
+                },
+                {
+                    "name": "aHUController.supTempStp",
+                    "type": "RealInput"
+                },
+                {
+                    "name": "aHUController.supTemp",
+                    "type": "RealInput",
+                    "connectedTo": "senTem1359936.T"
+                },
+                {
+                    "name": "aHUController.supFan_y",
+                    "type": "RealOutput",
+                    "connectedTo": "fan1331423.y"
+                },
+                {
+                    "name": "aHUController.retFan_y",
+                    "type": "RealOutput",
+                    "connectedTo": "fan1332058.y"
+                },
+                {
+                    "name": "aHUController.rotor_y",
+                    "type": "RealOutput"
+                },
+                {
+                    "name": "aHUController.heatingCoil_y",
+                    "type": "RealOutput",
+                    "connectedTo": "motVal1304448.y"
+                },
+                {
+                    "name": "aHUController.coolingCoil_y",
+                    "type": "RealOutput",
+                    "connectedTo": "motVal1151719.y"
+                },
+                {
+                    "name": "aHUController.damper_y",
+                    "type": "RealOutput"
+                }
+            ]
+        }
+    ],
+    "equations": [],
+    "connections": [
+        {
+            "from": {
+                "name": "aHUController",
+                "port": "supFan_y"
+            },
+            "to": {
+                "name": "fan1331423",
+                "port": "y"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": [
+                                [
+                                    11.0,
+                                    84.0
+                                ],
+                                [
+                                    178.0,
+                                    84.0
+                                ],
+                                [
+                                    178.0,
+                                    56.0
+                                ]
+                            ]
+                        },
+                        "color": {
+                            "value": [
+                                0.0,
+                                0.0,
+                                127.0
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "aHUController",
+                "port": "retFan_y"
+            },
+            "to": {
+                "name": "fan1332058",
+                "port": "y"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": [
+                                [
+                                    11.0,
+                                    81.0
+                                ],
+                                [
+                                    132.0,
+                                    81.0
+                                ],
+                                [
+                                    132.0,
+                                    48.0
+                                ]
+                            ]
+                        },
+                        "color": {
+                            "value": [
+                                0.0,
+                                0.0,
+                                127.0
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "aHUController",
+                "port": "retPre"
+            },
+            "to": {
+                "name": "senPre1359814",
+                "port": "statPres"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": [
+                                [
+                                    -15.0,
+                                    70.0
+                                ],
+                                [
+                                    -40.0,
+                                    70.0
+                                ],
+                                [
+                                    -40.0,
+                                    1.0
+                                ]
+                            ]
+                        },
+                        "color": {
+                            "value": [
+                                0.0,
+                                0.0,
+                                127.0
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "aHUController",
+                "port": "supPre"
+            },
+            "to": {
+                "name": "senPre1356764",
+                "port": "statPres"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": [
+                                [
+                                    -15.0,
+                                    73.0
+                                ],
+                                [
+                                    -70.0,
+                                    73.0
+                                ],
+                                [
+                                    -70.0,
+                                    1.0
+                                ]
+                            ]
+                        },
+                        "color": {
+                            "value": [
+                                0.0,
+                                0.0,
+                                127.0
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "aHUController",
+                "port": "supTemp"
+            },
+            "to": {
+                "name": "senTem1359936",
+                "port": "T"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": [
+                                [
+                                    -15.0,
+                                    59.0
+                                ],
+                                [
+                                    -36.0,
+                                    59.0
+                                ],
+                                [
+                                    -36.0,
+                                    14.0
+                                ],
+                                [
+                                    -22.0,
+                                    14.0
+                                ],
+                                [
+                                    -22.0,
+                                    -41.0
+                                ]
+                            ]
+                        },
+                        "color": {
+                            "value": [
+                                0.0,
+                                0.0,
+                                127.0
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "aHUController",
+                "port": "heatingCoil_y"
+            },
+            "to": {
+                "name": "motVal1304448",
+                "port": "y"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": [
+                                [
+                                    11.0,
+                                    73.0
+                                ],
+                                [
+                                    80.0,
+                                    73.0
+                                ],
+                                [
+                                    80.0,
+                                    10.0
+                                ],
+                                [
+                                    150.0,
+                                    10.0
+                                ],
+                                [
+                                    150.0,
+                                    -38.0
+                                ]
+                            ]
+                        },
+                        "color": {
+                            "value": [
+                                0.0,
+                                0.0,
+                                127.0
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "from": {
+                "name": "aHUController",
+                "port": "coolingCoil_y"
+            },
+            "to": {
+                "name": "motVal1151719",
+                "port": "y"
+            },
+            "description": {
+                "annotation": {
+                    "Line": {
+                        "points": {
+                            "value": [
+                                [
+                                    11.0,
+                                    70.0
+                                ],
+                                [
+                                    64.0,
+                                    70.0
+                                ],
+                                [
+                                    64.0,
+                                    -8.0
+                                ],
+                                [
+                                    80.0,
+                                    -8.0
+                                ],
+                                [
+                                    80.0,
+                                    -22.0
+                                ]
+                            ]
+                        },
+                        "color": {
+                            "value": [
+                                0.0,
+                                0.0,
+                                127.0
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}
