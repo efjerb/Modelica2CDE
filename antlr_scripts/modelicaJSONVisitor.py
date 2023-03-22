@@ -182,7 +182,33 @@ class modelicaJSONVisitor(modelicaVisitor):
     def visitConnect_clause(self, ctx: modelicaParser.Connect_clauseContext):
         connection = {}
         connection["from"] = self.visitComponent_reference(ctx.component_reference()[0])
-        connection["to"] = self.visitComponent_reference(ctx.component_reference()[1])
+        connection["to"]  = self.visitComponent_reference(ctx.component_reference()[1])
+        
+        from_comp = [x for x in self.output["Elements"] if x["name"] == connection["from"]["name"]][0]
+        to_comp = [x for x in self.output["Elements"] if x["name"] == connection["to"]["name"]][0]
+        if "points" not in from_comp.keys():
+            from_comp["points"] = []
+        if "points" not in to_comp.keys():
+            to_comp["points"] = []
+
+        hit_point = False
+        
+        for point in from_comp["points"]:
+            if point["name"] == ".".join([connection["from"]["name"],connection["from"]["port"]]):
+                hit_point = True
+                point["connectedTo"] = ".".join([connection["to"]["name"],connection["to"]["port"]])
+        if not hit_point:
+            from_comp["points"].append({"name":".".join([connection["from"]["name"],connection["from"]["port"]]),"connectedTo":".".join([connection["to"]["name"],connection["to"]["port"]])})
+        
+        hit_point = False
+
+        for point in to_comp["points"]:
+            if point["name"] == ".".join([connection["to"]["name"],connection["to"]["port"]]):
+                hit_point = True
+                point["connectedTo"] = ".".join([connection["from"]["name"],connection["from"]["port"]])
+        if not hit_point:
+            to_comp["points"].append({"name":".".join([connection["to"]["name"],connection["to"]["port"]]),"connectedTo":".".join([connection["from"]["name"],connection["from"]["port"]])})
+    
         return connection
 
 
