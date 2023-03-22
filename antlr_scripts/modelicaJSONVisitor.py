@@ -33,8 +33,12 @@ class modelicaJSONVisitor(modelicaVisitor):
         
         IOs = modelicaIOvisitor(get_comments = get_comments)
         IOs.visitStored_definition(tree)
+        res = IOs.res
 
-        return IOs.res
+        for ext_model_name in IOs.extends:
+            res.extend(self.get_model_IO(ext_model_name))
+
+        return res
     
     def get_model_path(self, model_name) -> str:
         package_path = self.omc.sendExpression(f"Modelica.Utilities.Files.loadResource(\"modelica://{model_name}\")")

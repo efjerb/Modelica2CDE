@@ -6,6 +6,7 @@ from antlr_scripts.modelicaParser import modelicaParser
 class modelicaIOvisitor(modelicaVisitor):
     def __init__(self, get_comments = True) -> None:
         self.res = []
+        self.extends = []
         self.get_comments = get_comments
         super().__init__()
     
@@ -18,7 +19,14 @@ class modelicaIOvisitor(modelicaVisitor):
             if type in input_names or type in output_names:
                 new_comp = comp
                 self.res.append({**new_comp,"type":type})
-            
+    
+    def visitExtends_clause(self, ctx: modelicaParser.Extends_clauseContext):
+        name = ctx.name().getText()
+        if name.split('.')[0] != "Modelica":
+            self.extends.append(ctx.name().getText())
+        
+        return super().visitExtends_clause(ctx)
+    
     def visitType_prefix(self, ctx: modelicaParser.Type_prefixContext):
         res = ctx.getText()
         return res
