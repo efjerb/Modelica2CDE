@@ -53,7 +53,7 @@ class modelicaJSONVisitor(modelicaVisitor):
         return super().visitClass_definition(ctx)
 
     def visitLong_class_specifier(self, ctx: modelicaParser.Long_class_specifierContext):
-        self.output["name"] = ctx.IDENT()[0].getText()
+        self.output["@id"] = ctx.IDENT()[0].getText()
         self.output["description"] = self.convert_output(ctx.string_comment().getText())
         return super().visitLong_class_specifier(ctx)
     
@@ -73,7 +73,7 @@ class modelicaJSONVisitor(modelicaVisitor):
             points = self.get_model_IO(component["type"])
             if len(points) != 0:
                 for point in points:
-                    point["name"] = component["name"] + "." + point["name"]
+                    point["@id"] = component["@id"] + "." + point["@id"]
                 component["points"] = points
         
         self.output["Elements"].append(component)
@@ -109,10 +109,10 @@ class modelicaJSONVisitor(modelicaVisitor):
         name = ctx.IDENT().getText()
         if ctx.modification() != None:
             modification = self.visitModification(ctx.modification())
-            res = {"name": name,
+            res = {"@id": name,
                     **modification}
         else:
-            res = {"name": name}
+            res = {"@id": name}
         return res
     
     def visitModification(self, ctx: modelicaParser.ModificationContext):
@@ -184,8 +184,8 @@ class modelicaJSONVisitor(modelicaVisitor):
         connection["from"] = self.visitComponent_reference(ctx.component_reference()[0])
         connection["to"]  = self.visitComponent_reference(ctx.component_reference()[1])
         
-        from_comp = [x for x in self.output["Elements"] if x["name"] == connection["from"]["name"]][0]
-        to_comp = [x for x in self.output["Elements"] if x["name"] == connection["to"]["name"]][0]
+        from_comp = [x for x in self.output["Elements"] if x["@id"] == connection["from"]["@id"]][0]
+        to_comp = [x for x in self.output["Elements"] if x["@id"] == connection["to"]["@id"]][0]
         if "points" not in from_comp.keys():
             from_comp["points"] = []
         if "points" not in to_comp.keys():
@@ -194,20 +194,20 @@ class modelicaJSONVisitor(modelicaVisitor):
         hit_point = False
         
         for point in from_comp["points"]:
-            if point["name"] == ".".join([connection["from"]["name"],connection["from"]["port"]]):
+            if point["@id"] == ".".join([connection["from"]["@id"],connection["from"]["port"]]):
                 hit_point = True
-                point["connectedTo"] = ".".join([connection["to"]["name"],connection["to"]["port"]])
+                point["connectedTo"] = ".".join([connection["to"]["@id"],connection["to"]["port"]])
         if not hit_point:
-            from_comp["points"].append({"name":".".join([connection["from"]["name"],connection["from"]["port"]]),"connectedTo":".".join([connection["to"]["name"],connection["to"]["port"]])})
+            from_comp["points"].append({"@id":".".join([connection["from"]["@id"],connection["from"]["port"]]),"connectedTo":".".join([connection["to"]["@id"],connection["to"]["port"]])})
         
         hit_point = False
 
         for point in to_comp["points"]:
-            if point["name"] == ".".join([connection["to"]["name"],connection["to"]["port"]]):
+            if point["@id"] == ".".join([connection["to"]["@id"],connection["to"]["port"]]):
                 hit_point = True
-                point["connectedTo"] = ".".join([connection["from"]["name"],connection["from"]["port"]])
+                point["connectedTo"] = ".".join([connection["from"]["@id"],connection["from"]["port"]])
         if not hit_point:
-            to_comp["points"].append({"name":".".join([connection["to"]["name"],connection["to"]["port"]]),"connectedTo":".".join([connection["from"]["name"],connection["from"]["port"]])})
+            to_comp["points"].append({"@id":".".join([connection["to"]["@id"],connection["to"]["port"]]),"connectedTo":".".join([connection["from"]["@id"],connection["from"]["port"]])})
     
         return connection
 
@@ -216,10 +216,10 @@ class modelicaJSONVisitor(modelicaVisitor):
         component_ref = {}
         from_IDENTs = [x.getText() for x in ctx.IDENT()]
         if len(from_IDENTs) > 1:
-            component_ref["name"]=".".join(from_IDENTs[0:-1])
+            component_ref["@id"]=".".join(from_IDENTs[0:-1])
             component_ref["port"]=from_IDENTs[-1]
         else:
-            component_ref["name"]=from_IDENTs[0]
+            component_ref["@id"]=from_IDENTs[0]
         
         return component_ref
     

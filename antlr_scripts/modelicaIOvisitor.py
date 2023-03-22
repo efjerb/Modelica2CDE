@@ -56,10 +56,10 @@ class modelicaIOvisitor(modelicaVisitor):
         name = ctx.IDENT().getText()
         if ctx.modification() != None:
             modification = self.visitModification(ctx.modification())
-            res = {"name": name,
+            res = {"@id": name,
                     **modification}
         else:
-            res = {"name": name}
+            res = {"@id": name}
         return res
     
     def visitModification(self, ctx: modelicaParser.ModificationContext):

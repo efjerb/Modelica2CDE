@@ -74,5 +74,5 @@ model Model2 "Auto-generated model"
     Line(points = {{11, 70}, {64, 70}, {64, -8}, {80, -8}, {80, -22}}, color = {0, 0, 127}));
         annotation(
     experiment(StartTime = 0, StopTime = 86400, __Dymola_Algorithm = "Dassl"),
-    uses(ToolchainLib, Buildings(version = "9.0.0")));
+    uses(ToolchainLib, RambollDefaults, Buildings(version = "9.0.0")));
       end Model2;

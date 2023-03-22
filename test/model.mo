@@ -1,5 +1,5 @@
 model Model "Auto-generated model"
-        
+        parameter Real x = 20;
         package MediumHeating = Buildings.Media.Water(T_default=273.15+70) annotation (
             __Dymola_choicesAllMatching=true);
         package MediumCooling = Buildings.Media.Antifreeze.PropyleneGlycolWater(property_T=273.15 + 5, X_a=0.35, T_default=273.15 + 5) annotation (
@@ -22,7 +22,7 @@ model Model "Auto-generated model"
             per(pressure(V_flow(displayUnit="m3/s")={0.02, 0.04, 0.06, 0.08, 0.1, 0.12, 0.14, 0.16, 0.18, 0.2, 0.22, 0.24, 0.26, 0.28}, dp={438.4, 419.2, 401.2, 384.5, 370.4, 352.5, 332.6, 314.7, 283.8, 236.4, 178.0, 135.0, 86.9, 43.6}),
             use_powerCharacteristic=true,
             power(V_flow(displayUnit="m3/s")={0.02, 0.08, 0.12, 0.16, 0.2, 0.24, 0.28}, P={124.0, 142.7, 157.7, 175.7, 200.0, 221.0, 253.8})))
-            annotation (Placement(visible = true, transformation(origin = {32, -4}, extent = {{90, 30}, {110, 50}}, rotation = 0)));
+            annotation (Placement(visible = true, transformation(origin = {-4, -6}, extent = {{90, 30}, {110, 50}}, rotation = 0)));
             
         ToolchainLib.PressureSensor senPre1356764(redeclare package MediumA = 
             MediumVentilation)
@@ -60,7 +60,7 @@ model Model "Auto-generated model"
   connect(aHUController.supFan_y, fan1331423.y) annotation(
     Line(points = {{19, 81}, {178, 81}, {178, 56}}, color = {0, 0, 127}));
  connect(aHUController.retFan_y, fan1332058.y) annotation(
-    Line(points = {{19, 79}, {132, 79}, {132, 48}}, color = {0, 0, 127}));
+    Line(points = {{19, 79}, {96, 79}, {96, 46}}, color = {0, 0, 127}));
  connect(aHUController.retPre, senPre1359814.statPres) annotation(
     Line(points = {{5, 73}, {-40, 73}, {-40, 1}}, color = {0, 0, 127}));
  connect(aHUController.supPre, senPre1356764.statPres) annotation(

@@ -1,10 +1,10 @@
 {
     "type": "package",
-    "name": "Model2",
+    "@id": "Model2",
     "description": "Auto-generated model",
     "Elements": [
         {
-            "name": "outside",
+            "@id": "outside",
             "Medium": "MediumVentilation",
             "use_C_in": {
                 "value": "false"
@@ -46,7 +46,7 @@
             "type": "Buildings.Fluid.Sources.Outside"
         },
         {
-            "name": "fan1332058",
+            "@id": "fan1332058",
             "Medium": "MediumVentilation",
             "energyDynamics": {
                 "value": "Modelica.Fluid.Types.Dynamics.SteadyState"
@@ -166,13 +166,13 @@
             "type": "Buildings.Fluid.Movers.SpeedControlled_y",
             "points": [
                 {
-                    "name": "fan1332058.y",
+                    "@id": "fan1332058.y",
                     "connectedTo": "aHUController.retFan_y"
                 }
             ]
         },
         {
-            "name": "senPre1356764",
+            "@id": "senPre1356764",
             "MediumA": "MediumVentilation",
             "annotation": {
                 "__cdl": {
@@ -206,14 +206,14 @@
             "type": "ToolchainLib.PressureSensor",
             "points": [
                 {
-                    "name": "senPre1356764.statPres",
+                    "@id": "senPre1356764.statPres",
                     "type": "RealOutput",
                     "connectedTo": "aHUController.supPre"
                 }
             ]
         },
         {
-            "name": "senPre1359814",
+            "@id": "senPre1359814",
             "MediumA": "MediumVentilation",
             "annotation": {
                 "__cdl": {
@@ -247,14 +247,14 @@
             "type": "ToolchainLib.PressureSensor",
             "points": [
                 {
-                    "name": "senPre1359814.statPres",
+                    "@id": "senPre1359814.statPres",
                     "type": "RealOutput",
                     "connectedTo": "aHUController.retPre"
                 }
             ]
         },
         {
-            "name": "senTem1359936",
+            "@id": "senTem1359936",
             "Medium": "MediumVentilation",
             "m_flow_nominal": {
                 "value": 0.2016
@@ -301,13 +301,13 @@
             "type": "Buildings.Fluid.Sensors.TemperatureTwoPort",
             "points": [
                 {
-                    "name": "senTem1359936.T",
+                    "@id": "senTem1359936.T",
                     "connectedTo": "aHUController.supTemp"
                 }
             ]
         },
         {
-            "name": "motVal1151719",
+            "@id": "motVal1151719",
             "Medium": "MediumHeating",
             "m_flow_nominal": {
                 "value": 0.05862
@@ -350,13 +350,13 @@
             "type": "Buildings.Fluid.Actuators.Valves.TwoWayEqualPercentage",
             "points": [
                 {
-                    "name": "motVal1151719.y",
+                    "@id": "motVal1151719.y",
                     "connectedTo": "aHUController.coolingCoil_y"
                 }
             ]
         },
         {
-            "name": "motVal1304448",
+            "@id": "motVal1304448",
             "Medium": "MediumCooling",
             "m_flow_nominal": {
                 "value": 0.04
@@ -399,13 +399,13 @@
             "type": "Buildings.Fluid.Actuators.Valves.TwoWayEqualPercentage",
             "points": [
                 {
-                    "name": "motVal1304448.y",
+                    "@id": "motVal1304448.y",
                     "connectedTo": "aHUController.heatingCoil_y"
                 }
             ]
         },
         {
-            "name": "fan1331423",
+            "@id": "fan1331423",
             "addPowerToMedium": {
                 "value": "false"
             },
@@ -529,7 +529,7 @@
             "type": "Buildings.Fluid.Movers.SpeedControlled_y",
             "points": [
                 {
-                    "name": "fan1331423.y",
+                    "@id": "fan1331423.y",
                     "unit": {
                         "value": "1"
                     },
@@ -538,12 +538,12 @@
                     "connectedTo": "aHUController.supFan_y"
                 },
                 {
-                    "name": "fan1331423.stage",
+                    "@id": "fan1331423.stage",
                     "description": "Stage input signal for the pressure head",
                     "type": "IntegerInput"
                 },
                 {
-                    "name": "fan1331423.y_actual",
+                    "@id": "fan1331423.y_actual",
                     "unit": {
                         "value": "1"
                     },
@@ -551,7 +551,7 @@
                     "type": "RealOutput"
                 },
                 {
-                    "name": "fan1331423.P",
+                    "@id": "fan1331423.P",
                     "quantity": {
                         "value": "Power"
                     },
@@ -562,14 +562,14 @@
                     "type": "RealOutput"
                 },
                 {
-                    "name": "fan1331423.index",
+                    "@id": "fan1331423.index",
                     "description": "Integer input for control input",
                     "type": "IntegerInput"
                 }
             ]
         },
         {
-            "name": "aHUController",
+            "@id": "aHUController",
             "annotation": {
                 "__cdl": {
                     "generatePointlist": {
@@ -608,63 +608,63 @@
             "type": "RambollDefaults.Ventilation.Controls.AHUController2",
             "points": [
                 {
-                    "name": "aHUController.schedule",
+                    "@id": "aHUController.schedule",
                     "description": "On/off schedule",
                     "type": "BooleanInput"
                 },
                 {
-                    "name": "aHUController.supPreStp",
+                    "@id": "aHUController.supPreStp",
                     "type": "RealInput"
                 },
                 {
-                    "name": "aHUController.retPreStp",
+                    "@id": "aHUController.retPreStp",
                     "type": "RealInput"
                 },
                 {
-                    "name": "aHUController.supPre",
+                    "@id": "aHUController.supPre",
                     "type": "RealInput",
                     "connectedTo": "senPre1356764.statPres"
                 },
                 {
-                    "name": "aHUController.retPre",
+                    "@id": "aHUController.retPre",
                     "type": "RealInput",
                     "connectedTo": "senPre1359814.statPres"
                 },
                 {
-                    "name": "aHUController.supTempStp",
+                    "@id": "aHUController.supTempStp",
                     "type": "RealInput"
                 },
                 {
-                    "name": "aHUController.supTemp",
+                    "@id": "aHUController.supTemp",
                     "type": "RealInput",
                     "connectedTo": "senTem1359936.T"
                 },
                 {
-                    "name": "aHUController.supFan_y",
+                    "@id": "aHUController.supFan_y",
                     "type": "RealOutput",
                     "connectedTo": "fan1331423.y"
                 },
                 {
-                    "name": "aHUController.retFan_y",
+                    "@id": "aHUController.retFan_y",
                     "type": "RealOutput",
                     "connectedTo": "fan1332058.y"
                 },
                 {
-                    "name": "aHUController.rotor_y",
+                    "@id": "aHUController.rotor_y",
                     "type": "RealOutput"
                 },
                 {
-                    "name": "aHUController.heatingCoil_y",
+                    "@id": "aHUController.heatingCoil_y",
                     "type": "RealOutput",
                     "connectedTo": "motVal1304448.y"
                 },
                 {
-                    "name": "aHUController.coolingCoil_y",
+                    "@id": "aHUController.coolingCoil_y",
                     "type": "RealOutput",
                     "connectedTo": "motVal1151719.y"
                 },
                 {
-                    "name": "aHUController.damper_y",
+                    "@id": "aHUController.damper_y",
                     "type": "RealOutput"
                 }
             ]
@@ -674,11 +674,11 @@
     "connections": [
         {
             "from": {
-                "name": "aHUController",
+                "@id": "aHUController",
                 "port": "supFan_y"
             },
             "to": {
-                "name": "fan1331423",
+                "@id": "fan1331423",
                 "port": "y"
             },
             "description": {
@@ -713,11 +713,11 @@
         },
         {
             "from": {
-                "name": "aHUController",
+                "@id": "aHUController",
                 "port": "retFan_y"
             },
             "to": {
-                "name": "fan1332058",
+                "@id": "fan1332058",
                 "port": "y"
             },
             "description": {
@@ -752,11 +752,11 @@
         },
         {
             "from": {
-                "name": "aHUController",
+                "@id": "aHUController",
                 "port": "retPre"
             },
             "to": {
-                "name": "senPre1359814",
+                "@id": "senPre1359814",
                 "port": "statPres"
             },
             "description": {
@@ -791,11 +791,11 @@
         },
         {
             "from": {
-                "name": "aHUController",
+                "@id": "aHUController",
                 "port": "supPre"
             },
             "to": {
-                "name": "senPre1356764",
+                "@id": "senPre1356764",
                 "port": "statPres"
             },
             "description": {
@@ -830,11 +830,11 @@
         },
         {
             "from": {
-                "name": "aHUController",
+                "@id": "aHUController",
                 "port": "supTemp"
             },
             "to": {
-                "name": "senTem1359936",
+                "@id": "senTem1359936",
                 "port": "T"
             },
             "description": {
@@ -877,11 +877,11 @@
         },
         {
             "from": {
-                "name": "aHUController",
+                "@id": "aHUController",
                 "port": "heatingCoil_y"
             },
             "to": {
-                "name": "motVal1304448",
+                "@id": "motVal1304448",
                 "port": "y"
             },
             "description": {
@@ -924,11 +924,11 @@
         },
         {
             "from": {
-                "name": "aHUController",
+                "@id": "aHUController",
                 "port": "coolingCoil_y"
             },
             "to": {
-                "name": "motVal1151719",
+                "@id": "motVal1151719",
                 "port": "y"
             },
             "description": {
