@@ -72,6 +72,8 @@ class modelicaJSONVisitor(modelicaVisitor):
         if self.get_point_lists and "annotation" in component.keys() and "__cdl" in component["annotation"].keys() and "generatePointlist" in component["annotation"]["__cdl"] and component["annotation"]["__cdl"]["generatePointlist"]["value"] == "true":
             points = self.get_model_IO(component["type"])
             if len(points) != 0:
+                for point in points:
+                    point["name"] = component["name"] + "." + point["name"]
                 component["points"] = points
         
         self.output["Elements"].append(component)
@@ -192,12 +194,46 @@ class modelicaJSONVisitor(modelicaVisitor):
             component_ref["name"]=from_IDENTs[0]
         
         return component_ref
+    
+    def visitPrimary(self, ctx:modelicaParser.PrimaryContext):
+        if len(ctx.children) > 1 and type(ctx.children[1]) == modelicaParser.Function_argumentsContext:
+            return self.visitFunction_arguments(ctx.children[1])
+        elif len(ctx.children) == 1 and type(ctx.children[0]) == antlr4.tree.Tree.TerminalNodeImpl:
+            return self.visitTerminal(ctx.children[0])
+        else:
+            return ctx.getText()
+        
+    def visitFunction_arguments(self, ctx:modelicaParser.Function_argumentsContext):
+        res = []
+        for child in ctx.children:
+            if type(child) == modelicaParser.Function_argumentsContext:
+                res.extend(self.visitFunction_arguments(child))
+            elif type(child) == modelicaParser.Function_argumentContext:
+                res.append(self.visitFunction_argument(child))
+        return res
+
+    def visitArithmetic_expression(self, ctx:modelicaParser.Arithmetic_expressionContext):
+        if len(ctx.add_op()) == 0:
+            return super().visitArithmetic_expression(ctx)
+        else:
+            operator = self.visitAdd_op(ctx.add_op()[0])
+            value = super().visitArithmetic_expression(ctx.term()[0])
+
+            return self.convert_output(str(operator) + str(value))
+
+    def visitTerminal(self, ctx:antlr4.tree.Tree.TerminalNodeImpl):
+        return self.convert_output(ctx.getText())
 
     def convert_output(self,text):
+        if type(text) != str:
+            return text
         try:
             if text != "":
                 text = float(text)
         except:
-            if (text[0] == "'" or text[0] == '"') and (text[-1] == "'" or text[-1] == '"'):
-                text = text[1:-1]
+            try:
+                if (text[0] == "'" or text[0] == '"') and (text[-1] == "'" or text[-1] == '"'):
+                    text = text[1:-1]
+            except:
+                text = text
         return text
