@@ -11,6 +11,9 @@ class modelicaJSONVisitor(modelicaVisitor):
         if self.get_point_lists:
             self.omc = OMCSessionZMQ()
             self.omc.loadModel("Buildings")
+            self.omc.sendExpression('setModelicaPath("C:\\Users\\ESVF\\OneDrive - Ramboll\\Modelica\\Libraries")')
+            self.omc.loadModel("RambollDefaults")
+            self.omc.loadModel("ToolchainLib")
         self.output = {}
         super().__init__()
 
