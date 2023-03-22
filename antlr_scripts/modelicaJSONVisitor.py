@@ -118,7 +118,7 @@ class modelicaJSONVisitor(modelicaVisitor):
     def visitModification(self, ctx: modelicaParser.ModificationContext):
         res = {}
         if ctx.expression() != None:
-            res["value"] = self.convert_output(ctx.expression().getText())
+            res["value"] = self.convert_output(self.visitExpression(ctx))
         if ctx.class_modification() != None:
             mods = self.visitClass_modification(ctx.class_modification())
             res = {**res, **mods}
@@ -137,9 +137,11 @@ class modelicaJSONVisitor(modelicaVisitor):
 
     def visitElement_modification(self, ctx: modelicaParser.Element_modificationContext):
         name = ctx.name().getText()
-        mod = self.visitModification(ctx.modification())
-        res = {name:mod}
-        return res
+        if ctx.modification() != None:
+            mod = self.visitModification(ctx.modification())
+        else:
+            mod = {}
+        return {name:mod}
 
     def visitElement_replaceable(self, ctx: modelicaParser.Element_replaceableContext):
         return super().visitElement_replaceable(ctx)

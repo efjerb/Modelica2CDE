@@ -68,7 +68,7 @@ class modelicaIOvisitor(modelicaVisitor):
             res["value"] = self.convert_output(ctx.expression().getText())
         if ctx.class_modification() != None:
             mods = self.visitClass_modification(ctx.class_modification())
-            res["modifications"] = mods
+            res = {**res, **mods}
         return res
     
     def visitClass_modification(self, ctx: modelicaParser.Class_modificationContext):
