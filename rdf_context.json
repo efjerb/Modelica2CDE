@@ -1,0 +1,14 @@
+{
+    "@context": {
+        "Elements": "http://example.org/#Elements",
+        "type": {
+            "@id": "https://www.w3.org/TR/rdf-schema/#ch_type",
+            "@type": "@id"
+        },
+        "points": "https://brickschema.org/schema/Brick#hasPoint",
+        "connectedTo": {
+            "@id": "http://example.org/#ConnectedTo",
+            "@type": "@id"
+        }
+    }
+}

@@ -39,6 +39,12 @@ if __name__ == '__main__':
 
     model_name = os.path.basename(args["file"]).split('.')[0]
 
+    context_file = open("rdf_context.json","r")
+    context = json.load(context_file)
+    context_file.close()
+
+    res = {**context, **res}
+
     fp = open(os.path.join(dir,"results",f"{model_name}.json"), "w")
     json.dump(res, fp,indent=4)
     fp.close()
