@@ -6,7 +6,8 @@ from antlr_scripts.modelicaParser import modelicaParser
 from OMPython import OMCSessionZMQ
 
 class modelicaJSONVisitor(modelicaVisitor):
-    def __init__(self, get_point_lists = True) -> None:
+    def __init__(self, include_connections = False, get_point_lists = True) -> None:
+        self.include_connections = include_connections
         self.get_point_lists = get_point_lists
         if self.get_point_lists:
             self.omc = OMCSessionZMQ()
@@ -156,8 +157,9 @@ class modelicaJSONVisitor(modelicaVisitor):
         return res
 
     def visitEquation_section(self, ctx: modelicaParser.Equation_sectionContext):
-        self.output["equations"] = []
-        self.output["connections"] = []
+        if self.include_connections:
+            self.output["equations"] = []
+            self.output["connections"] = []
         return super().visitEquation_section(ctx)
 
     def visitEquation(self, ctx: modelicaParser.EquationContext):
@@ -177,7 +179,8 @@ class modelicaJSONVisitor(modelicaVisitor):
         if comment != {}:
             equation["description"] = comment
         
-        self.output[key].append(equation)
+        if self.include_connections:
+            self.output[key].append(equation)
 
     def visitConnect_clause(self, ctx: modelicaParser.Connect_clauseContext):
         connection = {}
