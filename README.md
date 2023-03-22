@@ -12,7 +12,7 @@ The required libraries can be installed from the `requirements.txt` file (prefer
 To translate a model with the path `FILEPATH`, run the following command from the root folder:
 `python modelica2cde.py -f FILEPATH [-gp]`
 
-By using the optional `-gp` flag, point lists will be generated for all components in the model with a `generatePointlist=true` annotation, as specified in the [Control Description Language (CDL) documentation](http://obc.lbl.gov/specification/cdl.html#point-list). Only point lists from classes in the [Modelica Buildings Library](https://simulationresearch.lbl.gov/modelica/) can be generated.
+By using the optional `-gp` flag, point lists will be generated for all components in the model with a `generatePointlist=true` annotation, as specified in the [Control Description Language (CDL) documentation](http://obc.lbl.gov/specification/cdl.html#point-list). Only point lists from classes in the [Modelica Buildings Library](https://simulationresearch.lbl.gov/modelica/) can be generated, unless other libraries are loaded in the scripts. Point lists may not include all points if a class is an extension of another class and only the relative URI of the extended class is present.
 
 To support generation of point list for components in the model, OpenModelica must be installed, and the [Modelica Buildings Library](https://simulationresearch.lbl.gov/modelica/) must be located in the path used by OpenModelica (usually, the Buildings library is installed along with OpenModelica).
 
