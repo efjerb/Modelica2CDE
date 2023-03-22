@@ -20,7 +20,8 @@ class modelicaJSONVisitor(modelicaVisitor):
     def get_model_IO(self, model_name, get_comments = True) -> dict:
 
         file_path = self.get_model_path(model_name)
-
+        if file_path == None:
+            return []
         input_stream = antlr4.FileStream(file_path)
         
         lexer = modelicaLexer(input_stream)
@@ -37,8 +38,11 @@ class modelicaJSONVisitor(modelicaVisitor):
     
     def get_model_path(self, model_name) -> str:
         package_path = self.omc.sendExpression(f"Modelica.Utilities.Files.loadResource(\"modelica://{model_name}\")")
-        model_path = package_path + "\\" + model_name.split('.')[-1] + ".mo"
-        return model_path
+        if package_path != "":
+            model_path = package_path + "\\" + model_name.split('.')[-1] + ".mo"
+            return model_path
+        else:
+            return None
 
     def visitClass_definition(self, ctx: modelicaParser.Class_definitionContext):
         self.output["type"] = ctx.class_prefixes().getText()
