@@ -1,6 +1,6 @@
 # Generated from ../Grammars/modelica.g4 by ANTLR 4.11.1
 from antlr4 import *
-from antlr_scripts.modelicaParser import modelicaParser
+from modelica2cde.antlr_scripts.modelicaParser import modelicaParser
 
 # This class defines a complete generic visitor for a parse tree produced by modelicaParser.
 

@@ -1,7 +1,7 @@
 from antlr4 import *
-from antlr_scripts.modelicaLexer import modelicaLexer
-from antlr_scripts.modelicaVisitor import modelicaVisitor
-from antlr_scripts.modelicaParser import modelicaParser
+from modelica2cde.antlr_scripts.modelicaLexer import modelicaLexer
+from modelica2cde.antlr_scripts.modelicaVisitor import modelicaVisitor
+from modelica2cde.antlr_scripts.modelicaParser import modelicaParser
 
 class modelicaIOvisitor(modelicaVisitor):
     def __init__(self, get_comments = True) -> None:
