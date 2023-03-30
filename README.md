@@ -5,12 +5,11 @@ The tool is heavily inspired by the [modelica-json](https://github.com/lbl-srg/m
 
 The [ANTLR4 Modelica grammar file](https://github.com/antlr/grammars-v4/blob/master/modelica/modelica.g4) was used to create the visitors, lexers and parsers in *antlr_scripts*.
 
-## Usage
-The required libraries can be installed from the `requirements.txt` file (preferably in a separate environment):
-`pip install -r requirements.txt`
+## Installation and usage
+The python package can be installed in the python environment with pip: `pip install setup.py`
 
-To translate a model with the path `FILEPATH`, run the following command from the root folder:
-`python modelica2cde.py -f FILEPATH [-gp]`
+The main function is the `create_modelica_JSON()` function from the modelica2cde package. An example, which uses command line arguments to translate a Modelica model can be found in the *examples* folder. To translate a model with the path `FILEPATH`, run the following command from the root folder:
+`python examples\from_command_line.py -f FILEPATH [-gp]`
 
 By using the optional `-gp` flag, point lists will be generated for all components in the model with a `generatePointlist=true` annotation, as specified in the [Control Description Language (CDL) documentation](http://obc.lbl.gov/specification/cdl.html#point-list). Only point lists from classes in the [Modelica Buildings Library](https://simulationresearch.lbl.gov/modelica/) can be generated, unless other libraries are loaded in the scripts. Point lists may not include all points if a class is an extension of another class and only the relative URI of the extended class is present.
 
