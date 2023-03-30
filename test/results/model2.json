@@ -9,7 +9,9 @@
         "connectedTo": {
             "@id": "http://example.org/#ConnectedTo",
             "@type": "@id"
-        }
+        },
+        "description": "http://example.org/#Description",
+        "cdl": "https://simulationresearch.lbl.gov/modelica/releases/latest/help/Buildings_Controls_OBC_CDL.html"
     },
     "type": "package",
     "@id": "Model2",

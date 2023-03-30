@@ -56,7 +56,8 @@ model Model "Auto-generated model"
  Buildings.Fluid.Movers.SpeedControlled_y fan1331423(addPowerToMedium = false, energyDynamics = Modelica.Fluid.Types.Dynamics.SteadyState, per(pressure(V_flow(displayUnit = "m3/s") = {0.02, 0.04, 0.06, 0.08, 0.1, 0.12, 0.14, 0.16, 0.18, 0.2, 0.22, 0.24, 0.26, 0.28}, dp = {438.4, 419.2, 401.2, 384.5, 370.4, 352.5, 332.6, 314.7, 283.8, 236.4, 178.0, 135.0, 86.9, 43.6}), use_powerCharacteristic = true, power(V_flow(displayUnit = "m3/s") = {0.02, 0.08, 0.12, 0.16, 0.2, 0.24, 0.28}, P = {124.0, 142.7, 157.7, 175.7, 200.0, 221.0, 253.8})), riseTime = 120, show_T = true) annotation(
     Placement(visible = true, transformation(origin = {178, 44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
  RambollDefaults.Ventilation.Controls.AHUController aHUController annotation(
-    Placement(visible = true, transformation(origin = {12, 72}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));	equation
+    Placement(visible = true, transformation(origin = {12, 72}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+equation
   connect(aHUController.supFan_y, fan1331423.y) annotation(
     Line(points = {{19, 81}, {178, 81}, {178, 56}}, color = {0, 0, 127}));
  connect(aHUController.retFan_y, fan1332058.y) annotation(
@@ -73,5 +74,5 @@ model Model "Auto-generated model"
     Line(points = {{19, 73}, {64, 73}, {64, -8}, {80, -8}, {80, -22}}, color = {0, 0, 127}));
         annotation(
     experiment(StartTime = 0, StopTime = 86400, __Dymola_Algorithm = "Dassl"),
-    uses(ToolchainLib, Buildings(version = "9.0.0")));
+    uses(ToolchainLib, Buildings(version = "9.0.0"), Modelica(version = "4.0.0")));
       end Model;
