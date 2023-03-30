@@ -22,7 +22,7 @@ if __name__ == '__main__':
 
     model_name = os.path.basename(args["file"]).split('.')[0]
 
-    context_file = open("rdf_context.json","r")
+    context_file = open("examples/rdf_context.json","r")
     context = json.load(context_file)
     context_file.close()
 
