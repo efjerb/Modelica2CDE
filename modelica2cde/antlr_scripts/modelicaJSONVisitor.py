@@ -63,6 +63,21 @@ class modelicaJSONVisitor(modelicaVisitor):
             self.output["Elements"] = []
         return super().visitElement_list(ctx)
     
+    def visitType_specifier(self, ctx: modelicaParser.Type_specifierContext):
+        res = ctx.getText()
+        return res
+
+    def replace_type(self, type):
+        names = {
+            "Buildings.Controls.OBC.CDL.": "cdl:",
+            "RambollDefaults.": "ramboll:",
+            "ToolchainLib.": "tl:"
+        }
+        for name in names.keys():
+            if name in type:
+                type = type.replace(name,names[name])
+        return type
+
     def visitComponent_clause(self, ctx: modelicaParser.Component_clauseContext):
         variability = self.visitType_prefix(ctx.type_prefix())
         component = self.visitComponent_list(ctx.component_list())[0]
