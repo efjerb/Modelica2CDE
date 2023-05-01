@@ -18,7 +18,10 @@ class modelicaIOvisitor(modelicaVisitor):
         for comp in components:
             if type in input_names or type in output_names:
                 new_comp = comp
-                self.res.append({**new_comp,"type":type})
+                if "@type" not in new_comp.keys():
+                    new_comp["@type"] = []
+                new_comp["@type"].append(type)
+                self.res.append(new_comp)
     
     def visitExtends_clause(self, ctx: modelicaParser.Extends_clauseContext):
         name = ctx.name().getText()
