@@ -50,7 +50,11 @@ class modelicaIOvisitor(modelicaVisitor):
         return res
 
     def visitAnnotation(self, ctx: modelicaParser.AnnotationContext):
-        return ctx.getText()
+        # Get annotation and remove Placement key, if it exists
+        res = self.visitClass_modification(ctx.class_modification())
+        if res.get("Placement") != None:
+            res.pop("Placement")
+        return res
 
     def visitDeclaration(self, ctx: modelicaParser.DeclarationContext):
         name = ctx.IDENT().getText()
