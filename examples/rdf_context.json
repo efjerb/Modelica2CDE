@@ -11,6 +11,9 @@
             "@type": "@id"
         },
         "description":"http://example.org/#Description",
-        "cdl": "https://simulationresearch.lbl.gov/modelica/releases/latest/help/Buildings_Controls_OBC_CDL.html"
+        "cdl": "https://simulationresearch.lbl.gov/modelica/releases/latest/help/Buildings_Controls_OBC_CDL.html",
+        "ramboll": "https://example.org/ramboll#",
+        "brick": "https://brickschema.org/schema/Brick#",
+        "tl": "https://example.org/tl#"
     }
 }
