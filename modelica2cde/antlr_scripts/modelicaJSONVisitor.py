@@ -83,7 +83,7 @@ class modelicaJSONVisitor(modelicaVisitor):
         component = self.visitComponent_list(ctx.component_list())[0]
         component["@type"] = self.visitType_specifier(ctx.type_specifier())
         if component.get("annotation",{}).get("_CDE",{}).get("id") != None:
-            component["@id"] = component.get("annotation",{}).get("_CDE",{}).get("id")["value"]
+            component["@id"] = str(component.get("annotation",{}).get("_CDE",{}).get("id")["value"])
         else:
             component["@id"] = component["modelicaName"]
 
