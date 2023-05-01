@@ -44,12 +44,17 @@ class modelicaIOvisitor(modelicaVisitor):
         res = self.visitDeclaration(ctx.declaration())
         if self.get_comments and ctx.comment() != None and ctx.comment().getText() != '':
             res = {**res,**self.visitComment(ctx.comment())}
+            if res.get("annotation",{}).get("__semantic",{}).get("rdfType") != None:
+                res["@type"] = [res["annotation"]["__semantic"]["rdfType"]["value"]]
+            res.pop("annotation",res)
         return res
     
     def visitComment(self, ctx: modelicaParser.CommentContext):
         res = {}
         if ctx.string_comment().getText() != '':
             res["description"] = self.convert_output(ctx.string_comment().getText())
+        if ctx.annotation() != None:
+            res["annotation"] = self.visitAnnotation(ctx.annotation())
         return res
 
     def visitAnnotation(self, ctx: modelicaParser.AnnotationContext):
