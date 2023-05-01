@@ -229,7 +229,7 @@ class modelicaJSONVisitor(modelicaVisitor):
                 point["connectedTo"].append(".".join([to_comp["@id"],connection["to"]["port"]]))
                 break
         if not hit_point:
-            from_comp["points"].append({"@id":".".join([from_comp["@id"],connection["from"]["port"]]),"connectedTo":".".join([to_comp["@id"],connection["to"]["port"]])})
+            from_comp["points"].append({"@id":".".join([from_comp["@id"],connection["from"]["port"]]),"connectedTo":[".".join([to_comp["@id"],connection["to"]["port"]])]})
         
         hit_point = False
 
@@ -241,7 +241,7 @@ class modelicaJSONVisitor(modelicaVisitor):
                 point["connectedTo"].append(".".join([from_comp["@id"],connection["from"]["port"]]))
                 break
         if not hit_point:
-            to_comp["points"].append({"@id":".".join([to_comp["@id"],connection["to"]["port"]]),"connectedTo":".".join([from_comp["@id"],connection["from"]["port"]])})
+            to_comp["points"].append({"@id":".".join([to_comp["@id"],connection["to"]["port"]]),"connectedTo":[".".join([from_comp["@id"],connection["from"]["port"]])]})
     
         return connection
 
