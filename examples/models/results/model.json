@@ -1,895 +1,274 @@
 {
-    "type": "package",
-    "name": "Model",
+    "@context": {
+        "Elements": "http://example.org/#Elements",
+        "type": {
+            "@id": "https://www.w3.org/TR/rdf-schema/#ch_type",
+            "@type": "@id"
+        },
+        "points": "https://brickschema.org/schema/Brick#hasPoint",
+        "connectedTo": {
+            "@id": "http://example.org/#ConnectedTo",
+            "@type": "@id"
+        },
+        "description": "http://example.org/#Description",
+        "cdl": "https://simulationresearch.lbl.gov/modelica/releases/latest/help/Buildings_Controls_OBC_CDL.html",
+        "ramboll": "https://example.org/ramboll#",
+        "brick": "https://brickschema.org/schema/Brick#",
+        "tl": "https://example.org/tl#"
+    },
+    "@type": "model",
+    "@id": "Model",
     "description": "Auto-generated model",
     "Elements": [
         {
-            "name": "outside",
-            "Medium": "MediumVentilation",
-            "use_C_in": {
-                "value": "false"
-            },
-            "nPorts": {
-                "value": 0.0
-            },
-            "description": "Outside air conditions",
-            "annotation": {
-                "Placement": {
-                    "visible": {
-                        "value": "true"
-                    },
-                    "transformation": {
-                        "origin": {
-                            "value": [
-                                74.0,
-                                -32.0
-                            ]
-                        },
-                        "extent": {
-                            "value": [
-                                [
-                                    -174.0,
-                                    62.0
-                                ],
-                                [
-                                    -154.0,
-                                    82.0
-                                ]
-                            ]
-                        },
-                        "rotation": {
-                            "value": 0.0
-                        }
-                    }
-                }
-            },
-            "type": "Buildings.Fluid.Sources.Outside"
-        },
-        {
-            "name": "fan1332058",
-            "Medium": "MediumVentilation",
-            "energyDynamics": {
-                "value": "Modelica.Fluid.Types.Dynamics.SteadyState"
-            },
-            "addPowerToMedium": {
-                "value": "false"
-            },
-            "show_T": {
-                "value": "true"
-            },
-            "riseTime": {
-                "value": 120.0
-            },
-            "per": {
-                "pressure": {
-                    "V_flow": {
-                        "value": [
-                            0.02,
-                            0.04,
-                            0.06,
-                            0.08,
-                            0.1,
-                            0.12,
-                            0.14,
-                            0.16,
-                            0.18,
-                            0.2,
-                            0.22,
-                            0.24,
-                            0.26,
-                            0.28
-                        ],
-                        "displayUnit": {
-                            "value": "m3/s"
-                        }
-                    },
-                    "dp": {
-                        "value": [
-                            438.4,
-                            419.2,
-                            401.2,
-                            384.5,
-                            370.4,
-                            352.5,
-                            332.6,
-                            314.7,
-                            283.8,
-                            236.4,
-                            178.0,
-                            135.0,
-                            86.9,
-                            43.6
-                        ]
-                    }
-                },
-                "use_powerCharacteristic": {
-                    "value": "true"
-                },
-                "power": {
-                    "V_flow": {
-                        "value": [
-                            0.02,
-                            0.08,
-                            0.12,
-                            0.16,
-                            0.2,
-                            0.24,
-                            0.28
-                        ],
-                        "displayUnit": {
-                            "value": "m3/s"
-                        }
-                    },
-                    "P": {
-                        "value": [
-                            124.0,
-                            142.7,
-                            157.7,
-                            175.7,
-                            200.0,
-                            221.0,
-                            253.8
-                        ]
-                    }
-                }
-            },
-            "annotation": {
-                "Placement": {
-                    "visible": {
-                        "value": "true"
-                    },
-                    "transformation": {
-                        "origin": {
-                            "value": [
-                                32.0,
-                                -4.0
-                            ]
-                        },
-                        "extent": {
-                            "value": [
-                                [
-                                    90.0,
-                                    30.0
-                                ],
-                                [
-                                    110.0,
-                                    50.0
-                                ]
-                            ]
-                        },
-                        "rotation": {
-                            "value": 0.0
-                        }
-                    }
-                }
-            },
-            "type": "Buildings.Fluid.Movers.SpeedControlled_y",
-            "connectedPoints": [
-                {
-                    "name": "fan1332058.y",
-                    "connectedTo": "aHUController.retFan_y"
-                }
-            ]
-        },
-        {
-            "name": "senPre1356764",
-            "MediumA": "MediumVentilation",
-            "annotation": {
-                "__cdl": {
-                    "generatePointlist": {
-                        "value": "true"
-                    }
-                },
-                "Placement": {
-                    "visible": {
-                        "value": "true"
-                    },
-                    "transformation": {
-                        "extent": {
-                            "value": [
-                                [
-                                    -80.0,
-                                    -20.0
-                                ],
-                                [
-                                    -60.0,
-                                    0.0
-                                ]
-                            ]
-                        },
-                        "rotation": {
-                            "value": 0.0
-                        }
-                    }
-                }
-            },
-            "type": "ToolchainLib.PressureSensor",
-            "connectedPoints": [
-                {
-                    "name": "senPre1356764.statPres",
-                    "connectedTo": "aHUController.supPre"
-                }
-            ]
-        },
-        {
-            "name": "senPre1359814",
-            "MediumA": "MediumVentilation",
-            "annotation": {
-                "__cdl": {
-                    "generatePointlist": {
-                        "value": "true"
-                    }
-                },
-                "Placement": {
-                    "visible": {
-                        "value": "true"
-                    },
-                    "transformation": {
-                        "extent": {
-                            "value": [
-                                [
-                                    -50.0,
-                                    -20.0
-                                ],
-                                [
-                                    -30.0,
-                                    0.0
-                                ]
-                            ]
-                        },
-                        "rotation": {
-                            "value": 0.0
-                        }
-                    }
-                }
-            },
-            "type": "ToolchainLib.PressureSensor",
-            "connectedPoints": [
-                {
-                    "name": "senPre1359814.statPres",
-                    "connectedTo": "aHUController.retPre"
-                }
-            ]
-        },
-        {
-            "name": "senTem1359936",
+            "modelicaName": "motDamp866580",
             "Medium": "MediumVentilation",
             "m_flow_nominal": {
-                "value": 0.2016
+                "value": 0.0504
             },
-            "transferHeat": {
-                "value": "true"
+            "dpDamper_nominal": {
+                "value": 20.84
             },
-            "TAmb": {
-                "value": 294.15
-            },
-            "tauHeaTra": {
-                "value": 600.0
-            },
-            "annotation": {
-                "Placement": {
-                    "visible": {
-                        "value": "true"
-                    },
-                    "transformation": {
-                        "origin": {
-                            "value": [
-                                -60.0,
-                                -36.0
-                            ]
-                        },
-                        "extent": {
-                            "value": [
-                                [
-                                    28.0,
-                                    -26.0
-                                ],
-                                [
-                                    48.0,
-                                    -6.0
-                                ]
-                            ]
-                        },
-                        "rotation": {
-                            "value": 0.0
-                        }
-                    }
-                }
-            },
-            "type": "Buildings.Fluid.Sensors.TemperatureTwoPort",
-            "connectedPoints": [
+            "@type": "Buildings.Fluid.Actuators.Dampers.Exponential",
+            "@id": "866580",
+            "points": [
                 {
-                    "name": "senTem1359936.T",
-                    "connectedTo": "aHUController.supTemp"
+                    "@id": "866580.y",
+                    "min": {
+                        "value": 0.0
+                    },
+                    "max": {
+                        "value": 1.0
+                    },
+                    "description": "Actuator position (0: closed, 1: open)",
+                    "@type": [
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "vAVController_type2.y"
+                    ]
+                },
+                {
+                    "@id": "866580.y_actual",
+                    "description": "Actual actuator position",
+                    "@type": [
+                        "cdl:RealOutput"
+                    ]
+                },
+                {
+                    "@id": "866580.y_internal",
+                    "unit": {
+                        "value": "1"
+                    },
+                    "description": "Output connector for internal use (= y_actual if not casePreInd)",
+                    "@type": [
+                        "cdl:RealOutput"
+                    ]
+                },
+                {
+                    "@id": "866580.y_filtered",
+                    "description": "Filtered valve position in the range 0..1",
+                    "@type": [
+                        "cdl:RealOutput"
+                    ]
                 }
             ]
         },
         {
-            "name": "motVal1151719",
+            "modelicaName": "motDamp869789",
+            "Medium": "MediumVentilation",
+            "m_flow_nominal": {
+                "value": 0.0504
+            },
+            "dpDamper_nominal": {
+                "value": 9.68
+            },
+            "@type": "Buildings.Fluid.Actuators.Dampers.Exponential",
+            "@id": "869789",
+            "points": [
+                {
+                    "@id": "869789.y",
+                    "min": {
+                        "value": 0.0
+                    },
+                    "max": {
+                        "value": 1.0
+                    },
+                    "description": "Actuator position (0: closed, 1: open)",
+                    "@type": [
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "vAVController_type2.y"
+                    ]
+                },
+                {
+                    "@id": "869789.y_actual",
+                    "description": "Actual actuator position",
+                    "@type": [
+                        "cdl:RealOutput"
+                    ]
+                },
+                {
+                    "@id": "869789.y_internal",
+                    "unit": {
+                        "value": "1"
+                    },
+                    "description": "Output connector for internal use (= y_actual if not casePreInd)",
+                    "@type": [
+                        "cdl:RealOutput"
+                    ]
+                },
+                {
+                    "@id": "869789.y_filtered",
+                    "description": "Filtered valve position in the range 0..1",
+                    "@type": [
+                        "cdl:RealOutput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "rad1131635",
             "Medium": "MediumHeating",
-            "m_flow_nominal": {
-                "value": 0.05862
-            },
-            "CvData": {
-                "value": "Buildings.Fluid.Types.CvTypes.Kv"
-            },
-            "Kv": {
-                "value": 1.6
-            },
-            "annotation": {
-                "__cdl": {
-                    "generatePointlist": {
-                        "value": "true"
-                    }
+            "rad": {
+                "Q_flow_nominal": {
+                    "value": 400.00000000000006
                 },
-                "Placement": {
-                    "visible": {
-                        "value": "true"
-                    },
-                    "transformation": {
-                        "extent": {
-                            "value": [
-                                [
-                                    70.0,
-                                    -44.0
-                                ],
-                                [
-                                    90.0,
-                                    -24.0
-                                ]
-                            ]
-                        },
-                        "rotation": {
-                            "value": 0.0
-                        }
-                    }
+                "T_a_nominal": {
+                    "value": 343.15
+                },
+                "T_b_nominal": {
+                    "value": 313.15
+                },
+                "dp_nominal": {
+                    "value": 1000
+                },
+                "TAir_nominal": {
+                    "value": 293.15
                 }
             },
-            "type": "Buildings.Fluid.Actuators.Valves.TwoWayEqualPercentage",
-            "connectedPoints": [
+            "@type": "tl:Radiator",
+            "@id": "1131635"
+        },
+        {
+            "modelicaName": "room1333984",
+            "MediumA": "MediumVentilation",
+            "nPersons": {
+                "value": 6
+            },
+            "@type": "tl:RoomDetachedDetailedProfile",
+            "@id": "1333984",
+            "points": [
                 {
-                    "name": "motVal1151719.y",
-                    "connectedTo": "aHUController.coolingCoil_y"
+                    "@id": "1333984.airTemp",
+                    "unit": {
+                        "value": "K"
+                    },
+                    "displayUnit": {
+                        "value": "degC"
+                    },
+                    "@type": [
+                        "cdl:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "vAVController_type2.roomTemp"
+                    ]
+                },
+                {
+                    "@id": "1333984.co2Level",
+                    "@type": [
+                        "cdl:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "vAVController_type2.co2Level"
+                    ]
                 }
             ]
         },
         {
-            "name": "motVal1304448",
-            "Medium": "MediumCooling",
-            "m_flow_nominal": {
-                "value": 0.04
-            },
-            "CvData": {
-                "value": "Buildings.Fluid.Types.CvTypes.Kv"
-            },
-            "Kv": {
-                "value": 1.6
-            },
-            "annotation": {
-                "__cdl": {
-                    "generatePointlist": {
-                        "value": "true"
-                    }
-                },
-                "Placement": {
-                    "visible": {
-                        "value": "true"
-                    },
-                    "transformation": {
-                        "extent": {
-                            "value": [
-                                [
-                                    140.0,
-                                    -60.0
-                                ],
-                                [
-                                    160.0,
-                                    -40.0
-                                ]
-                            ]
-                        },
-                        "rotation": {
-                            "value": 0.0
-                        }
-                    }
-                }
-            },
-            "type": "Buildings.Fluid.Actuators.Valves.TwoWayEqualPercentage",
-            "connectedPoints": [
+            "modelicaName": "vAVController_type2",
+            "@type": "ramboll:Ventilation.Controls.VAVController_type2",
+            "@id": "vAVController_type2",
+            "points": [
                 {
-                    "name": "motVal1304448.y",
-                    "connectedTo": "aHUController.heatingCoil_y"
+                    "@id": "vAVController_type2.roomTemp",
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "1333984.airTemp"
+                    ]
+                },
+                {
+                    "@id": "vAVController_type2.roomTempStp",
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Setpoint",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "tempStp.y"
+                    ]
+                },
+                {
+                    "@id": "vAVController_type2.co2Level",
+                    "@type": [
+                        "brick:CO2_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "1333984.co2Level"
+                    ]
+                },
+                {
+                    "@id": "vAVController_type2.co2Stp",
+                    "@type": [
+                        "brick:CO2_Setpoint",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "co2Stp.y"
+                    ]
+                },
+                {
+                    "@id": "vAVController_type2.y",
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "866580.y",
+                        "869789.y"
+                    ]
                 }
             ]
         },
         {
-            "name": "fan1331423",
-            "addPowerToMedium": {
-                "value": "false"
-            },
-            "energyDynamics": {
-                "value": "Modelica.Fluid.Types.Dynamics.SteadyState"
-            },
-            "per": {
-                "pressure": {
-                    "V_flow": {
-                        "value": [
-                            0.02,
-                            0.04,
-                            0.06,
-                            0.08,
-                            0.1,
-                            0.12,
-                            0.14,
-                            0.16,
-                            0.18,
-                            0.2,
-                            0.22,
-                            0.24,
-                            0.26,
-                            0.28
-                        ],
-                        "displayUnit": {
-                            "value": "m3/s"
-                        }
-                    },
-                    "dp": {
-                        "value": [
-                            438.4,
-                            419.2,
-                            401.2,
-                            384.5,
-                            370.4,
-                            352.5,
-                            332.6,
-                            314.7,
-                            283.8,
-                            236.4,
-                            178.0,
-                            135.0,
-                            86.9,
-                            43.6
-                        ]
-                    }
-                },
-                "use_powerCharacteristic": {
-                    "value": "true"
-                },
-                "power": {
-                    "V_flow": {
-                        "value": [
-                            0.02,
-                            0.08,
-                            0.12,
-                            0.16,
-                            0.2,
-                            0.24,
-                            0.28
-                        ],
-                        "displayUnit": {
-                            "value": "m3/s"
-                        }
-                    },
-                    "P": {
-                        "value": [
-                            124.0,
-                            142.7,
-                            157.7,
-                            175.7,
-                            200.0,
-                            221.0,
-                            253.8
-                        ]
-                    }
-                }
-            },
-            "riseTime": {
-                "value": 120.0
-            },
-            "show_T": {
-                "value": "true"
-            },
-            "annotation": {
-                "Placement": {
-                    "visible": {
-                        "value": "true"
-                    },
-                    "transformation": {
-                        "origin": {
-                            "value": [
-                                178.0,
-                                44.0
-                            ]
-                        },
-                        "extent": {
-                            "value": [
-                                [
-                                    -10.0,
-                                    -10.0
-                                ],
-                                [
-                                    10.0,
-                                    10.0
-                                ]
-                            ]
-                        },
-                        "rotation": {
-                            "value": 0.0
-                        }
-                    }
-                }
-            },
-            "type": "Buildings.Fluid.Movers.SpeedControlled_y",
-            "connectedPoints": [
+            "modelicaName": "tempStp",
+            "@type": "cdl:Continuous.Sources.Constant",
+            "@id": "tempStp",
+            "points": [
                 {
-                    "name": "fan1331423.y",
-                    "connectedTo": "aHUController.supFan_y"
+                    "@id": "tempStp.y",
+                    "connectedTo": [
+                        "vAVController_type2.roomTempStp"
+                    ]
                 }
             ]
         },
         {
-            "name": "aHUController",
-            "annotation": {
-                "Placement": {
-                    "visible": {
-                        "value": "true"
-                    },
-                    "transformation": {
-                        "origin": {
-                            "value": [
-                                12.0,
-                                72.0
-                            ]
-                        },
-                        "extent": {
-                            "value": [
-                                [
-                                    -10.0,
-                                    -10.0
-                                ],
-                                [
-                                    10.0,
-                                    10.0
-                                ]
-                            ]
-                        },
-                        "rotation": {
-                            "value": 0.0
-                        }
-                    }
-                }
-            },
-            "type": "RambollDefaults.Ventilation.Controls.AHUController",
-            "connectedPoints": [
+            "modelicaName": "co2Stp",
+            "@type": "cdl:Continuous.Sources.Constant",
+            "@id": "co2Stp",
+            "points": [
                 {
-                    "name": "aHUController.supFan_y",
-                    "connectedTo": "fan1331423.y"
-                },
-                {
-                    "name": "aHUController.retFan_y",
-                    "connectedTo": "fan1332058.y"
-                },
-                {
-                    "name": "aHUController.retPre",
-                    "connectedTo": "senPre1359814.statPres"
-                },
-                {
-                    "name": "aHUController.supPre",
-                    "connectedTo": "senPre1356764.statPres"
-                },
-                {
-                    "name": "aHUController.supTemp",
-                    "connectedTo": "senTem1359936.T"
-                },
-                {
-                    "name": "aHUController.heatingCoil_y",
-                    "connectedTo": "motVal1304448.y"
-                },
-                {
-                    "name": "aHUController.coolingCoil_y",
-                    "connectedTo": "motVal1151719.y"
+                    "@id": "co2Stp.y",
+                    "connectedTo": [
+                        "vAVController_type2.co2Stp"
+                    ]
                 }
             ]
-        }
-    ],
-    "equations": [],
-    "connections": [
-        {
-            "from": {
-                "name": "aHUController",
-                "port": "supFan_y"
-            },
-            "to": {
-                "name": "fan1331423",
-                "port": "y"
-            },
-            "description": {
-                "annotation": {
-                    "Line": {
-                        "points": {
-                            "value": [
-                                [
-                                    19.0,
-                                    81.0
-                                ],
-                                [
-                                    178.0,
-                                    81.0
-                                ],
-                                [
-                                    178.0,
-                                    56.0
-                                ]
-                            ]
-                        },
-                        "color": {
-                            "value": [
-                                0.0,
-                                0.0,
-                                127.0
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        {
-            "from": {
-                "name": "aHUController",
-                "port": "retFan_y"
-            },
-            "to": {
-                "name": "fan1332058",
-                "port": "y"
-            },
-            "description": {
-                "annotation": {
-                    "Line": {
-                        "points": {
-                            "value": [
-                                [
-                                    19.0,
-                                    79.0
-                                ],
-                                [
-                                    132.0,
-                                    79.0
-                                ],
-                                [
-                                    132.0,
-                                    48.0
-                                ]
-                            ]
-                        },
-                        "color": {
-                            "value": [
-                                0.0,
-                                0.0,
-                                127.0
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        {
-            "from": {
-                "name": "aHUController",
-                "port": "retPre"
-            },
-            "to": {
-                "name": "senPre1359814",
-                "port": "statPres"
-            },
-            "description": {
-                "annotation": {
-                    "Line": {
-                        "points": {
-                            "value": [
-                                [
-                                    5.0,
-                                    73.0
-                                ],
-                                [
-                                    -40.0,
-                                    73.0
-                                ],
-                                [
-                                    -40.0,
-                                    1.0
-                                ]
-                            ]
-                        },
-                        "color": {
-                            "value": [
-                                0.0,
-                                0.0,
-                                127.0
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        {
-            "from": {
-                "name": "aHUController",
-                "port": "supPre"
-            },
-            "to": {
-                "name": "senPre1356764",
-                "port": "statPres"
-            },
-            "description": {
-                "annotation": {
-                    "Line": {
-                        "points": {
-                            "value": [
-                                [
-                                    5.0,
-                                    75.0
-                                ],
-                                [
-                                    -70.0,
-                                    75.0
-                                ],
-                                [
-                                    -70.0,
-                                    1.0
-                                ]
-                            ]
-                        },
-                        "color": {
-                            "value": [
-                                0.0,
-                                0.0,
-                                127.0
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        {
-            "from": {
-                "name": "aHUController",
-                "port": "supTemp"
-            },
-            "to": {
-                "name": "senTem1359936",
-                "port": "T"
-            },
-            "description": {
-                "annotation": {
-                    "Line": {
-                        "points": {
-                            "value": [
-                                [
-                                    5.0,
-                                    67.0
-                                ],
-                                [
-                                    -36.0,
-                                    67.0
-                                ],
-                                [
-                                    -36.0,
-                                    14.0
-                                ],
-                                [
-                                    -22.0,
-                                    14.0
-                                ],
-                                [
-                                    -22.0,
-                                    -41.0
-                                ]
-                            ]
-                        },
-                        "color": {
-                            "value": [
-                                0.0,
-                                0.0,
-                                127.0
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        {
-            "from": {
-                "name": "aHUController",
-                "port": "heatingCoil_y"
-            },
-            "to": {
-                "name": "motVal1304448",
-                "port": "y"
-            },
-            "description": {
-                "annotation": {
-                    "Line": {
-                        "points": {
-                            "value": [
-                                [
-                                    19.0,
-                                    75.0
-                                ],
-                                [
-                                    80.0,
-                                    75.0
-                                ],
-                                [
-                                    80.0,
-                                    10.0
-                                ],
-                                [
-                                    150.0,
-                                    10.0
-                                ],
-                                [
-                                    150.0,
-                                    -38.0
-                                ]
-                            ]
-                        },
-                        "color": {
-                            "value": [
-                                0.0,
-                                0.0,
-                                127.0
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        {
-            "from": {
-                "name": "aHUController",
-                "port": "coolingCoil_y"
-            },
-            "to": {
-                "name": "motVal1151719",
-                "port": "y"
-            },
-            "description": {
-                "annotation": {
-                    "Line": {
-                        "points": {
-                            "value": [
-                                [
-                                    19.0,
-                                    73.0
-                                ],
-                                [
-                                    64.0,
-                                    73.0
-                                ],
-                                [
-                                    64.0,
-                                    -8.0
-                                ],
-                                [
-                                    80.0,
-                                    -8.0
-                                ],
-                                [
-                                    80.0,
-                                    -22.0
-                                ]
-                            ]
-                        },
-                        "color": {
-                            "value": [
-                                0.0,
-                                0.0,
-                                127.0
-                            ]
-                        }
-                    }
-                }
-            }
         }
     ]
 }

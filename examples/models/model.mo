@@ -1,78 +1,51 @@
 model Model "Auto-generated model"
-        parameter Real x = 20;
-        package MediumHeating = Buildings.Media.Water(T_default=273.15+70) annotation (
-            __Dymola_choicesAllMatching=true);
-        package MediumCooling = Buildings.Media.Antifreeze.PropyleneGlycolWater(property_T=273.15 + 5, X_a=0.35, T_default=273.15 + 5) annotation (
-            __Dymola_choicesAllMatching=true);
-        package MediumVentilation = Buildings.Media.Air(extraPropertiesNames={"CO2"}) annotation (
-            __Dymola_choicesAllMatching=true);
-        
-        Buildings.Fluid.Sources.Outside outside(
-            redeclare package Medium = MediumVentilation,
-            use_C_in=false,
-            nPorts=0) "Outside air conditions"
-            annotation (Placement(visible = true, transformation(origin = {74, -32},extent = {{-174, 62}, {-154, 82}}, rotation = 0)));
-        
-        Buildings.Fluid.Movers.SpeedControlled_y fan1332058(
-            redeclare package Medium = MediumVentilation,
-            energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyState,
-            addPowerToMedium=false,
-            show_T=true,
-            riseTime=120,
-            per(pressure(V_flow(displayUnit="m3/s")={0.02, 0.04, 0.06, 0.08, 0.1, 0.12, 0.14, 0.16, 0.18, 0.2, 0.22, 0.24, 0.26, 0.28}, dp={438.4, 419.2, 401.2, 384.5, 370.4, 352.5, 332.6, 314.7, 283.8, 236.4, 178.0, 135.0, 86.9, 43.6}),
-            use_powerCharacteristic=true,
-            power(V_flow(displayUnit="m3/s")={0.02, 0.08, 0.12, 0.16, 0.2, 0.24, 0.28}, P={124.0, 142.7, 157.7, 175.7, 200.0, 221.0, 253.8})))
-            annotation (Placement(visible = true, transformation(origin = {-4, -6}, extent = {{90, 30}, {110, 50}}, rotation = 0)));
+      
+        Buildings.Fluid.Actuators.Dampers.Exponential motDamp866580(
+            redeclare package Medium = MediumVentilation, 
+            m_flow_nominal= 0.0504,
+            dpDamper_nominal=20.84)
+			annotation (Placement(transformation(extent={{0,0},{20,20}})), _CDE(id=866580), __cdl(generatePointlist=true));
+
+        Buildings.Fluid.Actuators.Dampers.Exponential motDamp869789(
+            redeclare package Medium = MediumVentilation, 
+            m_flow_nominal= 0.0504,
+            dpDamper_nominal=9.68)
+			annotation (Placement(transformation(extent={{30,0},{50,20}})), _CDE(id=869789), __cdl(generatePointlist=true));
+
+        ToolchainLib.Radiator rad1131635(
+            redeclare package Medium = MediumHeating,
+            rad(
+            Q_flow_nominal=400.00000000000006,
+            T_a_nominal=343.15,
+            T_b_nominal=313.15,
             
-        ToolchainLib.PressureSensor senPre1356764(redeclare package MediumA = 
-            MediumVentilation)
-            annotation (__cdl(generatePointlist=true),Placement(visible = true, transformation(extent = {{-80, -20}, {-60, 0}}, rotation = 0)));
             
-        ToolchainLib.PressureSensor senPre1359814(redeclare package MediumA = 
-            MediumVentilation)
-            annotation (__cdl(generatePointlist=true),Placement(visible = true, transformation(extent = {{-50, -20}, {-30, 0}}, rotation = 0)));
-            
-        Buildings.Fluid.Sensors.TemperatureTwoPort senTem1359936(redeclare package Medium = 
+            dp_nominal=1000.0,
+            TAir_nominal=293.15))
+			annotation (Placement(transformation(extent={{90,0},{110,20}})), _CDE(id="1131635"), __cdl(generatePointlist=true));
+
+        ToolchainLib.RoomDetachedDetailedProfile room1333984(redeclare package MediumA = 
             MediumVentilation,
-            m_flow_nominal=0.2016,
-            transferHeat=true,
-            TAmb=294.15,
-            tauHeaTra=600)
-            annotation (Placement(visible = true, transformation(origin = {-60, -36}, extent = {{28, -26}, {48, -6}}, rotation = 0)));
-        
-        Buildings.Fluid.Actuators.Valves.TwoWayEqualPercentage motVal1151719(
-            redeclare package Medium = MediumHeating, 
-            m_flow_nominal= 0.05862,
-            CvData=Buildings.Fluid.Types.CvTypes.Kv,
-            Kv=1.6)
-            annotation (__cdl(generatePointlist=true),Placement(visible = true, transformation(extent = {{70, -44}, {90, -24}}, rotation = 0)));
-        
-        Buildings.Fluid.Actuators.Valves.TwoWayEqualPercentage motVal1304448(
-            redeclare package Medium = MediumCooling, 
-            m_flow_nominal= 0.04,
-            CvData=Buildings.Fluid.Types.CvTypes.Kv,
-            Kv=1.6)
-            annotation (__cdl(generatePointlist=true),Placement(visible = true, transformation(extent = {{140, -60}, {160, -40}}, rotation = 0)));
- Buildings.Fluid.Movers.SpeedControlled_y fan1331423(addPowerToMedium = false, energyDynamics = Modelica.Fluid.Types.Dynamics.SteadyState, per(pressure(V_flow(displayUnit = "m3/s") = {0.02, 0.04, 0.06, 0.08, 0.1, 0.12, 0.14, 0.16, 0.18, 0.2, 0.22, 0.24, 0.26, 0.28}, dp = {438.4, 419.2, 401.2, 384.5, 370.4, 352.5, 332.6, 314.7, 283.8, 236.4, 178.0, 135.0, 86.9, 43.6}), use_powerCharacteristic = true, power(V_flow(displayUnit = "m3/s") = {0.02, 0.08, 0.12, 0.16, 0.2, 0.24, 0.28}, P = {124.0, 142.7, 157.7, 175.7, 200.0, 221.0, 253.8})), riseTime = 120, show_T = true) annotation(
-    Placement(visible = true, transformation(origin = {178, 44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
- RambollDefaults.Ventilation.Controls.AHUController aHUController annotation(
-    Placement(visible = true, transformation(origin = {12, 72}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-equation
-  connect(aHUController.supFan_y, fan1331423.y) annotation(
-    Line(points = {{19, 81}, {178, 81}, {178, 56}}, color = {0, 0, 127}));
- connect(aHUController.retFan_y, fan1332058.y) annotation(
-    Line(points = {{19, 79}, {96, 79}, {96, 46}}, color = {0, 0, 127}));
- connect(aHUController.retPre, senPre1359814.statPres) annotation(
-    Line(points = {{5, 73}, {-40, 73}, {-40, 1}}, color = {0, 0, 127}));
- connect(aHUController.supPre, senPre1356764.statPres) annotation(
-    Line(points = {{5, 75}, {-70, 75}, {-70, 1}}, color = {0, 0, 127}));
- connect(aHUController.supTemp, senTem1359936.T) annotation(
-    Line(points = {{5, 67}, {-36, 67}, {-36, 14}, {-22, 14}, {-22, -41}}, color = {0, 0, 127}));
- connect(aHUController.heatingCoil_y, motVal1304448.y) annotation(
-    Line(points = {{19, 75}, {80, 75}, {80, 10}, {150, 10}, {150, -38}}, color = {0, 0, 127}));
- connect(aHUController.coolingCoil_y, motVal1151719.y) annotation(
-    Line(points = {{19, 73}, {64, 73}, {64, -8}, {80, -8}, {80, -22}}, color = {0, 0, 127}));
-        annotation(
-    experiment(StartTime = 0, StopTime = 86400, __Dymola_Algorithm = "Dassl"),
-    uses(ToolchainLib, Buildings(version = "9.0.0"), Modelica(version = "4.0.0")));
-      end Model;
+            nPersons = 6)
+			annotation (Placement(visible = true, transformation(origin = {-48, -18}, extent = {{0, -30}, {20, -10}}, rotation = 0)), _CDE(id=1333984), __cdl(generatePointlist=true));
+  RambollDefaults.Ventilation.Controls.VAVController_type2 vAVController_type2 annotation(
+    Placement(visible = true, transformation(origin = {-42, 2}, extent = {{-10, -10}, {10, 10}}, rotation = 0)), __cdl(generatePointlist=true));
+  Buildings.Controls.OBC.CDL.Continuous.Sources.Constant tempStp annotation(
+    Placement(visible = true, transformation(origin = {-88, 48}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Buildings.Controls.OBC.CDL.Continuous.Sources.Constant co2Stp annotation(
+    Placement(visible = true, transformation(origin = {-90, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));	equation
+  connect(vAVController_type2.y, motDamp866580.y) annotation(
+    Line(points = {{-30, 10}, {-24, 10}, {-24, 44}, {10, 44}, {10, 22}}, color = {0, 0, 127}));
+  connect(vAVController_type2.roomTemp, room1333984.airTemp) annotation(
+    Line(points = {{-54, 8}, {-92, 8}, {-92, -18}, {-14, -18}, {-14, -25}, {-21, -25}}, color = {0, 0, 127}));
+  connect(vAVController_type2.co2Level, room1333984.co2Level) annotation(
+    Line(points = {{-54, 2}, {-96, 2}, {-96, -70}, {-6, -70}, {-6, -29}, {-21, -29}}, color = {0, 0, 127}));
+  connect(tempStp.y, vAVController_type2.roomTempStp) annotation(
+    Line(points = {{-76, 48}, {-68, 48}, {-68, 10}, {-54, 10}}, color = {0, 0, 127}));
+  connect(co2Stp.y, vAVController_type2.co2Stp) annotation(
+    Line(points = {{-78, 20}, {-72, 20}, {-72, 4}, {-54, 4}}, color = {0, 0, 127}));
+  connect(vAVController_type2.y, motDamp869789.y) annotation(
+    Line(points = {{-30, 10}, {-24, 10}, {-24, 46}, {40, 46}, {40, 22}}, color = {0, 0, 127}));
+      annotation(
+    uses(Buildings(version = "9.0.0")));
+end Model;
