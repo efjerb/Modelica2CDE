@@ -290,12 +290,17 @@ class modelicaJSONVisitor(modelicaVisitor):
         if type(text) != str:
             return text
         try:
-            if text != "":
-                text = float(text)
+            text_float = float(text)
+            text_int = int(text_float)
+
+            if text_float == text_int:
+                return text_int
+            else:
+                return text_float
         except:
             try:
                 if (text[0] == "'" or text[0] == '"') and (text[-1] == "'" or text[-1] == '"'):
-                    text = text[1:-1]
+                    return text[1:-1]
             except:
-                text = text
+                return text
         return text
