@@ -20,7 +20,7 @@ class modelicaIOvisitor(modelicaVisitor):
                 new_comp = comp
                 if "@type" not in new_comp.keys():
                     new_comp["@type"] = []
-                new_comp["@type"].append(type)
+                new_comp["@type"].append("cdl:" + type)
                 self.res.append(new_comp)
     
     def visitExtends_clause(self, ctx: modelicaParser.Extends_clauseContext):
