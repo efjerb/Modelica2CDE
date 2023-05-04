@@ -18,6 +18,44 @@ class modelicaJSONVisitor(modelicaVisitor):
         self.output = {}
         super().__init__()
 
+    def expand_model(self, component):
+        file_path = self.get_model_path(component["@type"])
+        if file_path == None:
+            return []
+        input_stream = antlr4.FileStream(file_path)
+        
+        lexer = modelicaLexer(input_stream)
+        tokens = antlr4.CommonTokenStream(lexer)
+        parser = modelicaParser(tokens)
+        
+        tree = parser.stored_definition()
+        parser.buildParseTrees = True
+
+        visitor = modelicaJSONVisitor(include_connections = False, get_point_lists = False)
+        visitor.visitStored_definition(tree)
+        res = visitor.output["Elements"]
+
+        res = self.prefix_ids(res, component["@id"])
+        
+        return res
+
+
+    def prefix_ids(self, elements, prefix = None):
+        """Recursively adds the component's name to the ids of the dicts in elements"""
+        if prefix == None:
+            raise ValueError("prefix must be specified")
+        if isinstance(elements, list):
+            for i in elements:
+                self.prefix_ids(i,prefix)
+        elif isinstance(elements, dict):
+            if "@id" in elements.keys():
+                elements["@id"] = prefix + "." + elements["@id"]
+            for k in elements.keys():
+                self.prefix_ids(elements[k],prefix)
+        else:
+            pass
+        return elements
+
     def get_model_IO(self, model_name, get_comments = True) -> dict:
 
         file_path = self.get_model_path(model_name)
@@ -90,12 +128,19 @@ class modelicaJSONVisitor(modelicaVisitor):
         if variability != "":
             component["variability"] = variability
         
-        if self.get_point_lists and "annotation" in component.keys() and "__cdl" in component["annotation"].keys() and "generatePointlist" in component["annotation"]["__cdl"] and component["annotation"]["__cdl"]["generatePointlist"]["value"] == "true":
+        if self.get_point_lists and component.get("annotation",{}).get("__cdl",{}).get("generatePointlist",{}).get("value") == "true":
             points = self.get_model_IO(component["@type"])
             if len(points) != 0:
                 for point in points:
                     point["@id"] = component["@id"] + "." + point["@id"]
                 component["points"] = points
+        
+        # Expand component model, if specified in annotations:
+        if component.get("annotation",{}).get("_CDE",{}).get("expand",{}).get("value") == "true":
+            if "Elements" not in component.keys():
+                component["Elements"] = []
+            component["Elements"].append(self.expand_model(component))
+
         component["@type"] = self.replace_type(component["@type"])
         component.pop("annotation",component)
         self.output["Elements"].append(component)
@@ -214,35 +259,40 @@ class modelicaJSONVisitor(modelicaVisitor):
         
         from_comp = [x for x in self.output["Elements"] if x["modelicaName"] == connection["from"]["modelicaName"]][0]
         to_comp = [x for x in self.output["Elements"] if x["modelicaName"] == connection["to"]["modelicaName"]][0]
+        
+        if "port" not in connection["from"].keys():
+            from_id = from_comp["@id"]
+        else:
+            from_id = ".".join([from_comp["@id"],connection["from"]["port"]])
+
+        if "port" not in connection["to"].keys():
+            to_id = to_comp["@id"]
+        else:
+            to_id = ".".join([to_comp["@id"],connection["to"]["port"]])
+                
         if "points" not in from_comp.keys():
             from_comp["points"] = []
+        
         if "points" not in to_comp.keys():
             to_comp["points"] = []
-
-        hit_point = False
         
-        for point in from_comp["points"]:
-            if point["@id"] == ".".join([from_comp["@id"],connection["from"]["port"]]):
-                hit_point = True
-                if point.get("connectedTo") == None:
-                    point["connectedTo"] = []
-                point["connectedTo"].append(".".join([to_comp["@id"],connection["to"]["port"]]))
-                break
-        if not hit_point:
-            from_comp["points"].append({"@id":".".join([from_comp["@id"],connection["from"]["port"]]),"connectedTo":[".".join([to_comp["@id"],connection["to"]["port"]])]})
-        
-        hit_point = False
+        to_point = [point for point in to_comp["points"] if point["@id"] == to_id]
+        from_point = [point for point in from_comp["points"] if point["@id"] == from_id]
 
-        for point in to_comp["points"]:
-            if point["@id"] == ".".join([to_comp["@id"],connection["to"]["port"]]):
-                hit_point = True
-                if point.get("connectedTo") == None:
-                    point["connectedTo"] = []
-                point["connectedTo"].append(".".join([from_comp["@id"],connection["from"]["port"]]))
-                break
-        if not hit_point:
-            to_comp["points"].append({"@id":".".join([to_comp["@id"],connection["to"]["port"]]),"connectedTo":[".".join([from_comp["@id"],connection["from"]["port"]])]})
-    
+        if from_point != []:
+            if "connectedTo" not in from_point[0].keys():
+                from_point[0]["connectedTo"] = []
+            from_point[0]["connectedTo"].append(to_id)
+        else:
+            from_comp["points"].append({"@id":from_id,"connectedTo":[to_id]})
+        
+        if to_point != []:
+            if "connectedTo" not in to_point[0].keys():
+                to_point[0]["connectedTo"] = []
+            to_point[0]["connectedTo"].append(from_id)
+        else:
+            to_comp["points"].append({"@id":to_id,"connectedTo":[from_id]})
+
         return connection
 
 
