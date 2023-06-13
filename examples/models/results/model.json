@@ -242,6 +242,218 @@
                         "869789.y"
                     ]
                 }
+            ],
+            "Elements": [
+                [
+                    {
+                        "modelicaName": "tempControl",
+                        "value": "true",
+                        "description": "Does the controller use temperature control?",
+                        "@type": "Boolean",
+                        "@id": "vAVController_type2.tempControl",
+                        "variability": "parameter"
+                    },
+                    {
+                        "modelicaName": "co2Control",
+                        "value": "true",
+                        "description": "Does the controller use CO2 control?",
+                        "@type": "Boolean",
+                        "@id": "vAVController_type2.co2Control",
+                        "variability": "parameter"
+                    },
+                    {
+                        "modelicaName": "roomTemp",
+                        "@type": "cdl:Interfaces.RealInput",
+                        "@id": "vAVController_type2.roomTemp",
+                        "points": [
+                            {
+                                "@id": "vAVController_type2.roomTemp",
+                                "connectedTo": [
+                                    "tempCtrl.u_m"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "modelicaName": "roomTempStp",
+                        "@type": "cdl:Interfaces.RealInput",
+                        "@id": "vAVController_type2.roomTempStp",
+                        "points": [
+                            {
+                                "@id": "vAVController_type2.roomTempStp",
+                                "connectedTo": [
+                                    "tempCtrl.u_s"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "modelicaName": "tempCtrl",
+                        "controllerType": {
+                            "value": "Buildings.Controls.OBC.CDL.Types.SimpleController.P"
+                        },
+                        "k": {
+                            "value": 3
+                        },
+                        "reverseActing": {
+                            "value": "false"
+                        },
+                        "@type": "cdl:Continuous.PID",
+                        "@id": "vAVController_type2.tempCtrl",
+                        "points": [
+                            {
+                                "@id": "vAVController_type2.tempCtrl.u_m",
+                                "connectedTo": [
+                                    "roomTemp"
+                                ]
+                            },
+                            {
+                                "@id": "vAVController_type2.tempCtrl.u_s",
+                                "connectedTo": [
+                                    "roomTempStp"
+                                ]
+                            },
+                            {
+                                "@id": "vAVController_type2.tempCtrl.y",
+                                "connectedTo": [
+                                    "max.u1"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "modelicaName": "co2Level",
+                        "@type": "cdl:Interfaces.RealInput",
+                        "@id": "vAVController_type2.co2Level",
+                        "points": [
+                            {
+                                "@id": "vAVController_type2.co2Level",
+                                "connectedTo": [
+                                    "co2Ctrl.u_m"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "modelicaName": "co2Stp",
+                        "@type": "cdl:Interfaces.RealInput",
+                        "@id": "vAVController_type2.co2Stp",
+                        "points": [
+                            {
+                                "@id": "vAVController_type2.co2Stp",
+                                "connectedTo": [
+                                    "co2Ctrl.u_s"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "modelicaName": "co2Ctrl",
+                        "controllerType": {
+                            "value": "Buildings.Controls.OBC.CDL.Types.SimpleController.P"
+                        },
+                        "k": {
+                            "value": 150
+                        },
+                        "reverseActing": {
+                            "value": "false"
+                        },
+                        "@type": "cdl:Continuous.PID",
+                        "@id": "vAVController_type2.co2Ctrl",
+                        "points": [
+                            {
+                                "@id": "vAVController_type2.co2Ctrl.u_s",
+                                "connectedTo": [
+                                    "co2Stp"
+                                ]
+                            },
+                            {
+                                "@id": "vAVController_type2.co2Ctrl.u_m",
+                                "connectedTo": [
+                                    "co2Level"
+                                ]
+                            },
+                            {
+                                "@id": "vAVController_type2.co2Ctrl.y",
+                                "connectedTo": [
+                                    "max.u2"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "modelicaName": "max",
+                        "@type": "cdl:Continuous.Max",
+                        "@id": "vAVController_type2.max",
+                        "points": [
+                            {
+                                "@id": "vAVController_type2.max.u1",
+                                "connectedTo": [
+                                    "tempCtrl.y",
+                                    "noTempCtrl.y"
+                                ]
+                            },
+                            {
+                                "@id": "vAVController_type2.max.u2",
+                                "connectedTo": [
+                                    "co2Ctrl.y",
+                                    "noCO2Ctrl.y"
+                                ]
+                            },
+                            {
+                                "@id": "vAVController_type2.max.y",
+                                "connectedTo": [
+                                    "y"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "modelicaName": "y",
+                        "@type": "cdl:Interfaces.RealOutput",
+                        "@id": "vAVController_type2.y",
+                        "points": [
+                            {
+                                "@id": "vAVController_type2.y",
+                                "connectedTo": [
+                                    "max.y"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "modelicaName": "noTempCtrl",
+                        "k": {
+                            "value": 0
+                        },
+                        "@type": "cdl:Continuous.Sources.Constant",
+                        "@id": "vAVController_type2.noTempCtrl",
+                        "points": [
+                            {
+                                "@id": "vAVController_type2.noTempCtrl.y",
+                                "connectedTo": [
+                                    "max.u1"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "modelicaName": "noCO2Ctrl",
+                        "k": {
+                            "value": 0
+                        },
+                        "@type": "cdl:Continuous.Sources.Constant",
+                        "@id": "vAVController_type2.noCO2Ctrl",
+                        "points": [
+                            {
+                                "@id": "vAVController_type2.noCO2Ctrl.y",
+                                "connectedTo": [
+                                    "max.u2"
+                                ]
+                            }
+                        ]
+                    }
+                ]
             ]
         },
         {
