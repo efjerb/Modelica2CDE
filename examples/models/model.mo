@@ -29,7 +29,7 @@ model Model "Auto-generated model"
             nPersons = 6)
 			annotation (Placement(visible = true, transformation(origin = {-48, -18}, extent = {{0, -30}, {20, -10}}, rotation = 0)), _CDE(id=1333984), __cdl(generatePointlist=true));
   RambollDefaults.Ventilation.Controls.VAVController_type2 vAVController_type2 annotation(
-    Placement(visible = true, transformation(origin = {-42, 2}, extent = {{-10, -10}, {10, 10}}, rotation = 0)), __cdl(generatePointlist=true));
+    Placement(visible = true, transformation(origin = {-42, 2}, extent = {{-10, -10}, {10, 10}}, rotation = 0)), __cdl(generatePointlist=true), _CDE(expand=true));
   Buildings.Controls.OBC.CDL.Continuous.Sources.Constant tempStp annotation(
     Placement(visible = true, transformation(origin = {-88, 48}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Buildings.Controls.OBC.CDL.Continuous.Sources.Constant co2Stp annotation(
