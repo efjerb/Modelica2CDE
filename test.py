@@ -16,7 +16,7 @@ def parse_args():
 
 if __name__ == '__main__':
 
-    file_path = "C:\\Users\\evifj\\git\\Modelica2CDE\\examples\\models\\WithControls_added_ids.mo"
+    file_path = "C:\\Users\\evifj\\git\\Modelica2CDE\\examples\\models\\BS23_Example.mo"
     get_point_lists = True
     
     res = m2c.create_modelica_JSON(file_path = file_path, get_point_lists = get_point_lists)

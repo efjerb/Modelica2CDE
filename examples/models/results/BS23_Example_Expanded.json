@@ -17,7 +17,7 @@
         "tl": "https://example.org/tl#"
     },
     "@type": "model",
-    "@id": "BS23_Example",
+    "@id": "BS23_Example_Expanded",
     "description": "Auto-generated model",
     "Elements": [
         {
