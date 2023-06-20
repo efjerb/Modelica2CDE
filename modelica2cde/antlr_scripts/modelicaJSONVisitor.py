@@ -1,3 +1,4 @@
+import os
 import antlr4
 from modelica2cde.antlr_scripts.modelicaIOvisitor import modelicaIOvisitor
 from modelica2cde.antlr_scripts.modelicaLexer import modelicaLexer
@@ -12,9 +13,10 @@ class modelicaJSONVisitor(modelicaVisitor):
         if self.get_point_lists:
             self.omc = OMCSessionZMQ()
             self.omc.loadModel("Buildings")
-            self.omc.sendExpression('setModelicaPath("C:\\Users\\ESVF\\OneDrive - Ramboll\\Modelica\\Libraries")')
+            self.omc.sendExpression(f'setModelicaPath("{os.getenv("OPENMODELICALIBRARY")}")')
             self.omc.loadModel("RambollDefaults")
             self.omc.loadModel("ToolchainLib")
+            self.omc.loadModel("CtrllSeqLib")            
         self.output = {}
         super().__init__()
 
