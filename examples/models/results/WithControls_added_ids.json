@@ -1,0 +1,1030 @@
+{
+    "@context": {
+        "Elements": "http://example.org/#Elements",
+        "type": {
+            "@id": "https://www.w3.org/TR/rdf-schema/#ch_type",
+            "@type": "@id"
+        },
+        "points": "https://brickschema.org/schema/Brick#hasPoint",
+        "connectedTo": {
+            "@id": "http://example.org/#ConnectedTo",
+            "@type": "@id"
+        },
+        "description": "http://example.org/#Description",
+        "cdl": "https://simulationresearch.lbl.gov/modelica/releases/latest/help/Buildings_Controls_OBC_CDL.html",
+        "ramboll": "https://example.org/ramboll#",
+        "brick": "https://brickschema.org/schema/Brick#",
+        "tl": "https://example.org/tl#"
+    },
+    "@type": "model",
+    "@id": "Model",
+    "description": "Auto-generated model",
+    "Elements": [
+        {
+            "modelicaName": "motDamp866580",
+            "Medium": "MediumVentilation",
+            "m_flow_nominal": {
+                "value": 0.0504
+            },
+            "dpDamper_nominal": {
+                "value": 20.84
+            },
+            "@type": "Buildings.Fluid.Actuators.Dampers.Exponential",
+            "@id": "866580",
+            "points": [
+                {
+                    "@id": "866580.port_b",
+                    "connectedTo": [
+                        "1333983.airPorIn"
+                    ]
+                },
+                {
+                    "@id": "866580.y",
+                    "connectedTo": [
+                        "vav4.y"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "motDamp869779",
+            "Medium": "MediumVentilation",
+            "m_flow_nominal": {
+                "value": 0.0504
+            },
+            "dpDamper_nominal": {
+                "value": 9.68
+            },
+            "@type": "Buildings.Fluid.Actuators.Dampers.Exponential",
+            "@id": "869779",
+            "points": [
+                {
+                    "@id": "869779.port_b",
+                    "connectedTo": [
+                        "1333984.airPorIn"
+                    ]
+                },
+                {
+                    "@id": "869779.y",
+                    "connectedTo": [
+                        "vav3.y"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "motDamp869789",
+            "Medium": "MediumVentilation",
+            "m_flow_nominal": {
+                "value": 0.0504
+            },
+            "dpDamper_nominal": {
+                "value": 9.68
+            },
+            "@type": "Buildings.Fluid.Actuators.Dampers.Exponential",
+            "@id": "869789",
+            "points": [
+                {
+                    "@id": "869789.port_b",
+                    "connectedTo": [
+                        "1333985.airPorIn"
+                    ]
+                },
+                {
+                    "@id": "869789.y",
+                    "connectedTo": [
+                        "vav1.y"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "motDamp869803",
+            "Medium": "MediumVentilation",
+            "m_flow_nominal": {
+                "value": 0.0504
+            },
+            "dpDamper_nominal": {
+                "value": 9.68
+            },
+            "@type": "Buildings.Fluid.Actuators.Dampers.Exponential",
+            "@id": "869803",
+            "points": [
+                {
+                    "@id": "869803.port_b",
+                    "connectedTo": [
+                        "1333986.airPorIn"
+                    ]
+                },
+                {
+                    "@id": "869803.y",
+                    "connectedTo": [
+                        "vav2.y"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "fan1331423",
+            "Medium": "MediumVentilation",
+            "energyDynamics": {
+                "value": "Modelica.Fluid.Types.Dynamics.SteadyState"
+            },
+            "addPowerToMedium": {
+                "value": "false"
+            },
+            "show_T": {
+                "value": "true"
+            },
+            "riseTime": {
+                "value": 120
+            },
+            "per": {
+                "pressure": {
+                    "V_flow": {
+                        "value": [
+                            0.02,
+                            0.04,
+                            0.06,
+                            0.08,
+                            0.1,
+                            0.12,
+                            0.14,
+                            0.16,
+                            0.18,
+                            0.2,
+                            0.22,
+                            0.24,
+                            0.26,
+                            0.28
+                        ],
+                        "displayUnit": {
+                            "value": "m3/s"
+                        }
+                    },
+                    "dp": {
+                        "value": [
+                            438.4,
+                            419.2,
+                            401.2,
+                            384.5,
+                            370.4,
+                            352.5,
+                            332.6,
+                            314.7,
+                            283.8,
+                            236.4,
+                            178,
+                            135,
+                            86.9,
+                            43.6
+                        ]
+                    }
+                },
+                "use_powerCharacteristic": {
+                    "value": "true"
+                },
+                "power": {
+                    "V_flow": {
+                        "value": [
+                            0.02,
+                            0.08,
+                            0.12,
+                            0.16,
+                            0.2,
+                            0.24,
+                            0.28
+                        ],
+                        "displayUnit": {
+                            "value": "m3/s"
+                        }
+                    },
+                    "P": {
+                        "value": [
+                            124,
+                            142.7,
+                            157.7,
+                            175.7,
+                            200,
+                            221,
+                            253.8
+                        ]
+                    }
+                }
+            },
+            "@type": "Buildings.Fluid.Movers.SpeedControlled_y",
+            "@id": "1331423",
+            "points": [
+                {
+                    "@id": "1331423.port_b",
+                    "connectedTo": [
+                        "1356764.port_a"
+                    ]
+                },
+                {
+                    "@id": "1331423.y",
+                    "connectedTo": [
+                        "AHUctrl.supFan_y"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "fan1332058",
+            "Medium": "MediumVentilation",
+            "energyDynamics": {
+                "value": "Modelica.Fluid.Types.Dynamics.SteadyState"
+            },
+            "addPowerToMedium": {
+                "value": "false"
+            },
+            "show_T": {
+                "value": "true"
+            },
+            "riseTime": {
+                "value": 120
+            },
+            "per": {
+                "pressure": {
+                    "V_flow": {
+                        "value": [
+                            0.02,
+                            0.04,
+                            0.06,
+                            0.08,
+                            0.1,
+                            0.12,
+                            0.14,
+                            0.16,
+                            0.18,
+                            0.2,
+                            0.22,
+                            0.24,
+                            0.26,
+                            0.28
+                        ],
+                        "displayUnit": {
+                            "value": "m3/s"
+                        }
+                    },
+                    "dp": {
+                        "value": [
+                            438.4,
+                            419.2,
+                            401.2,
+                            384.5,
+                            370.4,
+                            352.5,
+                            332.6,
+                            314.7,
+                            283.8,
+                            236.4,
+                            178,
+                            135,
+                            86.9,
+                            43.6
+                        ]
+                    }
+                },
+                "use_powerCharacteristic": {
+                    "value": "true"
+                },
+                "power": {
+                    "V_flow": {
+                        "value": [
+                            0.02,
+                            0.08,
+                            0.12,
+                            0.16,
+                            0.2,
+                            0.24,
+                            0.28
+                        ],
+                        "displayUnit": {
+                            "value": "m3/s"
+                        }
+                    },
+                    "P": {
+                        "value": [
+                            124,
+                            142.7,
+                            157.7,
+                            175.7,
+                            200,
+                            221,
+                            253.8
+                        ]
+                    }
+                }
+            },
+            "@type": "Buildings.Fluid.Movers.SpeedControlled_y",
+            "@id": "1332058",
+            "points": [
+                {
+                    "@id": "1332058.port_b",
+                    "connectedTo": [
+                        "1359814.port_a"
+                    ]
+                },
+                {
+                    "@id": "1332058.y",
+                    "connectedTo": [
+                        "AHUctrl.retFan_y"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "senPre1356764",
+            "MediumA": "MediumVentilation",
+            "@type": "tl:PressureSensor",
+            "@id": "1356764",
+            "points": [
+                {
+                    "@id": "1356764.port_a",
+                    "connectedTo": [
+                        "1331423.port_b"
+                    ]
+                },
+                {
+                    "@id": "1356764.port_b",
+                    "connectedTo": [
+                        "1359936.port_a"
+                    ]
+                },
+                {
+                    "@id": "1356764.statPres",
+                    "connectedTo": [
+                        "AHUctrl.supPre"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "senPre1359814",
+            "MediumA": "MediumVentilation",
+            "@type": "tl:PressureSensor",
+            "@id": "1359814",
+            "points": [
+                {
+                    "@id": "1359814.port_a",
+                    "connectedTo": [
+                        "1332058.port_b"
+                    ]
+                },
+                {
+                    "@id": "1359814.statPres",
+                    "connectedTo": [
+                        "AHUctrl.retPre"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "senTem1359936",
+            "Medium": "MediumVentilation",
+            "m_flow_nominal": {
+                "value": 0.2016
+            },
+            "transferHeat": {
+                "value": "true"
+            },
+            "TAmb": {
+                "value": 294.15
+            },
+            "tauHeaTra": {
+                "value": 600
+            },
+            "@type": "Buildings.Fluid.Sensors.TemperatureTwoPort",
+            "@id": "1359936",
+            "points": [
+                {
+                    "@id": "1359936.port_a",
+                    "connectedTo": [
+                        "1356764.port_b"
+                    ]
+                },
+                {
+                    "@id": "1359936.T",
+                    "connectedTo": [
+                        "AHUctrl.supTemp"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "motVal1151719",
+            "Medium": "MediumHeating",
+            "m_flow_nominal": {
+                "value": 0.05862
+            },
+            "CvData": {
+                "value": "Buildings.Fluid.Types.CvTypes.Kv"
+            },
+            "Kv": {
+                "value": 1.6
+            },
+            "@type": "Buildings.Fluid.Actuators.Valves.TwoWayEqualPercentage",
+            "@id": "1151719",
+            "points": [
+                {
+                    "@id": "1151719.y",
+                    "connectedTo": [
+                        "AHUctrl.heatingCoil_y"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "room1333983",
+            "MediumA": "MediumVentilation",
+            "nPersons": {
+                "value": 6
+            },
+            "@type": "tl:RoomDetachedDetailedProfile",
+            "@id": "1333983",
+            "points": [
+                {
+                    "@id": "1333983.airPorIn",
+                    "connectedTo": [
+                        "866580.port_b"
+                    ]
+                },
+                {
+                    "@id": "1333983.airTemp",
+                    "connectedTo": [
+                        "vav4.roomTemp"
+                    ]
+                },
+                {
+                    "@id": "1333983.co2Level",
+                    "connectedTo": [
+                        "vav4.co2Level"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "room1333984",
+            "MediumA": "MediumVentilation",
+            "nPersons": {
+                "value": 6
+            },
+            "@type": "tl:RoomDetachedDetailedProfile",
+            "@id": "1333984",
+            "points": [
+                {
+                    "@id": "1333984.airPorIn",
+                    "connectedTo": [
+                        "869779.port_b"
+                    ]
+                },
+                {
+                    "@id": "1333984.co2Level",
+                    "connectedTo": [
+                        "vav3.co2Level"
+                    ]
+                },
+                {
+                    "@id": "1333984.airTemp",
+                    "connectedTo": [
+                        "vav3.roomTemp"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "room1333985",
+            "MediumA": "MediumVentilation",
+            "nPersons": {
+                "value": 6
+            },
+            "@type": "tl:RoomDetachedDetailedProfile",
+            "@id": "1333985",
+            "points": [
+                {
+                    "@id": "1333985.airPorIn",
+                    "connectedTo": [
+                        "869789.port_b"
+                    ]
+                },
+                {
+                    "@id": "1333985.airTemp",
+                    "connectedTo": [
+                        "vav1.roomTemp"
+                    ]
+                },
+                {
+                    "@id": "1333985.co2Level",
+                    "connectedTo": [
+                        "vav1.co2Level"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "room1333986",
+            "MediumA": "MediumVentilation",
+            "nPersons": {
+                "value": 6
+            },
+            "@type": "tl:RoomDetachedDetailedProfile",
+            "@id": "1333986",
+            "points": [
+                {
+                    "@id": "1333986.airPorIn",
+                    "connectedTo": [
+                        "869803.port_b"
+                    ]
+                },
+                {
+                    "@id": "1333986.airTemp",
+                    "connectedTo": [
+                        "vav2.roomTemp"
+                    ]
+                },
+                {
+                    "@id": "1333986.co2Level",
+                    "connectedTo": [
+                        "vav2.co2Level"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "AHUctrl",
+            "@type": "CtrllSeqLib.AHUController",
+            "@id": "AHUctrl",
+            "points": [
+                {
+                    "@id": "AHUctrl.supPre",
+                    "@type": [
+                        "brick:Supply_Air_Static_Pressure_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "1356764.statPres"
+                    ]
+                },
+                {
+                    "@id": "AHUctrl.retPre",
+                    "@type": [
+                        "brick:Discharge_Air_Static_Pressure_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "1359814.statPres"
+                    ]
+                },
+                {
+                    "@id": "AHUctrl.supTemp",
+                    "@type": [
+                        "brick:Supply_Air_Temperature_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "1359936.T"
+                    ]
+                },
+                {
+                    "@id": "AHUctrl.supFan_y",
+                    "@type": [
+                        "brick:Fan_Speed_Command",
+                        "cdl:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "1331423.y"
+                    ]
+                },
+                {
+                    "@id": "AHUctrl.retFan_y",
+                    "@type": [
+                        "brick:Fan_Speed_Command",
+                        "cdl:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "1332058.y"
+                    ]
+                },
+                {
+                    "@id": "AHUctrl.heatingCoil_y",
+                    "@type": [
+                        "brick:Valve_Position_Command",
+                        "cdl:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "1151719.y"
+                    ]
+                }
+            ],
+            "Elements": [
+                [
+                    {
+                        "modelicaName": "tempDeadBand",
+                        "value": 4,
+                        "@type": "Modelica.Units.SI.TemperatureDifference",
+                        "@id": "AHUctrl.tempDeadBand",
+                        "variability": "parameter"
+                    },
+                    {
+                        "modelicaName": "supplyTemperatureSetpoint",
+                        "value": 291.15,
+                        "displayUnit": {
+                            "value": "degC"
+                        },
+                        "@type": "Modelica.Units.SI.Temperature",
+                        "@id": "AHUctrl.supplyTemperatureSetpoint",
+                        "variability": "parameter"
+                    },
+                    {
+                        "modelicaName": "supplyPressureSetpoint",
+                        "value": 120,
+                        "displayUnit": {
+                            "value": "Pa"
+                        },
+                        "@type": "Modelica.Units.SI.StaticPressure",
+                        "@id": "AHUctrl.supplyPressureSetpoint",
+                        "variability": "parameter"
+                    },
+                    {
+                        "modelicaName": "returnPressureSetpoint",
+                        "value": 80,
+                        "displayUnit": {
+                            "value": "Pa"
+                        },
+                        "@type": "Modelica.Units.SI.StaticPressure",
+                        "@id": "AHUctrl.returnPressureSetpoint",
+                        "variability": "parameter"
+                    },
+                    {
+                        "modelicaName": "supFanCtrl",
+                        "Ti": {
+                            "value": 10
+                        },
+                        "k": {
+                            "value": 0.1
+                        },
+                        "@type": "cdl:Continuous.PID",
+                        "@id": "AHUctrl.supFanCtrl",
+                        "points": [
+                            {
+                                "@id": "AHUctrl.supFanCtrl.y",
+                                "connectedTo": [
+                                    "supFan_y"
+                                ]
+                            },
+                            {
+                                "@id": "AHUctrl.supFanCtrl.u_m",
+                                "connectedTo": [
+                                    "supPre"
+                                ]
+                            },
+                            {
+                                "@id": "AHUctrl.supFanCtrl.u_s",
+                                "connectedTo": [
+                                    "spStp.y"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "modelicaName": "retFanCtrl",
+                        "Ti": {
+                            "value": 10
+                        },
+                        "k": {
+                            "value": 0.1
+                        },
+                        "@type": "cdl:Continuous.PID",
+                        "@id": "AHUctrl.retFanCtrl",
+                        "points": [
+                            {
+                                "@id": "AHUctrl.retFanCtrl.y",
+                                "connectedTo": [
+                                    "retFan_y"
+                                ]
+                            },
+                            {
+                                "@id": "AHUctrl.retFanCtrl.u_m",
+                                "connectedTo": [
+                                    "retPre"
+                                ]
+                            },
+                            {
+                                "@id": "AHUctrl.retFanCtrl.u_s",
+                                "connectedTo": [
+                                    "rpStp.y"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "modelicaName": "heatingCoilCtrl",
+                        "Ti": {
+                            "value": 10
+                        },
+                        "k": {
+                            "value": 0.1
+                        },
+                        "@type": "cdl:Continuous.PID",
+                        "@id": "AHUctrl.heatingCoilCtrl",
+                        "points": [
+                            {
+                                "@id": "AHUctrl.heatingCoilCtrl.u_m",
+                                "connectedTo": [
+                                    "supTemp"
+                                ]
+                            },
+                            {
+                                "@id": "AHUctrl.heatingCoilCtrl.y",
+                                "connectedTo": [
+                                    "heatingCoil_y"
+                                ]
+                            },
+                            {
+                                "@id": "AHUctrl.heatingCoilCtrl.u_s",
+                                "connectedTo": [
+                                    "tempStp.y"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "modelicaName": "supPre",
+                        "@type": "cdl:Interfaces.RealInput",
+                        "@id": "AHUctrl.supPre",
+                        "points": [
+                            {
+                                "@id": "AHUctrl.supPre",
+                                "connectedTo": [
+                                    "supFanCtrl.u_m"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "modelicaName": "retPre",
+                        "@type": "cdl:Interfaces.RealInput",
+                        "@id": "AHUctrl.retPre",
+                        "points": [
+                            {
+                                "@id": "AHUctrl.retPre",
+                                "connectedTo": [
+                                    "retFanCtrl.u_m"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "modelicaName": "supTemp",
+                        "@type": "cdl:Interfaces.RealInput",
+                        "@id": "AHUctrl.supTemp",
+                        "points": [
+                            {
+                                "@id": "AHUctrl.supTemp",
+                                "connectedTo": [
+                                    "heatingCoilCtrl.u_m"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "modelicaName": "supFan_y",
+                        "@type": "cdl:Interfaces.RealOutput",
+                        "@id": "AHUctrl.supFan_y",
+                        "points": [
+                            {
+                                "@id": "AHUctrl.supFan_y",
+                                "connectedTo": [
+                                    "supFanCtrl.y"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "modelicaName": "retFan_y",
+                        "@type": "cdl:Interfaces.RealOutput",
+                        "@id": "AHUctrl.retFan_y",
+                        "points": [
+                            {
+                                "@id": "AHUctrl.retFan_y",
+                                "connectedTo": [
+                                    "retFanCtrl.y"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "modelicaName": "heatingCoil_y",
+                        "@type": "cdl:Interfaces.RealOutput",
+                        "@id": "AHUctrl.heatingCoil_y",
+                        "points": [
+                            {
+                                "@id": "AHUctrl.heatingCoil_y",
+                                "connectedTo": [
+                                    "heatingCoilCtrl.y"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "modelicaName": "spStp",
+                        "k": {
+                            "value": "supplyPressureSetpoint"
+                        },
+                        "@type": "cdl:Continuous.Sources.Constant",
+                        "@id": "AHUctrl.spStp",
+                        "points": [
+                            {
+                                "@id": "AHUctrl.spStp.y",
+                                "connectedTo": [
+                                    "supFanCtrl.u_s"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "modelicaName": "rpStp",
+                        "k": {
+                            "value": "returnPressureSetpoint"
+                        },
+                        "@type": "cdl:Continuous.Sources.Constant",
+                        "@id": "AHUctrl.rpStp",
+                        "points": [
+                            {
+                                "@id": "AHUctrl.rpStp.y",
+                                "connectedTo": [
+                                    "retFanCtrl.u_s"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "modelicaName": "tempStp",
+                        "k": {
+                            "value": "supplyTemperatureSetpoint"
+                        },
+                        "@type": "cdl:Continuous.Sources.Constant",
+                        "@id": "AHUctrl.tempStp",
+                        "points": [
+                            {
+                                "@id": "AHUctrl.tempStp.y",
+                                "connectedTo": [
+                                    "heatingCoilCtrl.u_s"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            ]
+        },
+        {
+            "modelicaName": "vav1",
+            "@type": "CtrllSeqLib.VAVController",
+            "@id": "vav1",
+            "points": [
+                {
+                    "@id": "vav1.roomTemp",
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "1333985.airTemp"
+                    ]
+                },
+                {
+                    "@id": "vav1.co2Level",
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "1333985.co2Level"
+                    ]
+                },
+                {
+                    "@id": "vav1.y",
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "869789.y"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "vav2",
+            "@type": "CtrllSeqLib.VAVController",
+            "@id": "vav2",
+            "points": [
+                {
+                    "@id": "vav2.roomTemp",
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "1333986.airTemp"
+                    ]
+                },
+                {
+                    "@id": "vav2.co2Level",
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "1333986.co2Level"
+                    ]
+                },
+                {
+                    "@id": "vav2.y",
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "869803.y"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "vav3",
+            "@type": "CtrllSeqLib.VAVController",
+            "@id": "vav3",
+            "points": [
+                {
+                    "@id": "vav3.roomTemp",
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "1333984.airTemp"
+                    ]
+                },
+                {
+                    "@id": "vav3.co2Level",
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "1333984.co2Level"
+                    ]
+                },
+                {
+                    "@id": "vav3.y",
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "869779.y"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "vav4",
+            "@type": "CtrllSeqLib.VAVController",
+            "@id": "vav4",
+            "points": [
+                {
+                    "@id": "vav4.roomTemp",
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "1333983.airTemp"
+                    ]
+                },
+                {
+                    "@id": "vav4.co2Level",
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "1333983.co2Level"
+                    ]
+                },
+                {
+                    "@id": "vav4.y",
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "866580.y"
+                    ]
+                }
+            ]
+        }
+    ]
+}

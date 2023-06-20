@@ -1,12 +1,12 @@
 model Model "Auto-generated model"
   Buildings.Fluid.Actuators.Dampers.Exponential motDamp866580(redeclare package Medium = MediumVentilation, m_flow_nominal = 0.0504, dpDamper_nominal = 20.84) annotation(
-    _CDE(id=p866580), Placement(visible = true, transformation(origin = {120, 80}, extent = {{0, 0}, {20, 20}}, rotation = 0)));
+    _CDE(id=866580), Placement(visible = true, transformation(origin = {120, 80}, extent = {{0, 0}, {20, 20}}, rotation = 0)));
   Buildings.Fluid.Actuators.Dampers.Exponential motDamp869779(redeclare package Medium = MediumVentilation, m_flow_nominal = 0.0504, dpDamper_nominal = 9.68) annotation(
-    _CDE(id=p869779), Placement(visible = true, transformation(origin = {90, 20}, extent = {{30, 0}, {50, 20}}, rotation = 0)));
+    _CDE(id=869779), Placement(visible = true, transformation(origin = {90, 20}, extent = {{30, 0}, {50, 20}}, rotation = 0)));
   Buildings.Fluid.Actuators.Dampers.Exponential motDamp869789(redeclare package Medium = MediumVentilation, m_flow_nominal = 0.0504, dpDamper_nominal = 9.68) annotation(
-    _CDE(id=p869789), Placement(visible = true, transformation(origin = {60, -100}, extent = {{60, 0}, {80, 20}}, rotation = 0)));
+    _CDE(id=869789), Placement(visible = true, transformation(origin = {60, -100}, extent = {{60, 0}, {80, 20}}, rotation = 0)));
   Buildings.Fluid.Actuators.Dampers.Exponential motDamp869803(redeclare package Medium = MediumVentilation, m_flow_nominal = 0.0504, dpDamper_nominal = 9.68) annotation(
-    _CDE(id=p869803), Placement(visible = true, transformation(origin = {30, -40}, extent = {{90, 0}, {110, 20}}, rotation = 0)));
+    _CDE(id=869803), Placement(visible = true, transformation(origin = {30, -40}, extent = {{90, 0}, {110, 20}}, rotation = 0)));
   Buildings.Fluid.Movers.SpeedControlled_y fan1331423(redeclare package Medium = MediumVentilation, energyDynamics = Modelica.Fluid.Types.Dynamics.SteadyState, addPowerToMedium = false, show_T = true, riseTime = 120, per(pressure(V_flow(displayUnit = "m3/s") = {0.02, 0.04, 0.06, 0.08, 0.1, 0.12, 0.14, 0.16, 0.18, 0.2, 0.22, 0.24, 0.26, 0.28}, dp = {438.4, 419.2, 401.2, 384.5, 370.4, 352.5, 332.6, 314.7, 283.8, 236.4, 178.0, 135.0, 86.9, 43.6}), use_powerCharacteristic = true, power(V_flow(displayUnit = "m3/s") = {0.02, 0.08, 0.12, 0.16, 0.2, 0.24, 0.28}, P = {124.0, 142.7, 157.7, 175.7, 200.0, 221.0, 253.8}))) annotation(
     _CDE(id=1331423), Placement(visible = true, transformation(origin = {-180, 60}, extent = {{120, 0}, {140, 20}}, rotation = 0)));
   Buildings.Fluid.Movers.SpeedControlled_y fan1332058(redeclare package Medium = MediumVentilation, energyDynamics = Modelica.Fluid.Types.Dynamics.SteadyState, addPowerToMedium = false, show_T = true, riseTime = 120, per(pressure(V_flow(displayUnit = "m3/s") = {0.02, 0.04, 0.06, 0.08, 0.1, 0.12, 0.14, 0.16, 0.18, 0.2, 0.22, 0.24, 0.26, 0.28}, dp = {438.4, 419.2, 401.2, 384.5, 370.4, 352.5, 332.6, 314.7, 283.8, 236.4, 178.0, 135.0, 86.9, 43.6}), use_powerCharacteristic = true, power(V_flow(displayUnit = "m3/s") = {0.02, 0.08, 0.12, 0.16, 0.2, 0.24, 0.28}, P = {124.0, 142.7, 157.7, 175.7, 200.0, 221.0, 253.8}))) annotation(
@@ -28,15 +28,15 @@ model Model "Auto-generated model"
   ToolchainLib.RoomDetachedDetailedProfile room1333986(redeclare package MediumA = MediumVentilation, nPersons = 6) annotation(
     _CDE(id=1333986), Placement(visible = true, transformation(origin = {160, 20}, extent = {{0, -60}, {20, -40}}, rotation = 0)));
   CtrllSeqLib.AHUController AHUctrl annotation(
-    Placement(visible = true, transformation(origin = {-120, 120}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-120, 120}, extent = {{-20, -20}, {20, 20}}, rotation = 0)), __cdl(generatePointlist=true), _CDE(expand=true));
   CtrllSeqLib.VAVController vav1 annotation(
-    Placement(visible = true, transformation(origin = {110, -70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {110, -70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)), __cdl(generatePointlist=true));
   CtrllSeqLib.VAVController vav2 annotation(
-    Placement(visible = true, transformation(origin = {110, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {110, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)), __cdl(generatePointlist=true));
   CtrllSeqLib.VAVController vav3 annotation(
-    Placement(visible = true, transformation(origin = {110, 50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {110, 50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)), __cdl(generatePointlist=true));
   CtrllSeqLib.VAVController vav4 annotation(
-    Placement(visible = true, transformation(origin = {110, 110}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {110, 110}, extent = {{-10, -10}, {10, 10}}, rotation = 0)), __cdl(generatePointlist=true));
 equation
   connect(motDamp869779.port_b, room1333984.airPorIn) annotation(
     Line(points = {{140, 30}, {154, 30}, {154, 41}, {155, 41}}, color = {0, 127, 255}));
