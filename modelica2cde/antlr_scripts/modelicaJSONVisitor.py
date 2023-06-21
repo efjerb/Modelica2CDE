@@ -111,7 +111,8 @@ class modelicaJSONVisitor(modelicaVisitor):
         names = {
             "Buildings.Controls.OBC.CDL.": "cdl:",
             "RambollDefaults.": "ramboll:",
-            "ToolchainLib.": "tl:"
+            "ToolchainLib.": "tl:",
+            "CtrllSeqLib.": "ctrlLib:"
         }
         for name in names.keys():
             if name in type:

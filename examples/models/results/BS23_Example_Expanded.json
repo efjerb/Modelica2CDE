@@ -12,7 +12,7 @@
         },
         "description": "http://example.org/#Description",
         "cdl": "https://simulationresearch.lbl.gov/modelica/releases/latest/help/Buildings_Controls_OBC_CDL.html",
-        "ramboll": "https://example.org/ramboll#",
+        "ctrlLib": "https://example.org/ctrlLib#",
         "brick": "https://brickschema.org/schema/Brick#",
         "tl": "https://example.org/tl#"
     },
@@ -553,7 +553,7 @@
         },
         {
             "modelicaName": "AHUctrl",
-            "@type": "CtrllSeqLib.AHUController",
+            "@type": "ctrlLib:AHUController",
             "@id": "AHUctrl",
             "points": [
                 {
@@ -880,7 +880,7 @@
         },
         {
             "modelicaName": "vav1",
-            "@type": "CtrllSeqLib.VAVController",
+            "@type": "ctrlLib:VAVController",
             "@id": "vav1",
             "points": [
                 {
@@ -917,7 +917,7 @@
         },
         {
             "modelicaName": "vav2",
-            "@type": "CtrllSeqLib.VAVController",
+            "@type": "ctrlLib:VAVController",
             "@id": "vav2",
             "points": [
                 {
@@ -954,7 +954,7 @@
         },
         {
             "modelicaName": "vav3",
-            "@type": "CtrllSeqLib.VAVController",
+            "@type": "ctrlLib:VAVController",
             "@id": "vav3",
             "points": [
                 {
@@ -991,7 +991,7 @@
         },
         {
             "modelicaName": "vav4",
-            "@type": "CtrllSeqLib.VAVController",
+            "@type": "ctrlLib:VAVController",
             "@id": "vav4",
             "points": [
                 {
