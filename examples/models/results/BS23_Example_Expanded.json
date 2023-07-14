@@ -1,20 +1,23 @@
 {
     "@context": {
-        "Elements": "http://example.org/#Elements",
+        "Elements": "ex:Elements",
         "type": {
             "@id": "https://www.w3.org/TR/rdf-schema/#ch_type",
             "@type": "@id"
         },
         "points": "https://brickschema.org/schema/Brick#hasPoint",
         "connectedTo": {
-            "@id": "http://example.org/#ConnectedTo",
+            "@id": "ctrl:isConnectedTo",
             "@type": "@id"
         },
-        "description": "http://example.org/#Description",
-        "cdl": "https://simulationresearch.lbl.gov/modelica/releases/latest/help/Buildings_Controls_OBC_CDL.html",
+        "description": "ex:Description",
+        "cdl": "https://simulationresearch.lbl.gov/modelica/releases/latest/help/Buildings_Controls_OBC_CDL.html#",
         "ctrlLib": "https://example.org/ctrlLib#",
         "brick": "https://brickschema.org/schema/Brick#",
-        "tl": "https://example.org/tl#"
+        "tl": "https://example.org/tl#",
+        "ex": "https://example.org/#",
+        "inst": "https://example.org/inst#",
+        "ctrl": "https://w3id.org/ibp/CTRLont#ctrl"
     },
     "@type": "model",
     "@id": "BS23_Example_Expanded",
@@ -670,19 +673,19 @@
                             {
                                 "@id": "AHUctrl.supFanCtrl.y",
                                 "connectedTo": [
-                                    "supFan_y"
+                                    "AHUctrl.supFan_y"
                                 ]
                             },
                             {
                                 "@id": "AHUctrl.supFanCtrl.u_m",
                                 "connectedTo": [
-                                    "supPre"
+                                    "AHUctrl.supPre"
                                 ]
                             },
                             {
                                 "@id": "AHUctrl.supFanCtrl.u_s",
                                 "connectedTo": [
-                                    "spStp.y"
+                                    "AHUctrl.spStp.y"
                                 ]
                             }
                         ]
@@ -701,19 +704,19 @@
                             {
                                 "@id": "AHUctrl.retFanCtrl.y",
                                 "connectedTo": [
-                                    "retFan_y"
+                                    "AHUctrl.retFan_y"
                                 ]
                             },
                             {
                                 "@id": "AHUctrl.retFanCtrl.u_m",
                                 "connectedTo": [
-                                    "retPre"
+                                    "AHUctrl.retPre"
                                 ]
                             },
                             {
                                 "@id": "AHUctrl.retFanCtrl.u_s",
                                 "connectedTo": [
-                                    "rpStp.y"
+                                    "AHUctrl.rpStp.y"
                                 ]
                             }
                         ]
@@ -732,19 +735,19 @@
                             {
                                 "@id": "AHUctrl.heatingCoilCtrl.u_m",
                                 "connectedTo": [
-                                    "supTemp"
+                                    "AHUctrl.supTemp"
                                 ]
                             },
                             {
                                 "@id": "AHUctrl.heatingCoilCtrl.y",
                                 "connectedTo": [
-                                    "heatingCoil_y"
+                                    "AHUctrl.heatingCoil_y"
                                 ]
                             },
                             {
                                 "@id": "AHUctrl.heatingCoilCtrl.u_s",
                                 "connectedTo": [
-                                    "tempStp.y"
+                                    "AHUctrl.tempStp.y"
                                 ]
                             }
                         ]
@@ -757,7 +760,7 @@
                             {
                                 "@id": "AHUctrl.supPre",
                                 "connectedTo": [
-                                    "supFanCtrl.u_m"
+                                    "AHUctrl.supFanCtrl.u_m"
                                 ]
                             }
                         ]
@@ -770,7 +773,7 @@
                             {
                                 "@id": "AHUctrl.retPre",
                                 "connectedTo": [
-                                    "retFanCtrl.u_m"
+                                    "AHUctrl.retFanCtrl.u_m"
                                 ]
                             }
                         ]
@@ -783,7 +786,7 @@
                             {
                                 "@id": "AHUctrl.supTemp",
                                 "connectedTo": [
-                                    "heatingCoilCtrl.u_m"
+                                    "AHUctrl.heatingCoilCtrl.u_m"
                                 ]
                             }
                         ]
@@ -796,7 +799,7 @@
                             {
                                 "@id": "AHUctrl.supFan_y",
                                 "connectedTo": [
-                                    "supFanCtrl.y"
+                                    "AHUctrl.supFanCtrl.y"
                                 ]
                             }
                         ]
@@ -809,7 +812,7 @@
                             {
                                 "@id": "AHUctrl.retFan_y",
                                 "connectedTo": [
-                                    "retFanCtrl.y"
+                                    "AHUctrl.retFanCtrl.y"
                                 ]
                             }
                         ]
@@ -822,7 +825,7 @@
                             {
                                 "@id": "AHUctrl.heatingCoil_y",
                                 "connectedTo": [
-                                    "heatingCoilCtrl.y"
+                                    "AHUctrl.heatingCoilCtrl.y"
                                 ]
                             }
                         ]
@@ -838,7 +841,7 @@
                             {
                                 "@id": "AHUctrl.spStp.y",
                                 "connectedTo": [
-                                    "supFanCtrl.u_s"
+                                    "AHUctrl.supFanCtrl.u_s"
                                 ]
                             }
                         ]
@@ -854,7 +857,7 @@
                             {
                                 "@id": "AHUctrl.rpStp.y",
                                 "connectedTo": [
-                                    "retFanCtrl.u_s"
+                                    "AHUctrl.retFanCtrl.u_s"
                                 ]
                             }
                         ]
@@ -870,7 +873,7 @@
                             {
                                 "@id": "AHUctrl.tempStp.y",
                                 "connectedTo": [
-                                    "heatingCoilCtrl.u_s"
+                                    "AHUctrl.heatingCoilCtrl.u_s"
                                 ]
                             }
                         ]

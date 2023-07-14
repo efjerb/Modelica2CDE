@@ -2,12 +2,12 @@
     "@context": {
         "Elements": "ex:Elements",
         "type": {
-            "@id": "inst:https://www.w3.org/TR/rdf-schema/#ch_type",
+            "@id": "https://www.w3.org/TR/rdf-schema/#ch_type",
             "@type": "@id"
         },
         "points": "https://brickschema.org/schema/Brick#hasPoint",
         "connectedTo": {
-            "@id": "ex:ConnectedTo",
+            "@id": "ctrl:isConnectedTo",
             "@type": "@id"
         },
         "description": "ex:Description",
@@ -16,6 +16,7 @@
         "brick": "https://brickschema.org/schema/Brick#",
         "tl": "https://example.org/tl#",
         "ex": "https://example.org/#",
-        "inst": "https://example.org/inst#"
+        "inst": "https://example.org/inst#",
+        "ctrl": "https://w3id.org/ibp/CTRLont#ctrl"
     }
 }
