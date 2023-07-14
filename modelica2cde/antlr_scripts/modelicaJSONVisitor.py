@@ -37,26 +37,26 @@ class modelicaJSONVisitor(modelicaVisitor):
         visitor.visitStored_definition(tree)
         res = visitor.output["Elements"]
 
-        res = self.prefix_ids(res, component["@id"])
+        res = self.prefix_ids(res, component["@id"], ".")
         
         return res
 
 
-    def prefix_ids(self, elements, prefix = None):
+    def prefix_ids(self, elements, prefix: str, separator = ""):
         """Recursively adds the component's name to the ids of the dicts in elements"""
         if prefix == None:
             raise ValueError("prefix must be specified")
         if isinstance(elements, list):
             for i in elements:
-                self.prefix_ids(i,prefix)
+                self.prefix_ids(i,prefix, separator)
         elif isinstance(elements, dict):
             if "@id" in elements.keys():
-                elements["@id"] = prefix + "." + elements["@id"]
+                elements["@id"] = prefix + separator + elements["@id"]
             if "connectedTo" in elements.keys():
                 for i, con in enumerate(elements["connectedTo"]):
-                    elements["connectedTo"][i] = prefix + "." + con
+                    elements["connectedTo"][i] = prefix + separator + con
             for k in elements.keys():
-                self.prefix_ids(elements[k],prefix)
+                self.prefix_ids(elements[k],prefix, separator)
         else:
             pass
         return elements

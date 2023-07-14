@@ -15,4 +15,6 @@ def create_modelica_JSON(file_path, get_point_lists):
     modelicaJSON = modelicaJSONVisitor(get_point_lists=get_point_lists)
     modelicaJSON.visitStored_definition(tree)
 
+    modelicaJSON.prefix_ids(modelicaJSON.output,"inst",":")
+
     return modelicaJSON.output
