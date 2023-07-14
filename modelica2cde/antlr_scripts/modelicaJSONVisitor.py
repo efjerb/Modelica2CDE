@@ -52,6 +52,9 @@ class modelicaJSONVisitor(modelicaVisitor):
         elif isinstance(elements, dict):
             if "@id" in elements.keys():
                 elements["@id"] = prefix + "." + elements["@id"]
+            if "connectedTo" in elements.keys():
+                for i, con in enumerate(elements["connectedTo"]):
+                    elements["connectedTo"][i] = prefix + "." + con
             for k in elements.keys():
                 self.prefix_ids(elements[k],prefix)
         else:
