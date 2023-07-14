@@ -1,6 +1,6 @@
 {
     "@context": {
-        "Elements": "ex:Elements",
+        "Elements": "ex:hasBlock",
         "type": {
             "@id": "https://www.w3.org/TR/rdf-schema/#ch_type",
             "@type": "@id"
