@@ -1,22 +1,22 @@
 {
     "@context": {
-        "Elements": "ex:hasBlock",
+        "Elements": "S231P:containsBlock",
         "type": {
             "@id": "https://www.w3.org/TR/rdf-schema/#ch_type",
             "@type": "@id"
         },
         "points": "https://brickschema.org/schema/Brick#hasPoint",
         "connectedTo": {
-            "@id": "ctrl:isConnectedTo",
+            "@id": "S231P:isConnectedTo",
             "@type": "@id"
         },
         "description": "ex:Description",
         "cdl": "https://simulationresearch.lbl.gov/modelica/releases/latest/help/Buildings_Controls_OBC_CDL.html#",
-        "ctrlLib": "https://example.org/ctrlLib#",
+        "ctrlLib": "https://example.com/ctrlLib#",
         "brick": "https://brickschema.org/schema/Brick#",
-        "tl": "https://example.org/tl#",
-        "ex": "https://example.org/#",
-        "inst": "https://example.org/inst#",
-        "ctrl": "https://w3id.org/ibp/CTRLont#ctrl"
+        "tl": "https://example.com/tl#",
+        "ex": "https://example.com/#",
+        "inst": "https://example.com/inst#",
+        "S231P": "http://data.ashrae.org/S231P#"
     }
 }

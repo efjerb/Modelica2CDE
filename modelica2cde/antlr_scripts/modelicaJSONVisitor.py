@@ -13,7 +13,7 @@ class modelicaJSONVisitor(modelicaVisitor):
         if self.get_point_lists:
             self.omc = OMCSessionZMQ()
             self.omc.loadModel("Buildings")
-            self.omc.sendExpression(f'setModelicaPath("{os.getenv("OPENMODELICALIBRARY")}")')
+            # self.omc.sendExpression(f'setModelicaPath("{os.getenv("OPENMODELICALIBRARY")}")')
             self.omc.loadModel("RambollDefaults")
             self.omc.loadModel("ToolchainLib")
             self.omc.loadModel("CtrllSeqLib")            
@@ -33,14 +33,13 @@ class modelicaJSONVisitor(modelicaVisitor):
         tree = parser.stored_definition()
         parser.buildParseTrees = True
 
-        visitor = modelicaJSONVisitor(include_connections = False, get_point_lists = False)
+        visitor = modelicaJSONVisitor(include_connections = False, get_point_lists = self.get_point_lists)
         visitor.visitStored_definition(tree)
         res = visitor.output["Elements"]
 
         res = self.prefix_ids(res, component["@id"], ".")
         
         return res
-
 
     def prefix_ids(self, elements, prefix: str, separator = ""):
         """Recursively adds the component's name to the ids of the dicts in elements"""
@@ -50,11 +49,12 @@ class modelicaJSONVisitor(modelicaVisitor):
             for i in elements:
                 self.prefix_ids(i,prefix, separator)
         elif isinstance(elements, dict):
-            if "@id" in elements.keys():
+            if "@id" in elements.keys() and prefix + separator not in elements["@id"]: # TODO: This is a hotfix and should be handled when creating @id from ModelicaName
                 elements["@id"] = prefix + separator + elements["@id"]
             if "connectedTo" in elements.keys():
                 for i, con in enumerate(elements["connectedTo"]):
-                    elements["connectedTo"][i] = prefix + separator + con
+                    if prefix + separator not in con:
+                        elements["connectedTo"][i] = prefix + separator + con
             for k in elements.keys():
                 self.prefix_ids(elements[k],prefix, separator)
         else:
@@ -86,11 +86,60 @@ class modelicaJSONVisitor(modelicaVisitor):
     
     def get_model_path(self, model_name) -> str:
         package_path = self.omc.sendExpression(f"Modelica.Utilities.Files.loadResource(\"modelica://{model_name}\")")
-        if package_path != "":
+        if package_path != "" and package_path is not None:
             model_path = package_path + "\\" + model_name.split('.')[-1] + ".mo"
             return model_path
         else:
             return None
+
+    def create_input_outputs(self, elements):
+        if isinstance(elements, list):
+            for i in elements:
+                self.create_input_outputs(i)
+    
+        elif isinstance(elements, dict):
+            if "points" in elements.keys():
+                inputs = [point for point in elements["points"] if any(("input" in x.lower()) and ("s231p" in x.lower()) for x in ([point["@type"]] if isinstance(point["@type"], str) else point["@type"]))]
+                outputs = [point for point in elements["points"] if any(("output" in x.lower()) and ("s231p" in x.lower()) for x in ([point["@type"]] if isinstance(point["@type"], str) else point["@type"]))]
+                parameters = [point for point in elements["points"] if any("s231p:parameter" in x.lower() for x in ([point["@type"]] if isinstance(point["@type"], str) else point["@type"]))]
+                constant = [point for point in elements["points"] if any("s231p:constant" in x.lower() for x in ([point["@type"]] if isinstance(point["@type"], str) else point["@type"]))]
+                if inputs != []:
+                    if "S231P:hasInput" not in elements.keys():
+                        elements["S231P:hasInput"] = inputs
+                    else:
+                        if isinstance(elements["S231P:hasInput"], list):
+                            elements["S231P:hasInput"].extend(inputs)
+                        else:
+                            elements["S231P:hasInput"] = [elements["S231P:hasInput"]] + inputs
+                if outputs != []:
+                    if "S231P:hasOutput" not in elements.keys():
+                        elements["S231P:hasOutput"] = outputs
+                    else:
+                        if isinstance(elements["S231P:hasOutput"], list):
+                            elements["S231P:hasOutput"].extend(outputs)
+                        else:
+                            elements["S231P:hasOutput"] = [elements["S231P:hasOutput"]] + outputs
+                if parameters != []:
+                    if "S231P:hasParameter" not in elements.keys():
+                        elements["S231P:hasParameter"] = parameters
+                    else:
+                        if isinstance(elements["S231P:hasParameter"], list):
+                            elements["S231P:hasParameter"].extend(parameters)
+                        else:
+                            elements["S231P:hasParameter"] = [elements["S231P:hasParameter"]] + parameters
+                if constant != []:
+                    if "S231P:hasConstant" not in elements.keys():
+                        elements["S231P:hasConstant"] = constant
+                    else:
+                        if isinstance(elements["S231P:hasConstant"], list):
+                            elements["S231P:hasConstant"].extend(constant)
+                        else:
+                            elements["S231P:hasConstant"] = [elements["S231P:hasConstant"]] + constant
+            for k in elements.keys():
+                self.create_input_outputs(elements[k])
+        else:
+            pass
+        return elements
 
     def visitClass_definition(self, ctx: modelicaParser.Class_definitionContext):
         self.output["@type"] = ctx.class_prefixes().getText()
@@ -126,8 +175,8 @@ class modelicaJSONVisitor(modelicaVisitor):
         variability = self.visitType_prefix(ctx.type_prefix())
         component = self.visitComponent_list(ctx.component_list())[0]
         component["@type"] = self.visitType_specifier(ctx.type_specifier())
-        if component.get("annotation",{}).get("_CDE",{}).get("id") != None:
-            component["@id"] = str(component.get("annotation",{}).get("_CDE",{}).get("id")["value"])
+        if component.get("annotation",{}).get("_CDE",{}).get("iri") != None:
+            component["@id"] = str(component.get("annotation",{}).get("_CDE",{}).get("iri")["value"])
         else:
             component["@id"] = component["modelicaName"]
 
@@ -139,7 +188,10 @@ class modelicaJSONVisitor(modelicaVisitor):
             if len(points) != 0:
                 for point in points:
                     point["@id"] = component["@id"] + "." + point["@id"]
+                    if type(point["@type"]) == str: point["@type"] = [point["@type"]]
+                
                 component["points"] = points
+        
         
         # Expand component model, if specified in annotations:
         if component.get("annotation",{}).get("_CDE",{}).get("expand",{}).get("value") == "true":
@@ -284,21 +336,54 @@ class modelicaJSONVisitor(modelicaVisitor):
         
         to_point = [point for point in to_comp["points"] if point["@id"] == to_id]
         from_point = [point for point in from_comp["points"] if point["@id"] == from_id]
+        
+        common_types = []
+        to_type = ""
+        from_type = ""
+
+        if from_point != []:
+            for type in from_point[0].get("@type",{}):
+                if "S231P:" not in type:
+                    common_types.append(type)
+                else:
+                    from_type = type
+
+
+        if to_point != []:
+            for type in to_point[0].get("@type",{}):
+                if "S231P:" not in type:
+                    common_types.append(type)
+                else:
+                    to_type = type
+        
+        if to_type == "" and from_type != "":
+            if "Input" in from_type:
+                to_type = from_type.replace("Input", "Output")
+            elif "Output" in from_type:
+                to_type = from_type.replace("Output", "Input")
+        
+        elif to_type != "" and from_type == "":
+            if "Input" in to_type:
+                from_type = to_type.replace("Input", "Output")
+            elif "Output" in to_type:
+                from_type = to_type.replace("Output", "Input")
 
         if from_point != []:
             if "connectedTo" not in from_point[0].keys():
                 from_point[0]["connectedTo"] = []
             from_point[0]["connectedTo"].append(to_id)
+            from_point[0]["@type"].extend(common_types+[from_type])
         else:
-            from_comp["points"].append({"@id":from_id,"connectedTo":[to_id]})
+            from_comp["points"].append({"@id":from_id,"connectedTo":[to_id],"@type":common_types+[from_type]})
         
         if to_point != []:
             if "connectedTo" not in to_point[0].keys():
                 to_point[0]["connectedTo"] = []
             to_point[0]["connectedTo"].append(from_id)
+            to_point[0]["@type"].extend(common_types+[to_type])
         else:
-            to_comp["points"].append({"@id":to_id,"connectedTo":[from_id]})
-
+            to_comp["points"].append({"@id":to_id,"connectedTo":[from_id],"@type":common_types+[to_type]})
+            
         return connection
 
 

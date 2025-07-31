@@ -15,14 +15,28 @@ class modelicaIOvisitor(modelicaVisitor):
         output_names = ["BooleanOutput", "RealOutput", "IntegerOutput"]
         type = ctx.type_specifier().getText().split(".")[-1]
         components = self.visitComponent_list(ctx.component_list())
+        type_prefix = self.visitType_prefix(ctx.type_prefix())
         for comp in components:
             if type in input_names or type in output_names:
                 new_comp = comp
                 if "@type" not in new_comp.keys():
                     new_comp["@type"] = []
-                new_comp["@type"].append("cdl:" + type)
+                new_comp["@type"].append("S231P:" + type)
                 self.res.append(new_comp)
-    
+            if type_prefix == "parameter":
+                new_comp = comp
+                if "@type" not in new_comp.keys():
+                    new_comp["@type"] = []
+                new_comp["@type"].append("S231P:Parameter")
+                self.res.append(new_comp)
+            if type_prefix == "constant":
+                new_comp = comp
+                if "@type" not in new_comp.keys():
+                    new_comp["@type"] = []
+                new_comp["@type"].append("S231P:Constant")
+                self.res.append(new_comp)
+
+
     def visitExtends_clause(self, ctx: modelicaParser.Extends_clauseContext):
         name = ctx.name().getText()
         if name.split('.')[0] != "Modelica":

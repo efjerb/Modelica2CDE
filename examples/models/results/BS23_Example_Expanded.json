@@ -19,7 +19,7 @@
         "inst": "https://example.org/inst#",
         "ctrl": "https://w3id.org/ibp/CTRLont#ctrl"
     },
-    "@type": "model",
+    "@type": "package",
     "@id": "inst:BS23_Example_Expanded",
     "description": "Auto-generated model",
     "Elements": [
@@ -39,12 +39,16 @@
                     "@id": "inst:866580.port_b",
                     "connectedTo": [
                         "inst:1333983.airPorIn"
-                    ]
+                    ],
+                    "@type": []
                 },
                 {
                     "@id": "inst:866580.y",
                     "connectedTo": [
                         "inst:vav4.y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Position_Command"
                     ]
                 }
             ]
@@ -65,12 +69,16 @@
                     "@id": "inst:869779.port_b",
                     "connectedTo": [
                         "inst:1333984.airPorIn"
-                    ]
+                    ],
+                    "@type": []
                 },
                 {
                     "@id": "inst:869779.y",
                     "connectedTo": [
                         "inst:vav3.y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Position_Command"
                     ]
                 }
             ]
@@ -91,12 +99,16 @@
                     "@id": "inst:869789.port_b",
                     "connectedTo": [
                         "inst:1333985.airPorIn"
-                    ]
+                    ],
+                    "@type": []
                 },
                 {
                     "@id": "inst:869789.y",
                     "connectedTo": [
                         "inst:vav1.y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Position_Command"
                     ]
                 }
             ]
@@ -117,12 +129,16 @@
                     "@id": "inst:869803.port_b",
                     "connectedTo": [
                         "inst:1333986.airPorIn"
-                    ]
+                    ],
+                    "@type": []
                 },
                 {
                     "@id": "inst:869803.y",
                     "connectedTo": [
                         "inst:vav2.y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Position_Command"
                     ]
                 }
             ]
@@ -222,12 +238,16 @@
                     "@id": "inst:1331423.port_b",
                     "connectedTo": [
                         "inst:1356764.port_a"
-                    ]
+                    ],
+                    "@type": []
                 },
                 {
                     "@id": "inst:1331423.y",
                     "connectedTo": [
                         "inst:AHUctrl.supFan_y"
+                    ],
+                    "@type": [
+                        "brick:Fan_Speed_Command"
                     ]
                 }
             ]
@@ -327,12 +347,16 @@
                     "@id": "inst:1332058.port_b",
                     "connectedTo": [
                         "inst:1359814.port_a"
-                    ]
+                    ],
+                    "@type": []
                 },
                 {
                     "@id": "inst:1332058.y",
                     "connectedTo": [
                         "inst:AHUctrl.retFan_y"
+                    ],
+                    "@type": [
+                        "brick:Fan_Speed_Command"
                     ]
                 }
             ]
@@ -347,18 +371,23 @@
                     "@id": "inst:1356764.port_a",
                     "connectedTo": [
                         "inst:1331423.port_b"
-                    ]
+                    ],
+                    "@type": []
                 },
                 {
                     "@id": "inst:1356764.port_b",
                     "connectedTo": [
                         "inst:1359936.port_a"
-                    ]
+                    ],
+                    "@type": []
                 },
                 {
                     "@id": "inst:1356764.statPres",
                     "connectedTo": [
                         "inst:AHUctrl.supPre"
+                    ],
+                    "@type": [
+                        "brick:Supply_Air_Static_Pressure_Sensor"
                     ]
                 }
             ]
@@ -373,12 +402,16 @@
                     "@id": "inst:1359814.port_a",
                     "connectedTo": [
                         "inst:1332058.port_b"
-                    ]
+                    ],
+                    "@type": []
                 },
                 {
                     "@id": "inst:1359814.statPres",
                     "connectedTo": [
                         "inst:AHUctrl.retPre"
+                    ],
+                    "@type": [
+                        "brick:Discharge_Air_Static_Pressure_Sensor"
                     ]
                 }
             ]
@@ -405,12 +438,16 @@
                     "@id": "inst:1359936.port_a",
                     "connectedTo": [
                         "inst:1356764.port_b"
-                    ]
+                    ],
+                    "@type": []
                 },
                 {
                     "@id": "inst:1359936.T",
                     "connectedTo": [
                         "inst:AHUctrl.supTemp"
+                    ],
+                    "@type": [
+                        "brick:Supply_Air_Temperature_Sensor"
                     ]
                 }
             ]
@@ -434,6 +471,9 @@
                     "@id": "inst:1151719.y",
                     "connectedTo": [
                         "inst:AHUctrl.heatingCoil_y"
+                    ],
+                    "@type": [
+                        "brick:Valve_Position_Command"
                     ]
                 }
             ]
@@ -451,18 +491,25 @@
                     "@id": "inst:1333983.airPorIn",
                     "connectedTo": [
                         "inst:866580.port_b"
-                    ]
+                    ],
+                    "@type": []
                 },
                 {
                     "@id": "inst:1333983.airTemp",
                     "connectedTo": [
                         "inst:vav4.roomTemp"
+                    ],
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor"
                     ]
                 },
                 {
                     "@id": "inst:1333983.co2Level",
                     "connectedTo": [
                         "inst:vav4.co2Level"
+                    ],
+                    "@type": [
+                        "brick:CO2_Level_Sensor"
                     ]
                 }
             ]
@@ -480,18 +527,25 @@
                     "@id": "inst:1333984.airPorIn",
                     "connectedTo": [
                         "inst:869779.port_b"
-                    ]
+                    ],
+                    "@type": []
                 },
                 {
                     "@id": "inst:1333984.co2Level",
                     "connectedTo": [
                         "inst:vav3.co2Level"
+                    ],
+                    "@type": [
+                        "brick:CO2_Level_Sensor"
                     ]
                 },
                 {
                     "@id": "inst:1333984.airTemp",
                     "connectedTo": [
                         "inst:vav3.roomTemp"
+                    ],
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor"
                     ]
                 }
             ]
@@ -509,18 +563,25 @@
                     "@id": "inst:1333985.airPorIn",
                     "connectedTo": [
                         "inst:869789.port_b"
-                    ]
+                    ],
+                    "@type": []
                 },
                 {
                     "@id": "inst:1333985.airTemp",
                     "connectedTo": [
                         "inst:vav1.roomTemp"
+                    ],
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor"
                     ]
                 },
                 {
                     "@id": "inst:1333985.co2Level",
                     "connectedTo": [
                         "inst:vav1.co2Level"
+                    ],
+                    "@type": [
+                        "brick:CO2_Level_Sensor"
                     ]
                 }
             ]
@@ -538,18 +599,25 @@
                     "@id": "inst:1333986.airPorIn",
                     "connectedTo": [
                         "inst:869803.port_b"
-                    ]
+                    ],
+                    "@type": []
                 },
                 {
                     "@id": "inst:1333986.airTemp",
                     "connectedTo": [
                         "inst:vav2.roomTemp"
+                    ],
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor"
                     ]
                 },
                 {
                     "@id": "inst:1333986.co2Level",
                     "connectedTo": [
                         "inst:vav2.co2Level"
+                    ],
+                    "@type": [
+                        "brick:CO2_Level_Sensor"
                     ]
                 }
             ]
@@ -563,7 +631,8 @@
                     "@id": "inst:AHUctrl.supPre",
                     "@type": [
                         "brick:Supply_Air_Static_Pressure_Sensor",
-                        "cdl:RealInput"
+                        "cdl:RealInput",
+                        "brick:Supply_Air_Static_Pressure_Sensor"
                     ],
                     "connectedTo": [
                         "inst:1356764.statPres"
@@ -573,7 +642,8 @@
                     "@id": "inst:AHUctrl.retPre",
                     "@type": [
                         "brick:Discharge_Air_Static_Pressure_Sensor",
-                        "cdl:RealInput"
+                        "cdl:RealInput",
+                        "brick:Discharge_Air_Static_Pressure_Sensor"
                     ],
                     "connectedTo": [
                         "inst:1359814.statPres"
@@ -583,7 +653,8 @@
                     "@id": "inst:AHUctrl.supTemp",
                     "@type": [
                         "brick:Supply_Air_Temperature_Sensor",
-                        "cdl:RealInput"
+                        "cdl:RealInput",
+                        "brick:Supply_Air_Temperature_Sensor"
                     ],
                     "connectedTo": [
                         "inst:1359936.T"
@@ -593,7 +664,8 @@
                     "@id": "inst:AHUctrl.supFan_y",
                     "@type": [
                         "brick:Fan_Speed_Command",
-                        "cdl:RealOutput"
+                        "cdl:RealOutput",
+                        "brick:Fan_Speed_Command"
                     ],
                     "connectedTo": [
                         "inst:1331423.y"
@@ -603,7 +675,8 @@
                     "@id": "inst:AHUctrl.retFan_y",
                     "@type": [
                         "brick:Fan_Speed_Command",
-                        "cdl:RealOutput"
+                        "cdl:RealOutput",
+                        "brick:Fan_Speed_Command"
                     ],
                     "connectedTo": [
                         "inst:1332058.y"
@@ -613,7 +686,8 @@
                     "@id": "inst:AHUctrl.heatingCoil_y",
                     "@type": [
                         "brick:Valve_Position_Command",
-                        "cdl:RealOutput"
+                        "cdl:RealOutput",
+                        "brick:Valve_Position_Command"
                     ],
                     "connectedTo": [
                         "inst:1151719.y"
@@ -674,19 +748,22 @@
                                 "@id": "inst:AHUctrl.supFanCtrl.y",
                                 "connectedTo": [
                                     "inst:AHUctrl.supFan_y"
-                                ]
+                                ],
+                                "@type": []
                             },
                             {
                                 "@id": "inst:AHUctrl.supFanCtrl.u_m",
                                 "connectedTo": [
                                     "inst:AHUctrl.supPre"
-                                ]
+                                ],
+                                "@type": []
                             },
                             {
                                 "@id": "inst:AHUctrl.supFanCtrl.u_s",
                                 "connectedTo": [
                                     "inst:AHUctrl.spStp.y"
-                                ]
+                                ],
+                                "@type": []
                             }
                         ]
                     },
@@ -705,19 +782,22 @@
                                 "@id": "inst:AHUctrl.retFanCtrl.y",
                                 "connectedTo": [
                                     "inst:AHUctrl.retFan_y"
-                                ]
+                                ],
+                                "@type": []
                             },
                             {
                                 "@id": "inst:AHUctrl.retFanCtrl.u_m",
                                 "connectedTo": [
                                     "inst:AHUctrl.retPre"
-                                ]
+                                ],
+                                "@type": []
                             },
                             {
                                 "@id": "inst:AHUctrl.retFanCtrl.u_s",
                                 "connectedTo": [
                                     "inst:AHUctrl.rpStp.y"
-                                ]
+                                ],
+                                "@type": []
                             }
                         ]
                     },
@@ -736,19 +816,22 @@
                                 "@id": "inst:AHUctrl.heatingCoilCtrl.u_m",
                                 "connectedTo": [
                                     "inst:AHUctrl.supTemp"
-                                ]
+                                ],
+                                "@type": []
                             },
                             {
                                 "@id": "inst:AHUctrl.heatingCoilCtrl.y",
                                 "connectedTo": [
                                     "inst:AHUctrl.heatingCoil_y"
-                                ]
+                                ],
+                                "@type": []
                             },
                             {
                                 "@id": "inst:AHUctrl.heatingCoilCtrl.u_s",
                                 "connectedTo": [
                                     "inst:AHUctrl.tempStp.y"
-                                ]
+                                ],
+                                "@type": []
                             }
                         ]
                     },
@@ -761,7 +844,8 @@
                                 "@id": "inst:AHUctrl.supPre",
                                 "connectedTo": [
                                     "inst:AHUctrl.supFanCtrl.u_m"
-                                ]
+                                ],
+                                "@type": []
                             }
                         ]
                     },
@@ -774,7 +858,8 @@
                                 "@id": "inst:AHUctrl.retPre",
                                 "connectedTo": [
                                     "inst:AHUctrl.retFanCtrl.u_m"
-                                ]
+                                ],
+                                "@type": []
                             }
                         ]
                     },
@@ -787,7 +872,8 @@
                                 "@id": "inst:AHUctrl.supTemp",
                                 "connectedTo": [
                                     "inst:AHUctrl.heatingCoilCtrl.u_m"
-                                ]
+                                ],
+                                "@type": []
                             }
                         ]
                     },
@@ -800,7 +886,8 @@
                                 "@id": "inst:AHUctrl.supFan_y",
                                 "connectedTo": [
                                     "inst:AHUctrl.supFanCtrl.y"
-                                ]
+                                ],
+                                "@type": []
                             }
                         ]
                     },
@@ -813,7 +900,8 @@
                                 "@id": "inst:AHUctrl.retFan_y",
                                 "connectedTo": [
                                     "inst:AHUctrl.retFanCtrl.y"
-                                ]
+                                ],
+                                "@type": []
                             }
                         ]
                     },
@@ -826,7 +914,8 @@
                                 "@id": "inst:AHUctrl.heatingCoil_y",
                                 "connectedTo": [
                                     "inst:AHUctrl.heatingCoilCtrl.y"
-                                ]
+                                ],
+                                "@type": []
                             }
                         ]
                     },
@@ -842,7 +931,8 @@
                                 "@id": "inst:AHUctrl.spStp.y",
                                 "connectedTo": [
                                     "inst:AHUctrl.supFanCtrl.u_s"
-                                ]
+                                ],
+                                "@type": []
                             }
                         ]
                     },
@@ -858,7 +948,8 @@
                                 "@id": "inst:AHUctrl.rpStp.y",
                                 "connectedTo": [
                                     "inst:AHUctrl.retFanCtrl.u_s"
-                                ]
+                                ],
+                                "@type": []
                             }
                         ]
                     },
@@ -874,7 +965,8 @@
                                 "@id": "inst:AHUctrl.tempStp.y",
                                 "connectedTo": [
                                     "inst:AHUctrl.heatingCoilCtrl.u_s"
-                                ]
+                                ],
+                                "@type": []
                             }
                         ]
                     }
@@ -890,7 +982,8 @@
                     "@id": "inst:vav1.roomTemp",
                     "@type": [
                         "brick:Zone_Air_Temperature_Sensor",
-                        "cdl:RealInput"
+                        "cdl:RealInput",
+                        "brick:Zone_Air_Temperature_Sensor"
                     ],
                     "connectedTo": [
                         "inst:1333985.airTemp"
@@ -900,7 +993,8 @@
                     "@id": "inst:vav1.co2Level",
                     "@type": [
                         "brick:CO2_Level_Sensor",
-                        "cdl:RealInput"
+                        "cdl:RealInput",
+                        "brick:CO2_Level_Sensor"
                     ],
                     "connectedTo": [
                         "inst:1333985.co2Level"
@@ -910,7 +1004,8 @@
                     "@id": "inst:vav1.y",
                     "@type": [
                         "brick:Damper_Position_Command",
-                        "cdl:RealOutput"
+                        "cdl:RealOutput",
+                        "brick:Damper_Position_Command"
                     ],
                     "connectedTo": [
                         "inst:869789.y"
@@ -927,7 +1022,8 @@
                     "@id": "inst:vav2.roomTemp",
                     "@type": [
                         "brick:Zone_Air_Temperature_Sensor",
-                        "cdl:RealInput"
+                        "cdl:RealInput",
+                        "brick:Zone_Air_Temperature_Sensor"
                     ],
                     "connectedTo": [
                         "inst:1333986.airTemp"
@@ -937,7 +1033,8 @@
                     "@id": "inst:vav2.co2Level",
                     "@type": [
                         "brick:CO2_Level_Sensor",
-                        "cdl:RealInput"
+                        "cdl:RealInput",
+                        "brick:CO2_Level_Sensor"
                     ],
                     "connectedTo": [
                         "inst:1333986.co2Level"
@@ -947,7 +1044,8 @@
                     "@id": "inst:vav2.y",
                     "@type": [
                         "brick:Damper_Position_Command",
-                        "cdl:RealOutput"
+                        "cdl:RealOutput",
+                        "brick:Damper_Position_Command"
                     ],
                     "connectedTo": [
                         "inst:869803.y"
@@ -964,7 +1062,8 @@
                     "@id": "inst:vav3.roomTemp",
                     "@type": [
                         "brick:Zone_Air_Temperature_Sensor",
-                        "cdl:RealInput"
+                        "cdl:RealInput",
+                        "brick:Zone_Air_Temperature_Sensor"
                     ],
                     "connectedTo": [
                         "inst:1333984.airTemp"
@@ -974,7 +1073,8 @@
                     "@id": "inst:vav3.co2Level",
                     "@type": [
                         "brick:CO2_Level_Sensor",
-                        "cdl:RealInput"
+                        "cdl:RealInput",
+                        "brick:CO2_Level_Sensor"
                     ],
                     "connectedTo": [
                         "inst:1333984.co2Level"
@@ -984,7 +1084,8 @@
                     "@id": "inst:vav3.y",
                     "@type": [
                         "brick:Damper_Position_Command",
-                        "cdl:RealOutput"
+                        "cdl:RealOutput",
+                        "brick:Damper_Position_Command"
                     ],
                     "connectedTo": [
                         "inst:869779.y"
@@ -1001,7 +1102,8 @@
                     "@id": "inst:vav4.roomTemp",
                     "@type": [
                         "brick:Zone_Air_Temperature_Sensor",
-                        "cdl:RealInput"
+                        "cdl:RealInput",
+                        "brick:Zone_Air_Temperature_Sensor"
                     ],
                     "connectedTo": [
                         "inst:1333983.airTemp"
@@ -1011,7 +1113,8 @@
                     "@id": "inst:vav4.co2Level",
                     "@type": [
                         "brick:CO2_Level_Sensor",
-                        "cdl:RealInput"
+                        "cdl:RealInput",
+                        "brick:CO2_Level_Sensor"
                     ],
                     "connectedTo": [
                         "inst:1333983.co2Level"
@@ -1021,7 +1124,8 @@
                     "@id": "inst:vav4.y",
                     "@type": [
                         "brick:Damper_Position_Command",
-                        "cdl:RealOutput"
+                        "cdl:RealOutput",
+                        "brick:Damper_Position_Command"
                     ],
                     "connectedTo": [
                         "inst:866580.y"

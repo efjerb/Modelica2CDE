@@ -1,0 +1,2033 @@
+{
+    "@context": {
+        "Elements": "ex:hasBlock",
+        "type": {
+            "@id": "https://www.w3.org/TR/rdf-schema/#ch_type",
+            "@type": "@id"
+        },
+        "points": "https://brickschema.org/schema/Brick#hasPoint",
+        "connectedTo": {
+            "@id": "S231P:isConnectedTo",
+            "@type": "@id"
+        },
+        "description": "ex:Description",
+        "cdl": "https://simulationresearch.lbl.gov/modelica/releases/latest/help/Buildings_Controls_OBC_CDL.html#",
+        "ctrlLib": "https://example.com/ctrlLib#",
+        "brick": "https://brickschema.org/schema/Brick#",
+        "tl": "https://example.com/tl#",
+        "ex": "https://example.com/#",
+        "inst": "https://example.com/inst#",
+        "S231P": "http://data.ashrae.org/S231P#"
+    },
+    "@graph": [
+        {
+            "modelicaName": "ahuAHU09_02",
+            "MediumW": "MediumHeating",
+            "MediumA": "MediumVentilation",
+            "MediumC": "MediumCooling",
+            "retFan": {
+                "addPowerToMedium": {
+                    "value": "false"
+                }
+            },
+            "supFan": {
+                "addPowerToMedium": {
+                    "value": "false"
+                }
+            },
+            "@type": "AHU",
+            "@id": "inst:AHU09.02",
+            "points": [
+                {
+                    "@id": "inst:AHU09.02.supFanSpeed",
+                    "connectedTo": [
+                        "inst:ahuCtrl.supFan_y"
+                    ],
+                    "@type": [
+                        "brick:Fan_Command",
+                        "S231P:RealInput"
+                    ]
+                },
+                {
+                    "@id": "inst:AHU09.02.retFanSpeed",
+                    "connectedTo": [
+                        "inst:ahuCtrl.retFan_y"
+                    ],
+                    "@type": [
+                        "brick:Fan_Command",
+                        "S231P:RealInput"
+                    ]
+                },
+                {
+                    "@id": "inst:AHU09.02.heaCoil_y",
+                    "connectedTo": [
+                        "inst:ahuCtrl.heatingCoil_y"
+                    ],
+                    "@type": [
+                        "brick:Heating_Command",
+                        "S231P:RealInput"
+                    ]
+                },
+                {
+                    "@id": "inst:AHU09.02.supPre",
+                    "connectedTo": [
+                        "inst:ahuCtrl.supPre"
+                    ],
+                    "@type": [
+                        "brick:Supply_Air_Static_Pressure_Sensor",
+                        "S231P:RealOutput"
+                    ]
+                },
+                {
+                    "@id": "inst:AHU09.02.retPre",
+                    "connectedTo": [
+                        "inst:ahuCtrl.retPre"
+                    ],
+                    "@type": [
+                        "brick:Return_Air_Static_Pressure_Sensor",
+                        "S231P:RealOutput"
+                    ]
+                },
+                {
+                    "@id": "inst:AHU09.02.supAirTemp",
+                    "connectedTo": [
+                        "inst:ahuCtrl.supTemp"
+                    ],
+                    "@type": [
+                        "brick:Supply_Air_Temperature_Sensor",
+                        "S231P:RealOutput"
+                    ]
+                },
+                {
+                    "@id": "inst:AHU09.02.rotorSpeed",
+                    "connectedTo": [
+                        "inst:ahuCtrl.rotor_y"
+                    ],
+                    "@type": [
+                        "brick:Speed_Command",
+                        "S231P:RealInput"
+                    ]
+                },
+                {
+                    "@id": "inst:AHU09.02.coolCoil_y",
+                    "connectedTo": [
+                        "inst:ahuCtrl.coolingCoil_y"
+                    ],
+                    "@type": [
+                        "brick:Cooling_Command",
+                        "S231P:RealInput"
+                    ]
+                }
+            ],
+            "S231P:hasInput": [
+                {
+                    "@id": "inst:AHU09.02.supFanSpeed",
+                    "connectedTo": [
+                        "inst:ahuCtrl.supFan_y"
+                    ],
+                    "@type": [
+                        "brick:Fan_Command",
+                        "S231P:RealInput"
+                    ]
+                },
+                {
+                    "@id": "inst:AHU09.02.retFanSpeed",
+                    "connectedTo": [
+                        "inst:ahuCtrl.retFan_y"
+                    ],
+                    "@type": [
+                        "brick:Fan_Command",
+                        "S231P:RealInput"
+                    ]
+                },
+                {
+                    "@id": "inst:AHU09.02.heaCoil_y",
+                    "connectedTo": [
+                        "inst:ahuCtrl.heatingCoil_y"
+                    ],
+                    "@type": [
+                        "brick:Heating_Command",
+                        "S231P:RealInput"
+                    ]
+                },
+                {
+                    "@id": "inst:AHU09.02.rotorSpeed",
+                    "connectedTo": [
+                        "inst:ahuCtrl.rotor_y"
+                    ],
+                    "@type": [
+                        "brick:Speed_Command",
+                        "S231P:RealInput"
+                    ]
+                },
+                {
+                    "@id": "inst:AHU09.02.coolCoil_y",
+                    "connectedTo": [
+                        "inst:ahuCtrl.coolingCoil_y"
+                    ],
+                    "@type": [
+                        "brick:Cooling_Command",
+                        "S231P:RealInput"
+                    ]
+                }
+            ],
+            "S231P:hasOutput": [
+                {
+                    "@id": "inst:AHU09.02.supPre",
+                    "connectedTo": [
+                        "inst:ahuCtrl.supPre"
+                    ],
+                    "@type": [
+                        "brick:Supply_Air_Static_Pressure_Sensor",
+                        "S231P:RealOutput"
+                    ]
+                },
+                {
+                    "@id": "inst:AHU09.02.retPre",
+                    "connectedTo": [
+                        "inst:ahuCtrl.retPre"
+                    ],
+                    "@type": [
+                        "brick:Return_Air_Static_Pressure_Sensor",
+                        "S231P:RealOutput"
+                    ]
+                },
+                {
+                    "@id": "inst:AHU09.02.supAirTemp",
+                    "connectedTo": [
+                        "inst:ahuCtrl.supTemp"
+                    ],
+                    "@type": [
+                        "brick:Supply_Air_Temperature_Sensor",
+                        "S231P:RealOutput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "motDampR08_01_VAV01_1_damper_dp_nom",
+            "value": 15552000,
+            "displayUnit": {
+                "value": "Pa"
+            },
+            "@type": "Modelica.Units.SI.PressureDifference",
+            "@id": "inst:motDampR08_01_VAV01_1_damper_dp_nom",
+            "variability": "parameter"
+        },
+        {
+            "modelicaName": "motDampR08_01_VAV01_1",
+            "Medium": "MediumVentilation",
+            "m_flow_nominal": {
+                "value": 0.12
+            },
+            "y_start": {
+                "value": 0
+            },
+            "dpDamper_nominal": {
+                "value": "motDampR08_01_VAV01_1_damper_dp_nom"
+            },
+            "dpFixed_nominal": {
+                "value": 0
+            },
+            "@type": "Buildings.Fluid.Actuators.Dampers.Exponential",
+            "@id": "inst:R08.01_VAV01_1",
+            "points": [
+                {
+                    "@id": "inst:R08.01_VAV01_1.y",
+                    "connectedTo": [
+                        "inst:zoneCtrl4.damper_y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Command",
+                        "S231P:RealInput"
+                    ]
+                }
+            ],
+            "S231P:hasInput": [
+                {
+                    "@id": "inst:R08.01_VAV01_1.y",
+                    "connectedTo": [
+                        "inst:zoneCtrl4.damper_y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Command",
+                        "S231P:RealInput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "motDampR08_06_n_VAV01_1_damper_dp_nom",
+            "value": 15552000,
+            "displayUnit": {
+                "value": "Pa"
+            },
+            "@type": "Modelica.Units.SI.PressureDifference",
+            "@id": "inst:motDampR08_06_n_VAV01_1_damper_dp_nom",
+            "variability": "parameter"
+        },
+        {
+            "modelicaName": "motDampR08_06_n_VAV01_1",
+            "Medium": "MediumVentilation",
+            "m_flow_nominal": {
+                "value": 0.12
+            },
+            "y_start": {
+                "value": 0
+            },
+            "dpDamper_nominal": {
+                "value": "motDampR08_06_n_VAV01_1_damper_dp_nom"
+            },
+            "dpFixed_nominal": {
+                "value": 0
+            },
+            "@type": "Buildings.Fluid.Actuators.Dampers.Exponential",
+            "@id": "inst:R08.06_n_VAV01_1",
+            "points": [
+                {
+                    "@id": "inst:R08.06_n_VAV01_1.y",
+                    "connectedTo": [
+                        "inst:zoneCtrl3.damper_y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Command",
+                        "S231P:RealInput"
+                    ]
+                }
+            ],
+            "S231P:hasInput": [
+                {
+                    "@id": "inst:R08.06_n_VAV01_1.y",
+                    "connectedTo": [
+                        "inst:zoneCtrl3.damper_y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Command",
+                        "S231P:RealInput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "motDampR08_06_n_VAV01_2_damper_dp_nom",
+            "value": 15552000,
+            "displayUnit": {
+                "value": "Pa"
+            },
+            "@type": "Modelica.Units.SI.PressureDifference",
+            "@id": "inst:motDampR08_06_n_VAV01_2_damper_dp_nom",
+            "variability": "parameter"
+        },
+        {
+            "modelicaName": "motDampR08_06_n_VAV01_2",
+            "Medium": "MediumVentilation",
+            "m_flow_nominal": {
+                "value": 0.12
+            },
+            "y_start": {
+                "value": 0
+            },
+            "dpDamper_nominal": {
+                "value": "motDampR08_06_n_VAV01_2_damper_dp_nom"
+            },
+            "dpFixed_nominal": {
+                "value": 0
+            },
+            "@type": "Buildings.Fluid.Actuators.Dampers.Exponential",
+            "@id": "inst:R08.06_n_VAV01_2",
+            "points": [
+                {
+                    "@id": "inst:R08.06_n_VAV01_2.y",
+                    "connectedTo": [
+                        "inst:zoneCtrl3.damper_y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "S231P:RealInput"
+                    ]
+                }
+            ],
+            "S231P:hasInput": [
+                {
+                    "@id": "inst:R08.06_n_VAV01_2.y",
+                    "connectedTo": [
+                        "inst:zoneCtrl3.damper_y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "S231P:RealInput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "motDampR08_06_n_VAV01_3_damper_dp_nom",
+            "value": 15552000,
+            "displayUnit": {
+                "value": "Pa"
+            },
+            "@type": "Modelica.Units.SI.PressureDifference",
+            "@id": "inst:motDampR08_06_n_VAV01_3_damper_dp_nom",
+            "variability": "parameter"
+        },
+        {
+            "modelicaName": "motDampR08_06_n_VAV01_3",
+            "Medium": "MediumVentilation",
+            "m_flow_nominal": {
+                "value": 0.12
+            },
+            "y_start": {
+                "value": 0
+            },
+            "dpDamper_nominal": {
+                "value": "motDampR08_06_n_VAV01_3_damper_dp_nom"
+            },
+            "dpFixed_nominal": {
+                "value": 0
+            },
+            "@type": "Buildings.Fluid.Actuators.Dampers.Exponential",
+            "@id": "inst:R08.06_n_VAV01_3",
+            "points": [
+                {
+                    "@id": "inst:R08.06_n_VAV01_3.y",
+                    "connectedTo": [
+                        "inst:zoneCtrl3.damper_y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "S231P:RealInput"
+                    ]
+                }
+            ],
+            "S231P:hasInput": [
+                {
+                    "@id": "inst:R08.06_n_VAV01_3.y",
+                    "connectedTo": [
+                        "inst:zoneCtrl3.damper_y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "S231P:RealInput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "motDampR08_06_n_VAV01_4_damper_dp_nom",
+            "value": 15552000,
+            "displayUnit": {
+                "value": "Pa"
+            },
+            "@type": "Modelica.Units.SI.PressureDifference",
+            "@id": "inst:motDampR08_06_n_VAV01_4_damper_dp_nom",
+            "variability": "parameter"
+        },
+        {
+            "modelicaName": "motDampR08_06_n_VAV01_4",
+            "Medium": "MediumVentilation",
+            "m_flow_nominal": {
+                "value": 0.12
+            },
+            "y_start": {
+                "value": 0
+            },
+            "dpDamper_nominal": {
+                "value": "motDampR08_06_n_VAV01_4_damper_dp_nom"
+            },
+            "dpFixed_nominal": {
+                "value": 0
+            },
+            "@type": "Buildings.Fluid.Actuators.Dampers.Exponential",
+            "@id": "inst:R08.06_n_VAV01_4",
+            "points": [
+                {
+                    "@id": "inst:R08.06_n_VAV01_4.y",
+                    "connectedTo": [
+                        "inst:zoneCtrl3.damper_y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "S231P:RealInput"
+                    ]
+                }
+            ],
+            "S231P:hasInput": [
+                {
+                    "@id": "inst:R08.06_n_VAV01_4.y",
+                    "connectedTo": [
+                        "inst:zoneCtrl3.damper_y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "S231P:RealInput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "motDampR08_06_o_VAV01_1_damper_dp_nom",
+            "value": 15552000,
+            "displayUnit": {
+                "value": "Pa"
+            },
+            "@type": "Modelica.Units.SI.PressureDifference",
+            "@id": "inst:motDampR08_06_o_VAV01_1_damper_dp_nom",
+            "variability": "parameter"
+        },
+        {
+            "modelicaName": "motDampR08_06_o_VAV01_1",
+            "Medium": "MediumVentilation",
+            "m_flow_nominal": {
+                "value": 0.12
+            },
+            "y_start": {
+                "value": 0
+            },
+            "dpDamper_nominal": {
+                "value": "motDampR08_06_o_VAV01_1_damper_dp_nom"
+            },
+            "dpFixed_nominal": {
+                "value": 0
+            },
+            "@type": "Buildings.Fluid.Actuators.Dampers.Exponential",
+            "@id": "inst:R08.06_o_VAV01_1",
+            "points": [
+                {
+                    "@id": "inst:R08.06_o_VAV01_1.y",
+                    "connectedTo": [
+                        "inst:zoneCtrl2.damper_y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Command",
+                        "S231P:RealInput"
+                    ]
+                }
+            ],
+            "S231P:hasInput": [
+                {
+                    "@id": "inst:R08.06_o_VAV01_1.y",
+                    "connectedTo": [
+                        "inst:zoneCtrl2.damper_y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Command",
+                        "S231P:RealInput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "motDampR08_06_o_VAV01_2_damper_dp_nom",
+            "value": 15552000,
+            "displayUnit": {
+                "value": "Pa"
+            },
+            "@type": "Modelica.Units.SI.PressureDifference",
+            "@id": "inst:motDampR08_06_o_VAV01_2_damper_dp_nom",
+            "variability": "parameter"
+        },
+        {
+            "modelicaName": "motDampR08_06_o_VAV01_2",
+            "Medium": "MediumVentilation",
+            "m_flow_nominal": {
+                "value": 0.12
+            },
+            "y_start": {
+                "value": 0
+            },
+            "dpDamper_nominal": {
+                "value": "motDampR08_06_o_VAV01_2_damper_dp_nom"
+            },
+            "dpFixed_nominal": {
+                "value": 0
+            },
+            "@type": "Buildings.Fluid.Actuators.Dampers.Exponential",
+            "@id": "inst:R08.06_o_VAV01_2",
+            "points": [
+                {
+                    "@id": "inst:R08.06_o_VAV01_2.y",
+                    "connectedTo": [
+                        "inst:zoneCtrl2.damper_y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "S231P:RealInput"
+                    ]
+                }
+            ],
+            "S231P:hasInput": [
+                {
+                    "@id": "inst:R08.06_o_VAV01_2.y",
+                    "connectedTo": [
+                        "inst:zoneCtrl2.damper_y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "S231P:RealInput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "motDampR08_06_o_VAV01_3_damper_dp_nom",
+            "value": 15552000,
+            "displayUnit": {
+                "value": "Pa"
+            },
+            "@type": "Modelica.Units.SI.PressureDifference",
+            "@id": "inst:motDampR08_06_o_VAV01_3_damper_dp_nom",
+            "variability": "parameter"
+        },
+        {
+            "modelicaName": "motDampR08_06_o_VAV01_3",
+            "Medium": "MediumVentilation",
+            "m_flow_nominal": {
+                "value": 0.12
+            },
+            "y_start": {
+                "value": 0
+            },
+            "dpDamper_nominal": {
+                "value": "motDampR08_06_o_VAV01_3_damper_dp_nom"
+            },
+            "dpFixed_nominal": {
+                "value": 0
+            },
+            "@type": "Buildings.Fluid.Actuators.Dampers.Exponential",
+            "@id": "inst:R08.06_o_VAV01_3",
+            "points": [
+                {
+                    "@id": "inst:R08.06_o_VAV01_3.y",
+                    "connectedTo": [
+                        "inst:zoneCtrl2.damper_y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "S231P:RealInput"
+                    ]
+                }
+            ],
+            "S231P:hasInput": [
+                {
+                    "@id": "inst:R08.06_o_VAV01_3.y",
+                    "connectedTo": [
+                        "inst:zoneCtrl2.damper_y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "S231P:RealInput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "motDampR08_06_o_VAV01_4_damper_dp_nom",
+            "value": 15552000,
+            "displayUnit": {
+                "value": "Pa"
+            },
+            "@type": "Modelica.Units.SI.PressureDifference",
+            "@id": "inst:motDampR08_06_o_VAV01_4_damper_dp_nom",
+            "variability": "parameter"
+        },
+        {
+            "modelicaName": "motDampR08_06_o_VAV01_4",
+            "Medium": "MediumVentilation",
+            "m_flow_nominal": {
+                "value": 0.12
+            },
+            "y_start": {
+                "value": 0
+            },
+            "dpDamper_nominal": {
+                "value": "motDampR08_06_o_VAV01_4_damper_dp_nom"
+            },
+            "dpFixed_nominal": {
+                "value": 0
+            },
+            "@type": "Buildings.Fluid.Actuators.Dampers.Exponential",
+            "@id": "inst:R08.06_o_VAV01_4",
+            "points": [
+                {
+                    "@id": "inst:R08.06_o_VAV01_4.y",
+                    "connectedTo": [
+                        "inst:zoneCtrl2.damper_y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "S231P:RealInput"
+                    ]
+                }
+            ],
+            "S231P:hasInput": [
+                {
+                    "@id": "inst:R08.06_o_VAV01_4.y",
+                    "connectedTo": [
+                        "inst:zoneCtrl2.damper_y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "S231P:RealInput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "motDampR08_07_VAV01_1_damper_dp_nom",
+            "value": 15552000,
+            "displayUnit": {
+                "value": "Pa"
+            },
+            "@type": "Modelica.Units.SI.PressureDifference",
+            "@id": "inst:motDampR08_07_VAV01_1_damper_dp_nom",
+            "variability": "parameter"
+        },
+        {
+            "modelicaName": "motDampR08_07_VAV01_1",
+            "Medium": "MediumVentilation",
+            "m_flow_nominal": {
+                "value": 0.12
+            },
+            "y_start": {
+                "value": 0
+            },
+            "dpDamper_nominal": {
+                "value": "motDampR08_07_VAV01_1_damper_dp_nom"
+            },
+            "dpFixed_nominal": {
+                "value": 0
+            },
+            "@type": "Buildings.Fluid.Actuators.Dampers.Exponential",
+            "@id": "inst:R08.07_VAV01_1",
+            "points": [
+                {
+                    "@id": "inst:R08.07_VAV01_1.y",
+                    "connectedTo": [
+                        "inst:zoneCtrl1.damper_y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Command",
+                        "S231P:RealInput"
+                    ]
+                }
+            ],
+            "S231P:hasInput": [
+                {
+                    "@id": "inst:R08.07_VAV01_1.y",
+                    "connectedTo": [
+                        "inst:zoneCtrl1.damper_y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Command",
+                        "S231P:RealInput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "motDampR08_07_VAV01_2_damper_dp_nom",
+            "value": 15552000,
+            "displayUnit": {
+                "value": "Pa"
+            },
+            "@type": "Modelica.Units.SI.PressureDifference",
+            "@id": "inst:motDampR08_07_VAV01_2_damper_dp_nom",
+            "variability": "parameter"
+        },
+        {
+            "modelicaName": "motDampR08_07_VAV01_2",
+            "Medium": "MediumVentilation",
+            "m_flow_nominal": {
+                "value": 0.12
+            },
+            "y_start": {
+                "value": 0
+            },
+            "dpDamper_nominal": {
+                "value": "motDampR08_07_VAV01_2_damper_dp_nom"
+            },
+            "dpFixed_nominal": {
+                "value": 0
+            },
+            "@type": "Buildings.Fluid.Actuators.Dampers.Exponential",
+            "@id": "inst:R08.07_VAV01_2",
+            "points": [
+                {
+                    "@id": "inst:R08.07_VAV01_2.y",
+                    "connectedTo": [
+                        "inst:zoneCtrl1.damper_y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "S231P:RealInput"
+                    ]
+                }
+            ],
+            "S231P:hasInput": [
+                {
+                    "@id": "inst:R08.07_VAV01_2.y",
+                    "connectedTo": [
+                        "inst:zoneCtrl1.damper_y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "S231P:RealInput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "motDampR08_07_VAV01_3_damper_dp_nom",
+            "value": 15552000,
+            "displayUnit": {
+                "value": "Pa"
+            },
+            "@type": "Modelica.Units.SI.PressureDifference",
+            "@id": "inst:motDampR08_07_VAV01_3_damper_dp_nom",
+            "variability": "parameter"
+        },
+        {
+            "modelicaName": "motDampR08_07_VAV01_3",
+            "Medium": "MediumVentilation",
+            "m_flow_nominal": {
+                "value": 0.12
+            },
+            "y_start": {
+                "value": 0
+            },
+            "dpDamper_nominal": {
+                "value": "motDampR08_07_VAV01_3_damper_dp_nom"
+            },
+            "dpFixed_nominal": {
+                "value": 0
+            },
+            "@type": "Buildings.Fluid.Actuators.Dampers.Exponential",
+            "@id": "inst:R08.07_VAV01_3",
+            "points": [
+                {
+                    "@id": "inst:R08.07_VAV01_3.y",
+                    "connectedTo": [
+                        "inst:zoneCtrl1.damper_y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "S231P:RealInput"
+                    ]
+                }
+            ],
+            "S231P:hasInput": [
+                {
+                    "@id": "inst:R08.07_VAV01_3.y",
+                    "connectedTo": [
+                        "inst:zoneCtrl1.damper_y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "S231P:RealInput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "roomR08_01",
+            "@type": "tl:RoomDetached",
+            "@id": "inst:R08.01",
+            "points": [
+                {
+                    "@id": "inst:R08.01.co2Level",
+                    "connectedTo": [
+                        "inst:zoneCtrl4.co2Level"
+                    ],
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "S231P:RealOutput"
+                    ]
+                },
+                {
+                    "@id": "inst:R08.01.airTemp",
+                    "connectedTo": [
+                        "inst:zoneCtrl4.roomTemp"
+                    ],
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "S231P:RealOutput"
+                    ]
+                }
+            ],
+            "S231P:hasOutput": [
+                {
+                    "@id": "inst:R08.01.co2Level",
+                    "connectedTo": [
+                        "inst:zoneCtrl4.co2Level"
+                    ],
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "S231P:RealOutput"
+                    ]
+                },
+                {
+                    "@id": "inst:R08.01.airTemp",
+                    "connectedTo": [
+                        "inst:zoneCtrl4.roomTemp"
+                    ],
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "S231P:RealOutput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "roomR08_07",
+            "@type": "tl:RoomDetached",
+            "@id": "inst:R08.07",
+            "points": [
+                {
+                    "@id": "inst:R08.07.airTemp",
+                    "connectedTo": [
+                        "inst:zoneCtrl1.roomTemp"
+                    ],
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "S231P:RealOutput"
+                    ]
+                },
+                {
+                    "@id": "inst:R08.07.co2Level",
+                    "connectedTo": [
+                        "inst:zoneCtrl1.co2Level"
+                    ],
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "S231P:RealOutput"
+                    ]
+                }
+            ],
+            "S231P:hasOutput": [
+                {
+                    "@id": "inst:R08.07.airTemp",
+                    "connectedTo": [
+                        "inst:zoneCtrl1.roomTemp"
+                    ],
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "S231P:RealOutput"
+                    ]
+                },
+                {
+                    "@id": "inst:R08.07.co2Level",
+                    "connectedTo": [
+                        "inst:zoneCtrl1.co2Level"
+                    ],
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "S231P:RealOutput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "roomR08_06_n",
+            "@type": "tl:RoomDetached",
+            "@id": "inst:R08.06_n",
+            "points": [
+                {
+                    "@id": "inst:R08.06_n.co2Level",
+                    "connectedTo": [
+                        "inst:zoneCtrl3.co2Level"
+                    ],
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "S231P:RealOutput"
+                    ]
+                },
+                {
+                    "@id": "inst:R08.06_n.airTemp",
+                    "connectedTo": [
+                        "inst:zoneCtrl3.roomTemp"
+                    ],
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "S231P:RealOutput"
+                    ]
+                }
+            ],
+            "S231P:hasOutput": [
+                {
+                    "@id": "inst:R08.06_n.co2Level",
+                    "connectedTo": [
+                        "inst:zoneCtrl3.co2Level"
+                    ],
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "S231P:RealOutput"
+                    ]
+                },
+                {
+                    "@id": "inst:R08.06_n.airTemp",
+                    "connectedTo": [
+                        "inst:zoneCtrl3.roomTemp"
+                    ],
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "S231P:RealOutput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "roomR08_06_o",
+            "@type": "tl:RoomDetached",
+            "@id": "inst:R08.06_o",
+            "points": [
+                {
+                    "@id": "inst:R08.06_o.airTemp",
+                    "connectedTo": [
+                        "inst:zoneCtrl2.roomTemp"
+                    ],
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "S231P:RealOutput"
+                    ]
+                },
+                {
+                    "@id": "inst:R08.06_o.co2Level",
+                    "connectedTo": [
+                        "inst:zoneCtrl2.co2Level"
+                    ],
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "S231P:RealOutput"
+                    ]
+                }
+            ],
+            "S231P:hasOutput": [
+                {
+                    "@id": "inst:R08.06_o.airTemp",
+                    "connectedTo": [
+                        "inst:zoneCtrl2.roomTemp"
+                    ],
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "S231P:RealOutput"
+                    ]
+                },
+                {
+                    "@id": "inst:R08.06_o.co2Level",
+                    "connectedTo": [
+                        "inst:zoneCtrl2.co2Level"
+                    ],
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "S231P:RealOutput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "zoneCtrl2",
+            "@type": "ctrlLib:ZoneController",
+            "@id": "inst:zoneCtrl2",
+            "points": [
+                {
+                    "@id": "inst:zoneCtrl2.co2Setpoint",
+                    "value": "800*10^(-6)",
+                    "@type": [
+                        "brick:CO2_Setpoint",
+                        "S231P:Parameter"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl2.temperatureSetpoint",
+                    "value": 294.15,
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Setpoint",
+                        "S231P:Parameter"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl2.tempDeadband",
+                    "value": 2.0,
+                    "@type": [
+                        "brick:Temperature_Deadband_Setpoint",
+                        "S231P:Parameter"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl2.roomTemp",
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "S231P:RealInput",
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "S231P:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:R08.06_o.airTemp"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl2.co2Level",
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "S231P:RealInput",
+                        "brick:CO2_Level_Sensor",
+                        "S231P:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:R08.06_o.co2Level"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl2.damper_y",
+                    "@type": [
+                        "brick:Damper_Command",
+                        "S231P:RealOutput",
+                        "brick:Damper_Command",
+                        "S231P:RealOutput",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "S231P:RealOutput",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "S231P:RealOutput",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "S231P:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "inst:R08.06_o_VAV01_1.y",
+                        "inst:R08.06_o_VAV01_2.y",
+                        "inst:R08.06_o_VAV01_3.y",
+                        "inst:R08.06_o_VAV01_4.y"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl2.heating_y",
+                    "@type": [
+                        "brick:Heating_Command",
+                        "S231P:RealOutput"
+                    ]
+                }
+            ],
+            "S231P:hasInput": [
+                {
+                    "@id": "inst:zoneCtrl2.roomTemp",
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "S231P:RealInput",
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "S231P:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:R08.06_o.airTemp"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl2.co2Level",
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "S231P:RealInput",
+                        "brick:CO2_Level_Sensor",
+                        "S231P:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:R08.06_o.co2Level"
+                    ]
+                }
+            ],
+            "S231P:hasOutput": [
+                {
+                    "@id": "inst:zoneCtrl2.damper_y",
+                    "@type": [
+                        "brick:Damper_Command",
+                        "S231P:RealOutput",
+                        "brick:Damper_Command",
+                        "S231P:RealOutput",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "S231P:RealOutput",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "S231P:RealOutput",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "S231P:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "inst:R08.06_o_VAV01_1.y",
+                        "inst:R08.06_o_VAV01_2.y",
+                        "inst:R08.06_o_VAV01_3.y",
+                        "inst:R08.06_o_VAV01_4.y"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl2.heating_y",
+                    "@type": [
+                        "brick:Heating_Command",
+                        "S231P:RealOutput"
+                    ]
+                }
+            ],
+            "S231P:hasParameter": [
+                {
+                    "@id": "inst:zoneCtrl2.co2Setpoint",
+                    "value": "800*10^(-6)",
+                    "@type": [
+                        "brick:CO2_Setpoint",
+                        "S231P:Parameter"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl2.temperatureSetpoint",
+                    "value": 294.15,
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Setpoint",
+                        "S231P:Parameter"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl2.tempDeadband",
+                    "value": 2.0,
+                    "@type": [
+                        "brick:Temperature_Deadband_Setpoint",
+                        "S231P:Parameter"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "zoneCtrl3",
+            "@type": "ctrlLib:ZoneController",
+            "@id": "inst:zoneCtrl3",
+            "points": [
+                {
+                    "@id": "inst:zoneCtrl3.co2Setpoint",
+                    "value": "800*10^(-6)",
+                    "@type": [
+                        "brick:CO2_Setpoint",
+                        "S231P:Parameter"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl3.temperatureSetpoint",
+                    "value": 294.15,
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Setpoint",
+                        "S231P:Parameter"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl3.tempDeadband",
+                    "value": 2.0,
+                    "@type": [
+                        "brick:Temperature_Deadband_Setpoint",
+                        "S231P:Parameter"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl3.roomTemp",
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "S231P:RealInput",
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "S231P:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:R08.06_n.airTemp"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl3.co2Level",
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "S231P:RealInput",
+                        "brick:CO2_Level_Sensor",
+                        "S231P:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:R08.06_n.co2Level"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl3.damper_y",
+                    "@type": [
+                        "brick:Damper_Command",
+                        "S231P:RealOutput",
+                        "brick:Damper_Command",
+                        "S231P:RealOutput",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "S231P:RealOutput",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "S231P:RealOutput",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "S231P:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "inst:R08.06_n_VAV01_1.y",
+                        "inst:R08.06_n_VAV01_2.y",
+                        "inst:R08.06_n_VAV01_3.y",
+                        "inst:R08.06_n_VAV01_4.y"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl3.heating_y",
+                    "@type": [
+                        "brick:Heating_Command",
+                        "S231P:RealOutput"
+                    ]
+                }
+            ],
+            "S231P:hasInput": [
+                {
+                    "@id": "inst:zoneCtrl3.roomTemp",
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "S231P:RealInput",
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "S231P:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:R08.06_n.airTemp"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl3.co2Level",
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "S231P:RealInput",
+                        "brick:CO2_Level_Sensor",
+                        "S231P:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:R08.06_n.co2Level"
+                    ]
+                }
+            ],
+            "S231P:hasOutput": [
+                {
+                    "@id": "inst:zoneCtrl3.damper_y",
+                    "@type": [
+                        "brick:Damper_Command",
+                        "S231P:RealOutput",
+                        "brick:Damper_Command",
+                        "S231P:RealOutput",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "S231P:RealOutput",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "S231P:RealOutput",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "S231P:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "inst:R08.06_n_VAV01_1.y",
+                        "inst:R08.06_n_VAV01_2.y",
+                        "inst:R08.06_n_VAV01_3.y",
+                        "inst:R08.06_n_VAV01_4.y"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl3.heating_y",
+                    "@type": [
+                        "brick:Heating_Command",
+                        "S231P:RealOutput"
+                    ]
+                }
+            ],
+            "S231P:hasParameter": [
+                {
+                    "@id": "inst:zoneCtrl3.co2Setpoint",
+                    "value": "800*10^(-6)",
+                    "@type": [
+                        "brick:CO2_Setpoint",
+                        "S231P:Parameter"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl3.temperatureSetpoint",
+                    "value": 294.15,
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Setpoint",
+                        "S231P:Parameter"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl3.tempDeadband",
+                    "value": 2.0,
+                    "@type": [
+                        "brick:Temperature_Deadband_Setpoint",
+                        "S231P:Parameter"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "zoneCtrl4",
+            "@type": "ctrlLib:ZoneController",
+            "@id": "inst:zoneCtrl4",
+            "points": [
+                {
+                    "@id": "inst:zoneCtrl4.co2Setpoint",
+                    "value": "800*10^(-6)",
+                    "@type": [
+                        "brick:CO2_Setpoint",
+                        "S231P:Parameter"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl4.temperatureSetpoint",
+                    "value": 294.15,
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Setpoint",
+                        "S231P:Parameter"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl4.tempDeadband",
+                    "value": 2.0,
+                    "@type": [
+                        "brick:Temperature_Deadband_Setpoint",
+                        "S231P:Parameter"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl4.roomTemp",
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "S231P:RealInput",
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "S231P:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:R08.01.airTemp"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl4.co2Level",
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "S231P:RealInput",
+                        "brick:CO2_Level_Sensor",
+                        "S231P:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:R08.01.co2Level"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl4.damper_y",
+                    "@type": [
+                        "brick:Damper_Command",
+                        "S231P:RealOutput",
+                        "brick:Damper_Command",
+                        "S231P:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "inst:R08.01_VAV01_1.y"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl4.heating_y",
+                    "@type": [
+                        "brick:Heating_Command",
+                        "S231P:RealOutput"
+                    ]
+                }
+            ],
+            "S231P:hasInput": [
+                {
+                    "@id": "inst:zoneCtrl4.roomTemp",
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "S231P:RealInput",
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "S231P:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:R08.01.airTemp"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl4.co2Level",
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "S231P:RealInput",
+                        "brick:CO2_Level_Sensor",
+                        "S231P:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:R08.01.co2Level"
+                    ]
+                }
+            ],
+            "S231P:hasOutput": [
+                {
+                    "@id": "inst:zoneCtrl4.damper_y",
+                    "@type": [
+                        "brick:Damper_Command",
+                        "S231P:RealOutput",
+                        "brick:Damper_Command",
+                        "S231P:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "inst:R08.01_VAV01_1.y"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl4.heating_y",
+                    "@type": [
+                        "brick:Heating_Command",
+                        "S231P:RealOutput"
+                    ]
+                }
+            ],
+            "S231P:hasParameter": [
+                {
+                    "@id": "inst:zoneCtrl4.co2Setpoint",
+                    "value": "800*10^(-6)",
+                    "@type": [
+                        "brick:CO2_Setpoint",
+                        "S231P:Parameter"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl4.temperatureSetpoint",
+                    "value": 294.15,
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Setpoint",
+                        "S231P:Parameter"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl4.tempDeadband",
+                    "value": 2.0,
+                    "@type": [
+                        "brick:Temperature_Deadband_Setpoint",
+                        "S231P:Parameter"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "ahuCtrl",
+            "@type": "ctrlLib:AHUController",
+            "@id": "inst:ahuCtrl",
+            "points": [
+                {
+                    "@id": "inst:ahuCtrl.tempDeadBand",
+                    "value": 4.0,
+                    "@type": [
+                        "brick:Temperature_Deadband_Setpoint",
+                        "S231P:Parameter"
+                    ]
+                },
+                {
+                    "@id": "inst:ahuCtrl.returnPressureSetpoint",
+                    "@type": [
+                        "brick:Return_Air_Static_Pressure_Setpoint",
+                        "S231P:Parameter"
+                    ]
+                },
+                {
+                    "@id": "inst:ahuCtrl.supplyPressureSetpoint",
+                    "@type": [
+                        "brick:Supply_Air_Static_Pressure_Setpoint",
+                        "S231P:Parameter"
+                    ]
+                },
+                {
+                    "@id": "inst:ahuCtrl.supTempSetpoint",
+                    "value": 18.0,
+                    "@type": [
+                        "brick:Supply_Air_Temperature_Setpoint",
+                        "S231P:Parameter"
+                    ]
+                },
+                {
+                    "@id": "inst:ahuCtrl.supPre",
+                    "@type": [
+                        "brick:Supply_Air_Static_Pressure_Sensor",
+                        "S231P:RealInput",
+                        "brick:Supply_Air_Static_Pressure_Sensor",
+                        "S231P:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:AHU09.02.supPre"
+                    ]
+                },
+                {
+                    "@id": "inst:ahuCtrl.retPre",
+                    "@type": [
+                        "brick:Return_Air_Static_Pressure_Sensor",
+                        "S231P:RealInput",
+                        "brick:Return_Air_Static_Pressure_Sensor",
+                        "S231P:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:AHU09.02.retPre"
+                    ]
+                },
+                {
+                    "@id": "inst:ahuCtrl.supTemp",
+                    "@type": [
+                        "brick:Supply_Air_Temperature_Sensor",
+                        "S231P:RealInput",
+                        "brick:Supply_Air_Temperature_Sensor",
+                        "S231P:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:AHU09.02.supAirTemp"
+                    ]
+                },
+                {
+                    "@id": "inst:ahuCtrl.supFan_y",
+                    "@type": [
+                        "brick:Fan_Command",
+                        "S231P:RealOutput",
+                        "brick:Fan_Command",
+                        "S231P:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "inst:AHU09.02.supFanSpeed"
+                    ]
+                },
+                {
+                    "@id": "inst:ahuCtrl.retFan_y",
+                    "@type": [
+                        "brick:Fan_Command",
+                        "S231P:RealOutput",
+                        "brick:Fan_Command",
+                        "S231P:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "inst:AHU09.02.retFanSpeed"
+                    ]
+                },
+                {
+                    "@id": "inst:ahuCtrl.rotor_y",
+                    "@type": [
+                        "brick:Speed_Command",
+                        "S231P:RealOutput",
+                        "brick:Speed_Command",
+                        "S231P:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "inst:AHU09.02.rotorSpeed"
+                    ]
+                },
+                {
+                    "@id": "inst:ahuCtrl.heatingCoil_y",
+                    "@type": [
+                        "brick:Heating_Command",
+                        "S231P:RealOutput",
+                        "brick:Heating_Command",
+                        "S231P:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "inst:AHU09.02.heaCoil_y"
+                    ]
+                },
+                {
+                    "@id": "inst:ahuCtrl.coolingCoil_y",
+                    "@type": [
+                        "brick:Cooling_Command",
+                        "S231P:RealOutput",
+                        "brick:Cooling_Command",
+                        "S231P:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "inst:AHU09.02.coolCoil_y"
+                    ]
+                }
+            ],
+            "S231P:hasInput": [
+                {
+                    "@id": "inst:ahuCtrl.supPre",
+                    "@type": [
+                        "brick:Supply_Air_Static_Pressure_Sensor",
+                        "S231P:RealInput",
+                        "brick:Supply_Air_Static_Pressure_Sensor",
+                        "S231P:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:AHU09.02.supPre"
+                    ]
+                },
+                {
+                    "@id": "inst:ahuCtrl.retPre",
+                    "@type": [
+                        "brick:Return_Air_Static_Pressure_Sensor",
+                        "S231P:RealInput",
+                        "brick:Return_Air_Static_Pressure_Sensor",
+                        "S231P:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:AHU09.02.retPre"
+                    ]
+                },
+                {
+                    "@id": "inst:ahuCtrl.supTemp",
+                    "@type": [
+                        "brick:Supply_Air_Temperature_Sensor",
+                        "S231P:RealInput",
+                        "brick:Supply_Air_Temperature_Sensor",
+                        "S231P:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:AHU09.02.supAirTemp"
+                    ]
+                }
+            ],
+            "S231P:hasOutput": [
+                {
+                    "@id": "inst:ahuCtrl.supFan_y",
+                    "@type": [
+                        "brick:Fan_Command",
+                        "S231P:RealOutput",
+                        "brick:Fan_Command",
+                        "S231P:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "inst:AHU09.02.supFanSpeed"
+                    ]
+                },
+                {
+                    "@id": "inst:ahuCtrl.retFan_y",
+                    "@type": [
+                        "brick:Fan_Command",
+                        "S231P:RealOutput",
+                        "brick:Fan_Command",
+                        "S231P:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "inst:AHU09.02.retFanSpeed"
+                    ]
+                },
+                {
+                    "@id": "inst:ahuCtrl.rotor_y",
+                    "@type": [
+                        "brick:Speed_Command",
+                        "S231P:RealOutput",
+                        "brick:Speed_Command",
+                        "S231P:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "inst:AHU09.02.rotorSpeed"
+                    ]
+                },
+                {
+                    "@id": "inst:ahuCtrl.heatingCoil_y",
+                    "@type": [
+                        "brick:Heating_Command",
+                        "S231P:RealOutput",
+                        "brick:Heating_Command",
+                        "S231P:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "inst:AHU09.02.heaCoil_y"
+                    ]
+                },
+                {
+                    "@id": "inst:ahuCtrl.coolingCoil_y",
+                    "@type": [
+                        "brick:Cooling_Command",
+                        "S231P:RealOutput",
+                        "brick:Cooling_Command",
+                        "S231P:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "inst:AHU09.02.coolCoil_y"
+                    ]
+                }
+            ],
+            "S231P:hasParameter": [
+                {
+                    "@id": "inst:ahuCtrl.tempDeadBand",
+                    "value": 4.0,
+                    "@type": [
+                        "brick:Temperature_Deadband_Setpoint",
+                        "S231P:Parameter"
+                    ]
+                },
+                {
+                    "@id": "inst:ahuCtrl.returnPressureSetpoint",
+                    "@type": [
+                        "brick:Return_Air_Static_Pressure_Setpoint",
+                        "S231P:Parameter"
+                    ]
+                },
+                {
+                    "@id": "inst:ahuCtrl.supplyPressureSetpoint",
+                    "@type": [
+                        "brick:Supply_Air_Static_Pressure_Setpoint",
+                        "S231P:Parameter"
+                    ]
+                },
+                {
+                    "@id": "inst:ahuCtrl.supTempSetpoint",
+                    "value": 18.0,
+                    "@type": [
+                        "brick:Supply_Air_Temperature_Setpoint",
+                        "S231P:Parameter"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "zoneCtrl1",
+            "@type": "ctrlLib:ZoneController",
+            "@id": "inst:zoneCtrl1",
+            "points": [
+                {
+                    "@id": "inst:zoneCtrl1.co2Setpoint",
+                    "value": "800*10^(-6)",
+                    "@type": [
+                        "brick:CO2_Setpoint",
+                        "S231P:Parameter"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl1.temperatureSetpoint",
+                    "value": 294.15,
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Setpoint",
+                        "S231P:Parameter"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl1.tempDeadband",
+                    "value": 2.0,
+                    "@type": [
+                        "brick:Temperature_Deadband_Setpoint",
+                        "S231P:Parameter"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl1.roomTemp",
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "S231P:RealInput",
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "S231P:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:R08.07.airTemp"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl1.co2Level",
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "S231P:RealInput",
+                        "brick:CO2_Level_Sensor",
+                        "S231P:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:R08.07.co2Level"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl1.damper_y",
+                    "@type": [
+                        "brick:Damper_Command",
+                        "S231P:RealOutput",
+                        "brick:Damper_Command",
+                        "S231P:RealOutput",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "S231P:RealOutput",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "S231P:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "inst:R08.07_VAV01_1.y",
+                        "inst:R08.07_VAV01_2.y",
+                        "inst:R08.07_VAV01_3.y"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl1.heating_y",
+                    "@type": [
+                        "brick:Heating_Command",
+                        "S231P:RealOutput"
+                    ]
+                }
+            ],
+            "S231P:hasInput": [
+                {
+                    "@id": "inst:zoneCtrl1.roomTemp",
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "S231P:RealInput",
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "S231P:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:R08.07.airTemp"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl1.co2Level",
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "S231P:RealInput",
+                        "brick:CO2_Level_Sensor",
+                        "S231P:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:R08.07.co2Level"
+                    ]
+                }
+            ],
+            "S231P:hasOutput": [
+                {
+                    "@id": "inst:zoneCtrl1.damper_y",
+                    "@type": [
+                        "brick:Damper_Command",
+                        "S231P:RealOutput",
+                        "brick:Damper_Command",
+                        "S231P:RealOutput",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "S231P:RealOutput",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "brick:Damper_Command",
+                        "S231P:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "inst:R08.07_VAV01_1.y",
+                        "inst:R08.07_VAV01_2.y",
+                        "inst:R08.07_VAV01_3.y"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl1.heating_y",
+                    "@type": [
+                        "brick:Heating_Command",
+                        "S231P:RealOutput"
+                    ]
+                }
+            ],
+            "S231P:hasParameter": [
+                {
+                    "@id": "inst:zoneCtrl1.co2Setpoint",
+                    "value": "800*10^(-6)",
+                    "@type": [
+                        "brick:CO2_Setpoint",
+                        "S231P:Parameter"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl1.temperatureSetpoint",
+                    "value": 294.15,
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Setpoint",
+                        "S231P:Parameter"
+                    ]
+                },
+                {
+                    "@id": "inst:zoneCtrl1.tempDeadband",
+                    "value": 2.0,
+                    "@type": [
+                        "brick:Temperature_Deadband_Setpoint",
+                        "S231P:Parameter"
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,1630 @@
+{
+    "@context": {
+        "Elements": "ex:hasBlock",
+        "type": {
+            "@id": "https://www.w3.org/TR/rdf-schema/#ch_type",
+            "@type": "@id"
+        },
+        "points": "https://brickschema.org/schema/Brick#hasPoint",
+        "connectedTo": {
+            "@id": "ctrl:isConnectedTo",
+            "@type": "@id"
+        },
+        "description": "ex:Description",
+        "cdl": "https://simulationresearch.lbl.gov/modelica/releases/latest/help/Buildings_Controls_OBC_CDL.html#",
+        "ctrlLib": "https://example.org/ctrlLib#",
+        "brick": "https://brickschema.org/schema/Brick#",
+        "tl": "https://example.org/tl#",
+        "ex": "https://example.org/#",
+        "inst": "https://example.org/inst#",
+        "ctrl": "https://w3id.org/ibp/CTRLont#ctrl"
+    },
+    "@type": "package",
+    "@id": "inst:HTR9VEN02",
+    "description": "Auto-generated model",
+    "Elements": [
+        {
+            "modelicaName": "ahuHTR9_VEN02",
+            "MediumW": "MediumHeating",
+            "MediumA": "MediumVentilation",
+            "MediumC": "MediumCooling",
+            "retFan": {
+                "addPowerToMedium": {
+                    "value": "false"
+                }
+            },
+            "supFan": {
+                "addPowerToMedium": {
+                    "value": "false"
+                }
+            },
+            "@type": "AHU",
+            "@id": "inst:ahuHTR9_VEN02",
+            "points": [
+                {
+                    "@id": "inst:ahuHTR9_VEN02.supFanSpeed",
+                    "connectedTo": [
+                        "inst:aHUController.supFan_y"
+                    ],
+                    "@type": [
+                        "brick:Fan_Speed_Command",
+                        "cdl:RealInput"
+                    ]
+                },
+                {
+                    "@id": "inst:ahuHTR9_VEN02.retFanSpeed",
+                    "connectedTo": [
+                        "inst:aHUController.retFan_y"
+                    ],
+                    "@type": [
+                        "brick:Fan_Speed_Command",
+                        "cdl:RealInput"
+                    ]
+                },
+                {
+                    "@id": "inst:ahuHTR9_VEN02.heaCoil_y",
+                    "connectedTo": [
+                        "inst:aHUController.heatingCoil_y"
+                    ],
+                    "@type": [
+                        "brick:Valve_Position_Command",
+                        "cdl:RealInput"
+                    ]
+                },
+                {
+                    "@id": "inst:ahuHTR9_VEN02.supPre",
+                    "connectedTo": [
+                        "inst:aHUController.supPre"
+                    ],
+                    "@type": [
+                        "brick:Supply_Air_Static_Pressure_Sensor",
+                        "cdl:RealOutput"
+                    ]
+                },
+                {
+                    "@id": "inst:ahuHTR9_VEN02.retPre",
+                    "connectedTo": [
+                        "inst:aHUController.retPre"
+                    ],
+                    "@type": [
+                        "brick:Discharge_Air_Static_Pressure_Sensor",
+                        "cdl:RealOutput"
+                    ]
+                },
+                {
+                    "@id": "inst:ahuHTR9_VEN02.supAirTemp",
+                    "connectedTo": [
+                        "inst:aHUController.supTemp"
+                    ],
+                    "@type": [
+                        "brick:Supply_Air_Temperature_Sensor",
+                        "cdl:RealOutput"
+                    ]
+                }
+            ],
+            "cdl:hasInput": [
+                {
+                    "@id": "inst:ahuHTR9_VEN02.supFanSpeed",
+                    "connectedTo": [
+                        "inst:aHUController.supFan_y"
+                    ],
+                    "@type": [
+                        "brick:Fan_Speed_Command",
+                        "cdl:RealInput"
+                    ]
+                },
+                {
+                    "@id": "inst:ahuHTR9_VEN02.retFanSpeed",
+                    "connectedTo": [
+                        "inst:aHUController.retFan_y"
+                    ],
+                    "@type": [
+                        "brick:Fan_Speed_Command",
+                        "cdl:RealInput"
+                    ]
+                },
+                {
+                    "@id": "inst:ahuHTR9_VEN02.heaCoil_y",
+                    "connectedTo": [
+                        "inst:aHUController.heatingCoil_y"
+                    ],
+                    "@type": [
+                        "brick:Valve_Position_Command",
+                        "cdl:RealInput"
+                    ]
+                }
+            ],
+            "cdl:hasOutput": [
+                {
+                    "@id": "inst:ahuHTR9_VEN02.supPre",
+                    "connectedTo": [
+                        "inst:aHUController.supPre"
+                    ],
+                    "@type": [
+                        "brick:Supply_Air_Static_Pressure_Sensor",
+                        "cdl:RealOutput"
+                    ]
+                },
+                {
+                    "@id": "inst:ahuHTR9_VEN02.retPre",
+                    "connectedTo": [
+                        "inst:aHUController.retPre"
+                    ],
+                    "@type": [
+                        "brick:Discharge_Air_Static_Pressure_Sensor",
+                        "cdl:RealOutput"
+                    ]
+                },
+                {
+                    "@id": "inst:ahuHTR9_VEN02.supAirTemp",
+                    "connectedTo": [
+                        "inst:aHUController.supTemp"
+                    ],
+                    "@type": [
+                        "brick:Supply_Air_Temperature_Sensor",
+                        "cdl:RealOutput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "motDampR08_01_VAV01_1_damper_dp_nom",
+            "value": 15552000,
+            "displayUnit": {
+                "value": "Pa"
+            },
+            "@type": "Modelica.Units.SI.PressureDifference",
+            "@id": "inst:motDampR08_01_VAV01_1_damper_dp_nom",
+            "variability": "parameter"
+        },
+        {
+            "modelicaName": "motDampR08_01_VAV01_1",
+            "Medium": "MediumVentilation",
+            "m_flow_nominal": {
+                "value": 0.12
+            },
+            "y_start": {
+                "value": 0
+            },
+            "dpDamper_nominal": {
+                "value": "motDampR08_01_VAV01_1_damper_dp_nom"
+            },
+            "dpFixed_nominal": {
+                "value": 0
+            },
+            "@type": "Buildings.Fluid.Actuators.Dampers.Exponential",
+            "@id": "inst:motDampR08_01_VAV01_1",
+            "points": [
+                {
+                    "@id": "inst:motDampR08_01_VAV01_1.y",
+                    "connectedTo": [
+                        "inst:vavCtrl4.y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "cdl:RealInput"
+                    ]
+                }
+            ],
+            "cdl:hasInput": [
+                {
+                    "@id": "inst:motDampR08_01_VAV01_1.y",
+                    "connectedTo": [
+                        "inst:vavCtrl4.y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "cdl:RealInput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "motDampR08_06_n_VAV01_1_damper_dp_nom",
+            "value": 15552000,
+            "displayUnit": {
+                "value": "Pa"
+            },
+            "@type": "Modelica.Units.SI.PressureDifference",
+            "@id": "inst:motDampR08_06_n_VAV01_1_damper_dp_nom",
+            "variability": "parameter"
+        },
+        {
+            "modelicaName": "motDampR08_06_n_VAV01_1",
+            "Medium": "MediumVentilation",
+            "m_flow_nominal": {
+                "value": 0.12
+            },
+            "y_start": {
+                "value": 0
+            },
+            "dpDamper_nominal": {
+                "value": "motDampR08_06_n_VAV01_1_damper_dp_nom"
+            },
+            "dpFixed_nominal": {
+                "value": 0
+            },
+            "@type": "Buildings.Fluid.Actuators.Dampers.Exponential",
+            "@id": "inst:motDampR08_06_n_VAV01_1",
+            "points": [
+                {
+                    "@id": "inst:motDampR08_06_n_VAV01_1.y",
+                    "connectedTo": [
+                        "inst:vavCtrl3.y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "cdl:RealInput"
+                    ]
+                }
+            ],
+            "cdl:hasInput": [
+                {
+                    "@id": "inst:motDampR08_06_n_VAV01_1.y",
+                    "connectedTo": [
+                        "inst:vavCtrl3.y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "cdl:RealInput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "motDampR08_06_n_VAV01_2_damper_dp_nom",
+            "value": 15552000,
+            "displayUnit": {
+                "value": "Pa"
+            },
+            "@type": "Modelica.Units.SI.PressureDifference",
+            "@id": "inst:motDampR08_06_n_VAV01_2_damper_dp_nom",
+            "variability": "parameter"
+        },
+        {
+            "modelicaName": "motDampR08_06_n_VAV01_2",
+            "Medium": "MediumVentilation",
+            "m_flow_nominal": {
+                "value": 0.12
+            },
+            "y_start": {
+                "value": 0
+            },
+            "dpDamper_nominal": {
+                "value": "motDampR08_06_n_VAV01_2_damper_dp_nom"
+            },
+            "dpFixed_nominal": {
+                "value": 0
+            },
+            "@type": "Buildings.Fluid.Actuators.Dampers.Exponential",
+            "@id": "inst:motDampR08_06_n_VAV01_2",
+            "points": [
+                {
+                    "@id": "inst:motDampR08_06_n_VAV01_2.y",
+                    "connectedTo": [
+                        "inst:vavCtrl3.y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealInput"
+                    ]
+                }
+            ],
+            "cdl:hasInput": [
+                {
+                    "@id": "inst:motDampR08_06_n_VAV01_2.y",
+                    "connectedTo": [
+                        "inst:vavCtrl3.y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealInput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "motDampR08_06_n_VAV01_3_damper_dp_nom",
+            "value": 15552000,
+            "displayUnit": {
+                "value": "Pa"
+            },
+            "@type": "Modelica.Units.SI.PressureDifference",
+            "@id": "inst:motDampR08_06_n_VAV01_3_damper_dp_nom",
+            "variability": "parameter"
+        },
+        {
+            "modelicaName": "motDampR08_06_n_VAV01_3",
+            "Medium": "MediumVentilation",
+            "m_flow_nominal": {
+                "value": 0.12
+            },
+            "y_start": {
+                "value": 0
+            },
+            "dpDamper_nominal": {
+                "value": "motDampR08_06_n_VAV01_3_damper_dp_nom"
+            },
+            "dpFixed_nominal": {
+                "value": 0
+            },
+            "@type": "Buildings.Fluid.Actuators.Dampers.Exponential",
+            "@id": "inst:motDampR08_06_n_VAV01_3",
+            "points": [
+                {
+                    "@id": "inst:motDampR08_06_n_VAV01_3.y",
+                    "connectedTo": [
+                        "inst:vavCtrl3.y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealInput"
+                    ]
+                }
+            ],
+            "cdl:hasInput": [
+                {
+                    "@id": "inst:motDampR08_06_n_VAV01_3.y",
+                    "connectedTo": [
+                        "inst:vavCtrl3.y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealInput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "motDampR08_06_n_VAV01_4_damper_dp_nom",
+            "value": 15552000,
+            "displayUnit": {
+                "value": "Pa"
+            },
+            "@type": "Modelica.Units.SI.PressureDifference",
+            "@id": "inst:motDampR08_06_n_VAV01_4_damper_dp_nom",
+            "variability": "parameter"
+        },
+        {
+            "modelicaName": "motDampR08_06_n_VAV01_4",
+            "Medium": "MediumVentilation",
+            "m_flow_nominal": {
+                "value": 0.12
+            },
+            "y_start": {
+                "value": 0
+            },
+            "dpDamper_nominal": {
+                "value": "motDampR08_06_n_VAV01_4_damper_dp_nom"
+            },
+            "dpFixed_nominal": {
+                "value": 0
+            },
+            "@type": "Buildings.Fluid.Actuators.Dampers.Exponential",
+            "@id": "inst:motDampR08_06_n_VAV01_4",
+            "points": [
+                {
+                    "@id": "inst:motDampR08_06_n_VAV01_4.y",
+                    "connectedTo": [
+                        "inst:vavCtrl3.y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealInput"
+                    ]
+                }
+            ],
+            "cdl:hasInput": [
+                {
+                    "@id": "inst:motDampR08_06_n_VAV01_4.y",
+                    "connectedTo": [
+                        "inst:vavCtrl3.y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealInput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "motDampR08_06_o_VAV01_1_damper_dp_nom",
+            "value": 15552000,
+            "displayUnit": {
+                "value": "Pa"
+            },
+            "@type": "Modelica.Units.SI.PressureDifference",
+            "@id": "inst:motDampR08_06_o_VAV01_1_damper_dp_nom",
+            "variability": "parameter"
+        },
+        {
+            "modelicaName": "motDampR08_06_o_VAV01_1",
+            "Medium": "MediumVentilation",
+            "m_flow_nominal": {
+                "value": 0.12
+            },
+            "y_start": {
+                "value": 0
+            },
+            "dpDamper_nominal": {
+                "value": "motDampR08_06_o_VAV01_1_damper_dp_nom"
+            },
+            "dpFixed_nominal": {
+                "value": 0
+            },
+            "@type": "Buildings.Fluid.Actuators.Dampers.Exponential",
+            "@id": "inst:motDampR08_06_o_VAV01_1",
+            "points": [
+                {
+                    "@id": "inst:motDampR08_06_o_VAV01_1.y",
+                    "connectedTo": [
+                        "inst:vavCtrl2.y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "cdl:RealInput"
+                    ]
+                }
+            ],
+            "cdl:hasInput": [
+                {
+                    "@id": "inst:motDampR08_06_o_VAV01_1.y",
+                    "connectedTo": [
+                        "inst:vavCtrl2.y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "cdl:RealInput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "motDampR08_06_o_VAV01_2_damper_dp_nom",
+            "value": 15552000,
+            "displayUnit": {
+                "value": "Pa"
+            },
+            "@type": "Modelica.Units.SI.PressureDifference",
+            "@id": "inst:motDampR08_06_o_VAV01_2_damper_dp_nom",
+            "variability": "parameter"
+        },
+        {
+            "modelicaName": "motDampR08_06_o_VAV01_2",
+            "Medium": "MediumVentilation",
+            "m_flow_nominal": {
+                "value": 0.12
+            },
+            "y_start": {
+                "value": 0
+            },
+            "dpDamper_nominal": {
+                "value": "motDampR08_06_o_VAV01_2_damper_dp_nom"
+            },
+            "dpFixed_nominal": {
+                "value": 0
+            },
+            "@type": "Buildings.Fluid.Actuators.Dampers.Exponential",
+            "@id": "inst:motDampR08_06_o_VAV01_2",
+            "points": [
+                {
+                    "@id": "inst:motDampR08_06_o_VAV01_2.y",
+                    "connectedTo": [
+                        "inst:vavCtrl2.y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealInput"
+                    ]
+                }
+            ],
+            "cdl:hasInput": [
+                {
+                    "@id": "inst:motDampR08_06_o_VAV01_2.y",
+                    "connectedTo": [
+                        "inst:vavCtrl2.y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealInput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "motDampR08_06_o_VAV01_3_damper_dp_nom",
+            "value": 15552000,
+            "displayUnit": {
+                "value": "Pa"
+            },
+            "@type": "Modelica.Units.SI.PressureDifference",
+            "@id": "inst:motDampR08_06_o_VAV01_3_damper_dp_nom",
+            "variability": "parameter"
+        },
+        {
+            "modelicaName": "motDampR08_06_o_VAV01_3",
+            "Medium": "MediumVentilation",
+            "m_flow_nominal": {
+                "value": 0.12
+            },
+            "y_start": {
+                "value": 0
+            },
+            "dpDamper_nominal": {
+                "value": "motDampR08_06_o_VAV01_3_damper_dp_nom"
+            },
+            "dpFixed_nominal": {
+                "value": 0
+            },
+            "@type": "Buildings.Fluid.Actuators.Dampers.Exponential",
+            "@id": "inst:motDampR08_06_o_VAV01_3",
+            "points": [
+                {
+                    "@id": "inst:motDampR08_06_o_VAV01_3.y",
+                    "connectedTo": [
+                        "inst:vavCtrl2.y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealInput"
+                    ]
+                }
+            ],
+            "cdl:hasInput": [
+                {
+                    "@id": "inst:motDampR08_06_o_VAV01_3.y",
+                    "connectedTo": [
+                        "inst:vavCtrl2.y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealInput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "motDampR08_06_o_VAV01_4_damper_dp_nom",
+            "value": 15552000,
+            "displayUnit": {
+                "value": "Pa"
+            },
+            "@type": "Modelica.Units.SI.PressureDifference",
+            "@id": "inst:motDampR08_06_o_VAV01_4_damper_dp_nom",
+            "variability": "parameter"
+        },
+        {
+            "modelicaName": "motDampR08_06_o_VAV01_4",
+            "Medium": "MediumVentilation",
+            "m_flow_nominal": {
+                "value": 0.12
+            },
+            "y_start": {
+                "value": 0
+            },
+            "dpDamper_nominal": {
+                "value": "motDampR08_06_o_VAV01_4_damper_dp_nom"
+            },
+            "dpFixed_nominal": {
+                "value": 0
+            },
+            "@type": "Buildings.Fluid.Actuators.Dampers.Exponential",
+            "@id": "inst:motDampR08_06_o_VAV01_4",
+            "points": [
+                {
+                    "@id": "inst:motDampR08_06_o_VAV01_4.y",
+                    "connectedTo": [
+                        "inst:vavCtrl2.y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealInput"
+                    ]
+                }
+            ],
+            "cdl:hasInput": [
+                {
+                    "@id": "inst:motDampR08_06_o_VAV01_4.y",
+                    "connectedTo": [
+                        "inst:vavCtrl2.y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealInput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "motDampR08_07_VAV01_1_damper_dp_nom",
+            "value": 15552000,
+            "displayUnit": {
+                "value": "Pa"
+            },
+            "@type": "Modelica.Units.SI.PressureDifference",
+            "@id": "inst:motDampR08_07_VAV01_1_damper_dp_nom",
+            "variability": "parameter"
+        },
+        {
+            "modelicaName": "motDampR08_07_VAV01_1",
+            "Medium": "MediumVentilation",
+            "m_flow_nominal": {
+                "value": 0.12
+            },
+            "y_start": {
+                "value": 0
+            },
+            "dpDamper_nominal": {
+                "value": "motDampR08_07_VAV01_1_damper_dp_nom"
+            },
+            "dpFixed_nominal": {
+                "value": 0
+            },
+            "@type": "Buildings.Fluid.Actuators.Dampers.Exponential",
+            "@id": "inst:motDampR08_07_VAV01_1",
+            "points": [
+                {
+                    "@id": "inst:motDampR08_07_VAV01_1.y",
+                    "connectedTo": [
+                        "inst:vavCtrl1.y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "cdl:RealInput"
+                    ]
+                }
+            ],
+            "cdl:hasInput": [
+                {
+                    "@id": "inst:motDampR08_07_VAV01_1.y",
+                    "connectedTo": [
+                        "inst:vavCtrl1.y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "cdl:RealInput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "motDampR08_07_VAV01_2_damper_dp_nom",
+            "value": 15552000,
+            "displayUnit": {
+                "value": "Pa"
+            },
+            "@type": "Modelica.Units.SI.PressureDifference",
+            "@id": "inst:motDampR08_07_VAV01_2_damper_dp_nom",
+            "variability": "parameter"
+        },
+        {
+            "modelicaName": "motDampR08_07_VAV01_2",
+            "Medium": "MediumVentilation",
+            "m_flow_nominal": {
+                "value": 0.12
+            },
+            "y_start": {
+                "value": 0
+            },
+            "dpDamper_nominal": {
+                "value": "motDampR08_07_VAV01_2_damper_dp_nom"
+            },
+            "dpFixed_nominal": {
+                "value": 0
+            },
+            "@type": "Buildings.Fluid.Actuators.Dampers.Exponential",
+            "@id": "inst:motDampR08_07_VAV01_2",
+            "points": [
+                {
+                    "@id": "inst:motDampR08_07_VAV01_2.y",
+                    "connectedTo": [
+                        "inst:vavCtrl1.y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealInput"
+                    ]
+                }
+            ],
+            "cdl:hasInput": [
+                {
+                    "@id": "inst:motDampR08_07_VAV01_2.y",
+                    "connectedTo": [
+                        "inst:vavCtrl1.y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealInput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "motDampR08_07_VAV01_3_damper_dp_nom",
+            "value": 15552000,
+            "displayUnit": {
+                "value": "Pa"
+            },
+            "@type": "Modelica.Units.SI.PressureDifference",
+            "@id": "inst:motDampR08_07_VAV01_3_damper_dp_nom",
+            "variability": "parameter"
+        },
+        {
+            "modelicaName": "motDampR08_07_VAV01_3",
+            "Medium": "MediumVentilation",
+            "m_flow_nominal": {
+                "value": 0.12
+            },
+            "y_start": {
+                "value": 0
+            },
+            "dpDamper_nominal": {
+                "value": "motDampR08_07_VAV01_3_damper_dp_nom"
+            },
+            "dpFixed_nominal": {
+                "value": 0
+            },
+            "@type": "Buildings.Fluid.Actuators.Dampers.Exponential",
+            "@id": "inst:motDampR08_07_VAV01_3",
+            "points": [
+                {
+                    "@id": "inst:motDampR08_07_VAV01_3.y",
+                    "connectedTo": [
+                        "inst:vavCtrl1.y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealInput"
+                    ]
+                }
+            ],
+            "cdl:hasInput": [
+                {
+                    "@id": "inst:motDampR08_07_VAV01_3.y",
+                    "connectedTo": [
+                        "inst:vavCtrl1.y"
+                    ],
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealInput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "roomR08_01",
+            "@type": "tl:RoomDetached",
+            "@id": "inst:roomR08_01",
+            "points": [
+                {
+                    "@id": "inst:roomR08_01.co2Level",
+                    "connectedTo": [
+                        "inst:vavCtrl4.co2Level"
+                    ],
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "cdl:RealOutput"
+                    ]
+                },
+                {
+                    "@id": "inst:roomR08_01.airTemp",
+                    "connectedTo": [
+                        "inst:vavCtrl4.roomTemp"
+                    ],
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "cdl:RealOutput"
+                    ]
+                }
+            ],
+            "cdl:hasOutput": [
+                {
+                    "@id": "inst:roomR08_01.co2Level",
+                    "connectedTo": [
+                        "inst:vavCtrl4.co2Level"
+                    ],
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "cdl:RealOutput"
+                    ]
+                },
+                {
+                    "@id": "inst:roomR08_01.airTemp",
+                    "connectedTo": [
+                        "inst:vavCtrl4.roomTemp"
+                    ],
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "cdl:RealOutput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "roomR08_07",
+            "@type": "tl:RoomDetached",
+            "@id": "inst:roomR08_07",
+            "points": [
+                {
+                    "@id": "inst:roomR08_07.airTemp",
+                    "connectedTo": [
+                        "inst:vavCtrl1.roomTemp"
+                    ],
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "cdl:RealOutput"
+                    ]
+                },
+                {
+                    "@id": "inst:roomR08_07.co2Level",
+                    "connectedTo": [
+                        "inst:vavCtrl1.co2Level"
+                    ],
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "cdl:RealOutput"
+                    ]
+                }
+            ],
+            "cdl:hasOutput": [
+                {
+                    "@id": "inst:roomR08_07.airTemp",
+                    "connectedTo": [
+                        "inst:vavCtrl1.roomTemp"
+                    ],
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "cdl:RealOutput"
+                    ]
+                },
+                {
+                    "@id": "inst:roomR08_07.co2Level",
+                    "connectedTo": [
+                        "inst:vavCtrl1.co2Level"
+                    ],
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "cdl:RealOutput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "roomR08_06_n",
+            "@type": "tl:RoomDetached",
+            "@id": "inst:roomR08_06_n",
+            "points": [
+                {
+                    "@id": "inst:roomR08_06_n.co2Level",
+                    "connectedTo": [
+                        "inst:vavCtrl3.co2Level"
+                    ],
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "cdl:RealOutput"
+                    ]
+                },
+                {
+                    "@id": "inst:roomR08_06_n.airTemp",
+                    "connectedTo": [
+                        "inst:vavCtrl3.roomTemp"
+                    ],
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "cdl:RealOutput"
+                    ]
+                }
+            ],
+            "cdl:hasOutput": [
+                {
+                    "@id": "inst:roomR08_06_n.co2Level",
+                    "connectedTo": [
+                        "inst:vavCtrl3.co2Level"
+                    ],
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "cdl:RealOutput"
+                    ]
+                },
+                {
+                    "@id": "inst:roomR08_06_n.airTemp",
+                    "connectedTo": [
+                        "inst:vavCtrl3.roomTemp"
+                    ],
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "cdl:RealOutput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "roomR08_06_o",
+            "@type": "tl:RoomDetached",
+            "@id": "inst:roomR08_06_o",
+            "points": [
+                {
+                    "@id": "inst:roomR08_06_o.airTemp",
+                    "connectedTo": [
+                        "inst:vavCtrl2.roomTemp"
+                    ],
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "cdl:RealOutput"
+                    ]
+                },
+                {
+                    "@id": "inst:roomR08_06_o.co2Level",
+                    "connectedTo": [
+                        "inst:vavCtrl2.co2Level"
+                    ],
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "cdl:RealOutput"
+                    ]
+                }
+            ],
+            "cdl:hasOutput": [
+                {
+                    "@id": "inst:roomR08_06_o.airTemp",
+                    "connectedTo": [
+                        "inst:vavCtrl2.roomTemp"
+                    ],
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "cdl:RealOutput"
+                    ]
+                },
+                {
+                    "@id": "inst:roomR08_06_o.co2Level",
+                    "connectedTo": [
+                        "inst:vavCtrl2.co2Level"
+                    ],
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "cdl:RealOutput"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "vavCtrl2",
+            "@type": "ctrlLib:VAVController",
+            "@id": "inst:vavCtrl2",
+            "points": [
+                {
+                    "@id": "inst:vavCtrl2.roomTemp",
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "cdl:RealInput",
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:roomR08_06_o.airTemp"
+                    ]
+                },
+                {
+                    "@id": "inst:vavCtrl2.co2Level",
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "cdl:RealInput",
+                        "brick:CO2_Level_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:roomR08_06_o.co2Level"
+                    ]
+                },
+                {
+                    "@id": "inst:vavCtrl2.y",
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "inst:motDampR08_06_o_VAV01_1.y",
+                        "inst:motDampR08_06_o_VAV01_2.y",
+                        "inst:motDampR08_06_o_VAV01_3.y",
+                        "inst:motDampR08_06_o_VAV01_4.y"
+                    ]
+                }
+            ],
+            "cdl:hasInput": [
+                {
+                    "@id": "inst:vavCtrl2.roomTemp",
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "cdl:RealInput",
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:roomR08_06_o.airTemp"
+                    ]
+                },
+                {
+                    "@id": "inst:vavCtrl2.co2Level",
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "cdl:RealInput",
+                        "brick:CO2_Level_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:roomR08_06_o.co2Level"
+                    ]
+                }
+            ],
+            "cdl:hasOutput": [
+                {
+                    "@id": "inst:vavCtrl2.y",
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "inst:motDampR08_06_o_VAV01_1.y",
+                        "inst:motDampR08_06_o_VAV01_2.y",
+                        "inst:motDampR08_06_o_VAV01_3.y",
+                        "inst:motDampR08_06_o_VAV01_4.y"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "vavCtrl3",
+            "@type": "ctrlLib:VAVController",
+            "@id": "inst:vavCtrl3",
+            "points": [
+                {
+                    "@id": "inst:vavCtrl3.roomTemp",
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "cdl:RealInput",
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:roomR08_06_n.airTemp"
+                    ]
+                },
+                {
+                    "@id": "inst:vavCtrl3.co2Level",
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "cdl:RealInput",
+                        "brick:CO2_Level_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:roomR08_06_n.co2Level"
+                    ]
+                },
+                {
+                    "@id": "inst:vavCtrl3.y",
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "inst:motDampR08_06_n_VAV01_1.y",
+                        "inst:motDampR08_06_n_VAV01_2.y",
+                        "inst:motDampR08_06_n_VAV01_3.y",
+                        "inst:motDampR08_06_n_VAV01_4.y"
+                    ]
+                }
+            ],
+            "cdl:hasInput": [
+                {
+                    "@id": "inst:vavCtrl3.roomTemp",
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "cdl:RealInput",
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:roomR08_06_n.airTemp"
+                    ]
+                },
+                {
+                    "@id": "inst:vavCtrl3.co2Level",
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "cdl:RealInput",
+                        "brick:CO2_Level_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:roomR08_06_n.co2Level"
+                    ]
+                }
+            ],
+            "cdl:hasOutput": [
+                {
+                    "@id": "inst:vavCtrl3.y",
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "inst:motDampR08_06_n_VAV01_1.y",
+                        "inst:motDampR08_06_n_VAV01_2.y",
+                        "inst:motDampR08_06_n_VAV01_3.y",
+                        "inst:motDampR08_06_n_VAV01_4.y"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "vavCtrl4",
+            "@type": "ctrlLib:VAVController",
+            "@id": "inst:vavCtrl4",
+            "points": [
+                {
+                    "@id": "inst:vavCtrl4.roomTemp",
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "cdl:RealInput",
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:roomR08_01.airTemp"
+                    ]
+                },
+                {
+                    "@id": "inst:vavCtrl4.co2Level",
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "cdl:RealInput",
+                        "brick:CO2_Level_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:roomR08_01.co2Level"
+                    ]
+                },
+                {
+                    "@id": "inst:vavCtrl4.y",
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "inst:motDampR08_01_VAV01_1.y"
+                    ]
+                }
+            ],
+            "cdl:hasInput": [
+                {
+                    "@id": "inst:vavCtrl4.roomTemp",
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "cdl:RealInput",
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:roomR08_01.airTemp"
+                    ]
+                },
+                {
+                    "@id": "inst:vavCtrl4.co2Level",
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "cdl:RealInput",
+                        "brick:CO2_Level_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:roomR08_01.co2Level"
+                    ]
+                }
+            ],
+            "cdl:hasOutput": [
+                {
+                    "@id": "inst:vavCtrl4.y",
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "inst:motDampR08_01_VAV01_1.y"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "aHUController",
+            "@type": "ctrlLib:AHUController",
+            "@id": "inst:aHUController",
+            "points": [
+                {
+                    "@id": "inst:aHUController.supPre",
+                    "@type": [
+                        "brick:Supply_Air_Static_Pressure_Sensor",
+                        "cdl:RealInput",
+                        "brick:Supply_Air_Static_Pressure_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:ahuHTR9_VEN02.supPre"
+                    ]
+                },
+                {
+                    "@id": "inst:aHUController.retPre",
+                    "@type": [
+                        "brick:Discharge_Air_Static_Pressure_Sensor",
+                        "cdl:RealInput",
+                        "brick:Discharge_Air_Static_Pressure_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:ahuHTR9_VEN02.retPre"
+                    ]
+                },
+                {
+                    "@id": "inst:aHUController.supTemp",
+                    "@type": [
+                        "brick:Supply_Air_Temperature_Sensor",
+                        "cdl:RealInput",
+                        "brick:Supply_Air_Temperature_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:ahuHTR9_VEN02.supAirTemp"
+                    ]
+                },
+                {
+                    "@id": "inst:aHUController.supFan_y",
+                    "@type": [
+                        "brick:Fan_Speed_Command",
+                        "cdl:RealOutput",
+                        "brick:Fan_Speed_Command",
+                        "cdl:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "inst:ahuHTR9_VEN02.supFanSpeed"
+                    ]
+                },
+                {
+                    "@id": "inst:aHUController.retFan_y",
+                    "@type": [
+                        "brick:Fan_Speed_Command",
+                        "cdl:RealOutput",
+                        "brick:Fan_Speed_Command",
+                        "cdl:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "inst:ahuHTR9_VEN02.retFanSpeed"
+                    ]
+                },
+                {
+                    "@id": "inst:aHUController.heatingCoil_y",
+                    "@type": [
+                        "brick:Valve_Position_Command",
+                        "cdl:RealOutput",
+                        "brick:Valve_Position_Command",
+                        "cdl:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "inst:ahuHTR9_VEN02.heaCoil_y"
+                    ]
+                }
+            ],
+            "cdl:hasInput": [
+                {
+                    "@id": "inst:aHUController.supPre",
+                    "@type": [
+                        "brick:Supply_Air_Static_Pressure_Sensor",
+                        "cdl:RealInput",
+                        "brick:Supply_Air_Static_Pressure_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:ahuHTR9_VEN02.supPre"
+                    ]
+                },
+                {
+                    "@id": "inst:aHUController.retPre",
+                    "@type": [
+                        "brick:Discharge_Air_Static_Pressure_Sensor",
+                        "cdl:RealInput",
+                        "brick:Discharge_Air_Static_Pressure_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:ahuHTR9_VEN02.retPre"
+                    ]
+                },
+                {
+                    "@id": "inst:aHUController.supTemp",
+                    "@type": [
+                        "brick:Supply_Air_Temperature_Sensor",
+                        "cdl:RealInput",
+                        "brick:Supply_Air_Temperature_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:ahuHTR9_VEN02.supAirTemp"
+                    ]
+                }
+            ],
+            "cdl:hasOutput": [
+                {
+                    "@id": "inst:aHUController.supFan_y",
+                    "@type": [
+                        "brick:Fan_Speed_Command",
+                        "cdl:RealOutput",
+                        "brick:Fan_Speed_Command",
+                        "cdl:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "inst:ahuHTR9_VEN02.supFanSpeed"
+                    ]
+                },
+                {
+                    "@id": "inst:aHUController.retFan_y",
+                    "@type": [
+                        "brick:Fan_Speed_Command",
+                        "cdl:RealOutput",
+                        "brick:Fan_Speed_Command",
+                        "cdl:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "inst:ahuHTR9_VEN02.retFanSpeed"
+                    ]
+                },
+                {
+                    "@id": "inst:aHUController.heatingCoil_y",
+                    "@type": [
+                        "brick:Valve_Position_Command",
+                        "cdl:RealOutput",
+                        "brick:Valve_Position_Command",
+                        "cdl:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "inst:ahuHTR9_VEN02.heaCoil_y"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "vavCtrl1",
+            "@type": "ctrlLib:VAVController",
+            "@id": "inst:vavCtrl1",
+            "points": [
+                {
+                    "@id": "inst:vavCtrl1.roomTemp",
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "cdl:RealInput",
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:roomR08_07.airTemp"
+                    ]
+                },
+                {
+                    "@id": "inst:vavCtrl1.co2Level",
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "cdl:RealInput",
+                        "brick:CO2_Level_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:roomR08_07.co2Level"
+                    ]
+                },
+                {
+                    "@id": "inst:vavCtrl1.y",
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "inst:motDampR08_07_VAV01_1.y",
+                        "inst:motDampR08_07_VAV01_2.y",
+                        "inst:motDampR08_07_VAV01_3.y"
+                    ]
+                }
+            ],
+            "cdl:hasInput": [
+                {
+                    "@id": "inst:vavCtrl1.roomTemp",
+                    "@type": [
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "cdl:RealInput",
+                        "brick:Zone_Air_Temperature_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:roomR08_07.airTemp"
+                    ]
+                },
+                {
+                    "@id": "inst:vavCtrl1.co2Level",
+                    "@type": [
+                        "brick:CO2_Level_Sensor",
+                        "cdl:RealInput",
+                        "brick:CO2_Level_Sensor",
+                        "cdl:RealInput"
+                    ],
+                    "connectedTo": [
+                        "inst:roomR08_07.co2Level"
+                    ]
+                }
+            ],
+            "cdl:hasOutput": [
+                {
+                    "@id": "inst:vavCtrl1.y",
+                    "@type": [
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "brick:Damper_Position_Command",
+                        "cdl:RealOutput"
+                    ],
+                    "connectedTo": [
+                        "inst:motDampR08_07_VAV01_1.y",
+                        "inst:motDampR08_07_VAV01_2.y",
+                        "inst:motDampR08_07_VAV01_3.y"
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -16,7 +16,7 @@ def parse_args():
 
 if __name__ == '__main__':
 
-    file_path = "examples\\models\\BS23_Example_Expanded.mo"
+    file_path = "examples\\models\\ModelPackage\\HTR9VEN02_expanded.mo"
     get_point_lists = True
     
     res = m2c.create_modelica_JSON(file_path = file_path, get_point_lists = get_point_lists)
@@ -29,8 +29,8 @@ if __name__ == '__main__':
     context = json.load(context_file)
     context_file.close()
 
-    res = {**context, **res}
+    res = {**context, "@graph": res["Elements"]}    
 
-    fp = open(os.path.join(dir,"results",f"{model_name}.json"), "w")
+    fp = open(os.path.join(dir,"results",f"{model_name}.jsonld"), "w")
     json.dump(res, fp,indent=4)
     fp.close()

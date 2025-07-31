@@ -1,12 +1,4 @@
-model BS23_Example_Expanded "Auto-generated model"
-
-  package MediumHeating = Buildings.Media.Water(T_default=273.15+70) annotation (
-      __Dymola_choicesAllMatching=true);
-  package MediumCooling = Buildings.Media.Antifreeze.PropyleneGlycolWater(property_T=273.15 + 5, X_a=0.35, T_default=273.15 + 5) annotation (
-      __Dymola_choicesAllMatching=true);
-  package MediumVentilation = Buildings.Media.Air(extraPropertiesNames={"CO2"}) annotation (
-      __Dymola_choicesAllMatching=true);
-  
+model BS23_Example "Auto-generated model"
   Buildings.Fluid.Actuators.Dampers.Exponential motDamp866580(redeclare package Medium = MediumVentilation, m_flow_nominal = 0.0504, dpDamper_nominal = 20.84) annotation(
     _CDE(id=866580), Placement(visible = true, transformation(origin = {120, 80}, extent = {{0, 0}, {20, 20}}, rotation = 0)));
   Buildings.Fluid.Actuators.Dampers.Exponential motDamp869779(redeclare package Medium = MediumVentilation, m_flow_nominal = 0.0504, dpDamper_nominal = 9.68) annotation(
@@ -36,7 +28,7 @@ model BS23_Example_Expanded "Auto-generated model"
   ToolchainLib.RoomDetachedDetailedProfile room1333986(redeclare package MediumA = MediumVentilation, nPersons = 6) annotation(
     _CDE(id=1333986), Placement(visible = true, transformation(origin = {160, 20}, extent = {{0, -60}, {20, -40}}, rotation = 0)));
   CtrllSeqLib.AHUController AHUctrl annotation(
-    Placement(visible = true, transformation(origin = {-120, 120}, extent = {{-20, -20}, {20, 20}}, rotation = 0)), __cdl(generatePointlist=true), _CDE(expand=true));
+    Placement(visible = true, transformation(origin = {-120, 120}, extent = {{-20, -20}, {20, 20}}, rotation = 0)), __cdl(generatePointlist=true));
   CtrllSeqLib.VAVController vav1 annotation(
     Placement(visible = true, transformation(origin = {110, -70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)), __cdl(generatePointlist=true));
   CtrllSeqLib.VAVController vav2 annotation(
@@ -102,4 +94,4 @@ equation
     Icon(coordinateSystem(extent = {{-200, -200}, {200, 200}})),
     version = "",
     uses(Buildings(version = "9.1.0")));
-end BS23_Example_Expanded;
+end BS23_Example;

@@ -1,0 +1,235 @@
+{
+    "@context": {
+        "Elements": "ex:hasBlock",
+        "type": {
+            "@id": "https://www.w3.org/TR/rdf-schema/#ch_type",
+            "@type": "@id"
+        },
+        "points": "https://brickschema.org/schema/Brick#hasPoint",
+        "connectedTo": {
+            "@id": "ctrl:isConnectedTo",
+            "@type": "@id"
+        },
+        "description": "ex:Description",
+        "cdl": "https://simulationresearch.lbl.gov/modelica/releases/latest/help/Buildings_Controls_OBC_CDL.html#",
+        "ctrlLib": "https://example.org/ctrlLib#",
+        "brick": "https://brickschema.org/schema/Brick#",
+        "tl": "https://example.org/tl#",
+        "ex": "https://example.org/#",
+        "inst": "https://example.org/inst#",
+        "ctrl": "https://w3id.org/ibp/CTRLont#ctrl"
+    },
+    "@type": "block",
+    "@id": "inst:VAVController",
+    "description": "",
+    "Elements": [
+        {
+            "modelicaName": "tempControl",
+            "value": "true",
+            "description": "Does the controller use temperature control?",
+            "@type": "Boolean",
+            "@id": "inst:tempControl",
+            "variability": "parameter"
+        },
+        {
+            "modelicaName": "co2Control",
+            "value": "true",
+            "description": "Does the controller use CO2 control?",
+            "@type": "Boolean",
+            "@id": "inst:co2Control",
+            "variability": "parameter"
+        },
+        {
+            "modelicaName": "roomTemp",
+            "@type": "cdl:Interfaces.RealInput",
+            "@id": "inst:roomTemp",
+            "points": [
+                {
+                    "@id": "inst:roomTemp",
+                    "connectedTo": [
+                        "inst:tempCtrl.u_m"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "roomTempStp",
+            "@type": "cdl:Interfaces.RealInput",
+            "@id": "inst:roomTempStp",
+            "points": [
+                {
+                    "@id": "inst:roomTempStp",
+                    "connectedTo": [
+                        "inst:tempCtrl.u_s"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "tempCtrl",
+            "controllerType": {
+                "value": "Buildings.Controls.OBC.CDL.Types.SimpleController.P"
+            },
+            "k": {
+                "value": 3
+            },
+            "reverseActing": {
+                "value": "false"
+            },
+            "@type": "cdl:Reals.PID",
+            "@id": "inst:tempCtrl",
+            "points": [
+                {
+                    "@id": "inst:tempCtrl.u_m",
+                    "connectedTo": [
+                        "inst:roomTemp"
+                    ]
+                },
+                {
+                    "@id": "inst:tempCtrl.u_s",
+                    "connectedTo": [
+                        "inst:roomTempStp"
+                    ]
+                },
+                {
+                    "@id": "inst:tempCtrl.y",
+                    "connectedTo": [
+                        "inst:max.u1"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "co2Level",
+            "@type": "cdl:Interfaces.RealInput",
+            "@id": "inst:co2Level",
+            "points": [
+                {
+                    "@id": "inst:co2Level",
+                    "connectedTo": [
+                        "inst:co2Ctrl.u_m"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "co2Stp",
+            "@type": "cdl:Interfaces.RealInput",
+            "@id": "inst:co2Stp",
+            "points": [
+                {
+                    "@id": "inst:co2Stp",
+                    "connectedTo": [
+                        "inst:co2Ctrl.u_s"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "co2Ctrl",
+            "controllerType": {
+                "value": "Buildings.Controls.OBC.CDL.Types.SimpleController.P"
+            },
+            "k": {
+                "value": 150
+            },
+            "reverseActing": {
+                "value": "false"
+            },
+            "@type": "cdl:Reals.PID",
+            "@id": "inst:co2Ctrl",
+            "points": [
+                {
+                    "@id": "inst:co2Ctrl.u_s",
+                    "connectedTo": [
+                        "inst:co2Stp"
+                    ]
+                },
+                {
+                    "@id": "inst:co2Ctrl.u_m",
+                    "connectedTo": [
+                        "inst:co2Level"
+                    ]
+                },
+                {
+                    "@id": "inst:co2Ctrl.y",
+                    "connectedTo": [
+                        "inst:max.u2"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "max",
+            "@type": "cdl:Reals.Max",
+            "@id": "inst:max",
+            "points": [
+                {
+                    "@id": "inst:max.u1",
+                    "connectedTo": [
+                        "inst:tempCtrl.y",
+                        "inst:noTempCtrl.y"
+                    ]
+                },
+                {
+                    "@id": "inst:max.u2",
+                    "connectedTo": [
+                        "inst:co2Ctrl.y",
+                        "inst:noCO2Ctrl.y"
+                    ]
+                },
+                {
+                    "@id": "inst:max.y",
+                    "connectedTo": [
+                        "inst:y"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "y",
+            "@type": "cdl:Interfaces.RealOutput",
+            "@id": "inst:y",
+            "points": [
+                {
+                    "@id": "inst:y",
+                    "connectedTo": [
+                        "inst:max.y"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "noTempCtrl",
+            "k": {
+                "value": 0
+            },
+            "@type": "cdl:Reals.Sources.Constant",
+            "@id": "inst:noTempCtrl",
+            "points": [
+                {
+                    "@id": "inst:noTempCtrl.y",
+                    "connectedTo": [
+                        "inst:max.u1"
+                    ]
+                }
+            ]
+        },
+        {
+            "modelicaName": "noCO2Ctrl",
+            "k": {
+                "value": 0
+            },
+            "@type": "cdl:Reals.Sources.Constant",
+            "@id": "inst:noCO2Ctrl",
+            "points": [
+                {
+                    "@id": "inst:noCO2Ctrl.y",
+                    "connectedTo": [
+                        "inst:max.u2"
+                    ]
+                }
+            ]
+        }
+    ]
+}
