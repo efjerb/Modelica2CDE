@@ -1381,7 +1381,7 @@
                     },
                     {
                         "modelicaName": "roomTemp",
-                        "@type": "cdl:Interfaces.RealInput",
+                        "@type": "S231P:CDL.Interfaces.RealInput",
                         "@id": "inst:zoneCtrl3.roomTemp",
                         "points": [
                             {
@@ -1412,7 +1412,7 @@
                     },
                     {
                         "modelicaName": "co2Level",
-                        "@type": "cdl:Interfaces.RealInput",
+                        "@type": "S231P:CDL.Interfaces.RealInput",
                         "@id": "inst:zoneCtrl3.co2Level",
                         "points": [
                             {
@@ -1439,7 +1439,7 @@
                     },
                     {
                         "modelicaName": "damper_y",
-                        "@type": "cdl:Interfaces.RealOutput",
+                        "@type": "S231P:CDL.Interfaces.RealOutput",
                         "@id": "inst:zoneCtrl3.damper_y",
                         "points": [
                             {
@@ -1466,7 +1466,7 @@
                     },
                     {
                         "modelicaName": "heating_y",
-                        "@type": "cdl:Interfaces.RealOutput",
+                        "@type": "S231P:CDL.Interfaces.RealOutput",
                         "@id": "inst:zoneCtrl3.heating_y",
                         "points": [
                             {
@@ -1502,7 +1502,7 @@
                         "reverseActing": {
                             "value": "false"
                         },
-                        "@type": "cdl:Reals.PID",
+                        "@type": "S231P:CDL.Reals.PID",
                         "@id": "inst:zoneCtrl3.coolCtrl",
                         "points": [
                             {
@@ -1890,7 +1890,7 @@
                         "reverseActing": {
                             "value": "false"
                         },
-                        "@type": "cdl:Reals.PID",
+                        "@type": "S231P:CDL.Reals.PID",
                         "@id": "inst:zoneCtrl3.co2Ctrl",
                         "points": [
                             {
@@ -2269,7 +2269,7 @@
                     },
                     {
                         "modelicaName": "max",
-                        "@type": "cdl:Reals.Max",
+                        "@type": "S231P:CDL.Reals.Max",
                         "@id": "inst:zoneCtrl3.max",
                         "points": [
                             {
@@ -2349,7 +2349,7 @@
                         "p": {
                             "value": 2
                         },
-                        "@type": "cdl:Reals.AddParameter",
+                        "@type": "S231P:CDL.Reals.AddParameter",
                         "@id": "inst:zoneCtrl3.addPar",
                         "points": [
                             {
@@ -2429,7 +2429,7 @@
                         "reverseActing": {
                             "value": "true"
                         },
-                        "@type": "cdl:Reals.PID",
+                        "@type": "S231P:CDL.Reals.PID",
                         "@id": "inst:zoneCtrl3.heatCtrl",
                         "points": [
                             {
@@ -2811,7 +2811,7 @@
                         "p": {
                             "value": -2
                         },
-                        "@type": "cdl:Reals.AddParameter",
+                        "@type": "S231P:CDL.Reals.AddParameter",
                         "@id": "inst:zoneCtrl3.addPar1",
                         "points": [
                             {
@@ -2885,7 +2885,7 @@
                         "k": {
                             "value": "co2Setpoint"
                         },
-                        "@type": "cdl:Reals.Sources.Constant",
+                        "@type": "S231P:CDL.Reals.Sources.Constant",
                         "@id": "inst:zoneCtrl3.co2Stp",
                         "points": [
                             {
@@ -2935,7 +2935,7 @@
                         "k": {
                             "value": "temperatureSetpoint"
                         },
-                        "@type": "cdl:Reals.Sources.Constant",
+                        "@type": "S231P:CDL.Reals.Sources.Constant",
                         "@id": "inst:zoneCtrl3.tempStp",
                         "points": [
                             {
