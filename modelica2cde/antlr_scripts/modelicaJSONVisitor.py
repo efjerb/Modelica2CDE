@@ -22,7 +22,7 @@ class modelicaJSONVisitor(modelicaVisitor):
 
     def expand_model(self, component):
         file_path = self.get_model_path(component["@type"])
-        if file_path == None:
+        if file_path is None:
             return []
         input_stream = antlr4.FileStream(file_path)
         
@@ -43,7 +43,7 @@ class modelicaJSONVisitor(modelicaVisitor):
 
     def prefix_ids(self, elements, prefix: str, separator = ""):
         """Recursively adds the component's name to the ids of the dicts in elements"""
-        if prefix == None:
+        if prefix is None:
             raise ValueError("prefix must be specified")
         if isinstance(elements, list):
             for i in elements:
@@ -64,7 +64,7 @@ class modelicaJSONVisitor(modelicaVisitor):
     def get_model_IO(self, model_name, get_comments = True) -> dict:
 
         file_path = self.get_model_path(model_name)
-        if file_path == None:
+        if file_path is None:
             return []
         input_stream = antlr4.FileStream(file_path)
         
@@ -175,7 +175,7 @@ class modelicaJSONVisitor(modelicaVisitor):
         variability = self.visitType_prefix(ctx.type_prefix())
         component = self.visitComponent_list(ctx.component_list())[0]
         component["@type"] = self.visitType_specifier(ctx.type_specifier())
-        if component.get("annotation",{}).get("_CDE",{}).get("iri") != None:
+        if component.get("annotation",{}).get("_CDE",{}).get("iri") is not None:
             component["@id"] = str(component.get("annotation",{}).get("_CDE",{}).get("iri")["value"])
         else:
             component["@id"] = component["modelicaName"]
@@ -188,7 +188,8 @@ class modelicaJSONVisitor(modelicaVisitor):
             if len(points) != 0:
                 for point in points:
                     point["@id"] = component["@id"] + "." + point["@id"]
-                    if type(point["@type"]) == str: point["@type"] = [point["@type"]]
+                    if type(point["@type"]) is str:
+                        point["@type"] = [point["@type"]]
                 
                 component["points"] = points
         
@@ -215,7 +216,7 @@ class modelicaJSONVisitor(modelicaVisitor):
 
     def visitComponent_declaration(self, ctx: modelicaParser.Component_declarationContext):
         res = self.visitDeclaration(ctx.declaration())
-        if ctx.comment() != None and ctx.comment().getText() != '':
+        if ctx.comment() is not None and ctx.comment().getText() != '':
             res = {**res,**self.visitComment(ctx.comment())}
         return res
     
@@ -223,20 +224,20 @@ class modelicaJSONVisitor(modelicaVisitor):
         res = {}
         if ctx.string_comment().getText() != '':
             res["description"] = self.convert_output(ctx.string_comment().getText())
-        if ctx.annotation() != None:
+        if ctx.annotation() is not None:
             res["annotation"] = self.visitAnnotation(ctx.annotation())
         return res
 
     def visitAnnotation(self, ctx: modelicaParser.AnnotationContext):
         # Get annotation and remove Placement key, if it exists
         res = self.visitClass_modification(ctx.class_modification())
-        if res.get("Placement") != None:
+        if res.get("Placement") is not None:
             res.pop("Placement")
         return res
 
     def visitDeclaration(self, ctx: modelicaParser.DeclarationContext):
         name = ctx.IDENT().getText()
-        if ctx.modification() != None:
+        if ctx.modification() is not None:
             modification = self.visitModification(ctx.modification())
             res = {"modelicaName": name,
                     **modification}
@@ -246,9 +247,9 @@ class modelicaJSONVisitor(modelicaVisitor):
     
     def visitModification(self, ctx: modelicaParser.ModificationContext):
         res = {}
-        if ctx.expression() != None:
+        if ctx.expression() is not None:
             res["value"] = self.convert_output(self.visitExpression(ctx))
-        if ctx.class_modification() != None:
+        if ctx.class_modification() is not None:
             mods = self.visitClass_modification(ctx.class_modification())
             res = {**res, **mods}
         return res
@@ -260,13 +261,13 @@ class modelicaJSONVisitor(modelicaVisitor):
         res = {}
         for arg in ctx.argument():
             arg_res = self.visitArgument(arg)
-            if arg_res != None:
+            if arg_res is not None:
                 res = {**res,**arg_res}
         return res
 
     def visitElement_modification(self, ctx: modelicaParser.Element_modificationContext):
         name = ctx.name().getText()
-        if ctx.modification() != None:
+        if ctx.modification() is not None:
             mod = self.visitModification(ctx.modification())
         else:
             mod = {}
@@ -291,14 +292,14 @@ class modelicaJSONVisitor(modelicaVisitor):
         return super().visitEquation_section(ctx)
 
     def visitEquation(self, ctx: modelicaParser.EquationContext):
-        if ctx.expression() != None:
+        if ctx.expression() is not None:
             equation = {
                 "left_hand": ctx.simple_expression().getText(),
                 "right_hand": ctx.expression().getText()
             }
             key = "equations"
         
-        elif ctx.connect_clause() != None:
+        elif ctx.connect_clause() is not None:
             equation = self.visitConnect_clause(ctx.connect_clause())
             key = "connections"
         
@@ -399,9 +400,9 @@ class modelicaJSONVisitor(modelicaVisitor):
         return component_ref
     
     def visitPrimary(self, ctx:modelicaParser.PrimaryContext):
-        if len(ctx.children) > 1 and type(ctx.children[1]) == modelicaParser.Function_argumentsContext:
+        if len(ctx.children) > 1 and type(ctx.children[1]) is modelicaParser.Function_argumentsContext:
             return self.visitFunction_arguments(ctx.children[1])
-        elif len(ctx.children) == 1 and type(ctx.children[0]) == antlr4.tree.Tree.TerminalNodeImpl:
+        elif len(ctx.children) == 1 and type(ctx.children[0]) is antlr4.tree.Tree.TerminalNodeImpl:
             return self.visitTerminal(ctx.children[0])
         else:
             return ctx.getText()
@@ -409,9 +410,9 @@ class modelicaJSONVisitor(modelicaVisitor):
     def visitFunction_arguments(self, ctx:modelicaParser.Function_argumentsContext):
         res = []
         for child in ctx.children:
-            if type(child) == modelicaParser.Function_argumentsContext:
+            if type(child) is modelicaParser.Function_argumentsContext:
                 res.extend(self.visitFunction_arguments(child))
-            elif type(child) == modelicaParser.Function_argumentContext:
+            elif type(child) is modelicaParser.Function_argumentContext:
                 res.append(self.visitFunction_argument(child))
         return res
 
@@ -428,7 +429,7 @@ class modelicaJSONVisitor(modelicaVisitor):
         return self.convert_output(ctx.getText())
 
     def convert_output(self,text):
-        if type(text) != str:
+        if type(text) is not str:
             return text
         try:
             text_float = float(text)
