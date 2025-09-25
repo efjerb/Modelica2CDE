@@ -16,7 +16,7 @@ class modelicaJSONVisitor(modelicaVisitor):
             # self.omc.sendExpression(f'setModelicaPath("{os.getenv("OPENMODELICALIBRARY")}")')
             self.omc.loadModel("RambollDefaults")
             self.omc.loadModel("ToolchainLib")
-            self.omc.loadModel("CtrllSeqLib")            
+            self.omc.loadModel("CtrllSeqLib")
         self.output = {}
         super().__init__()
 
@@ -161,7 +161,7 @@ class modelicaJSONVisitor(modelicaVisitor):
 
     def replace_type(self, type):
         names = {
-            "Buildings.Controls.OBC.CDL.": "cdl:",
+            "Buildings.Controls.OBC.CDL.": "S231P:CDL.",
             "RambollDefaults.": "ramboll:",
             "ToolchainLib.": "tl:",
             "CtrllSeqLib.": "ctrlLib:"
