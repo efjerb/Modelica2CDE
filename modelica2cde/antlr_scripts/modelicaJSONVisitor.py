@@ -30,7 +30,7 @@ class modelicaJSONVisitor(modelicaVisitor):
         
         self.output = {**self.context, "@graph": self.output["Elements"]}    
     def expand_model(self, component):
-        file_path = self.get_model_path(component["@type"])
+        file_path = self.get_model_path(component["modelica_class"])
         if file_path is None:
             return []
         input_stream = antlr4.FileStream(file_path)
@@ -101,13 +101,28 @@ class modelicaJSONVisitor(modelicaVisitor):
         else:
             return None
 
+    def purge_input_output_from_points(self, points):
+        """
+        Purge S231P:Connector classification of points. Solely used for equipment points that cannot be classified as a S231P:Connector.
+        """
+        input_names = ["S231P:BooleanInput", "S231P:RealInput", "S231P:IntegerInput"]
+        output_names = ["S231P:BooleanOutput", "S231P:RealOutput", "S231P:IntegerOutput"]
+        for point in points:
+            for i, point_type in enumerate(point["@type"]):
+                if point_type in input_names or point_type in output_names:
+                    point["@type"].pop(i)
+
     def create_input_outputs(self, elements):
         if isinstance(elements, list):
             for i in elements:
                 self.create_input_outputs(i)
     
         elif isinstance(elements, dict):
-            if "points" in elements.keys():
+            
+            if "points" in elements.keys() and "@type" in elements.keys() and ("brick:Equipment" in elements["@type"] or "rec:Room" in elements["@type"]):
+                self.purge_input_output_from_points(elements["points"])
+                
+            elif "points" in elements.keys():
                 inputs = [point for point in elements["points"] if any(("input" in x.lower()) and ("s231p" in x.lower()) for x in ([point["@type"]] if isinstance(point["@type"], str) else point["@type"]))]
                 outputs = [point for point in elements["points"] if any(("output" in x.lower()) and ("s231p" in x.lower()) for x in ([point["@type"]] if isinstance(point["@type"], str) else point["@type"]))]
                 parameters = [point for point in elements["points"] if any("s231p:parameter" in x.lower() for x in ([point["@type"]] if isinstance(point["@type"], str) else point["@type"]))]
@@ -144,6 +159,7 @@ class modelicaJSONVisitor(modelicaVisitor):
                             elements["S231P:hasConstant"].extend(constant)
                         else:
                             elements["S231P:hasConstant"] = [elements["S231P:hasConstant"]] + constant
+                elements.pop("points")
             for k in elements.keys():
                 self.create_input_outputs(elements[k])
         else:
@@ -173,17 +189,28 @@ class modelicaJSONVisitor(modelicaVisitor):
             "Buildings.Controls.OBC.CDL.": "S231P:CDL.",
             "RambollDefaults.": "ramboll:",
             "ToolchainLib.": "tl:",
-            "CtrllSeqLib.": "ctrlLib:"
+            "CtrlLib.": "ctrlLib:"
         }
-        for name in names.keys():
-            if name in type:
-                type = type.replace(name,names[name])
+
+        if not isinstance(type, list):
+            type = []
+        for i, t in enumerate(type):    
+            for name in names.keys():
+                if name in t:
+                    type[i] = t.replace(name,names[name])
         return type
 
     def visitComponent_clause(self, ctx: modelicaParser.Component_clauseContext):
         variability = self.visitType_prefix(ctx.type_prefix())
         component = self.visitComponent_list(ctx.component_list())[0]
-        component["@type"] = self.visitType_specifier(ctx.type_specifier())
+        
+        component["modelica_class"] = self.visitType_specifier(ctx.type_specifier())
+        
+        component["@type"] = [component["modelica_class"]]
+
+        if component.get("annotation",{}).get("_CDE",{}).get("rdfType") is not None:
+            component["@type"] = component["@type"] + component.get("annotation",{}).get("_CDE",{}).get("rdfType")["value"]
+            
         if component.get("annotation",{}).get("_CDE",{}).get("iri") is not None:
             component["@id"] = str(component.get("annotation",{}).get("_CDE",{}).get("iri")["value"])
         else:
@@ -193,7 +220,7 @@ class modelicaJSONVisitor(modelicaVisitor):
             component["variability"] = variability
         
         if self.get_point_lists and component.get("annotation",{}).get("__cdl",{}).get("generatePointlist",{}).get("value") == "true":
-            points = self.get_model_IO(component["@type"])
+            points = self.get_model_IO(component["modelica_class"])
             if len(points) != 0:
                 for point in points:
                     point["@id"] = component["@id"] + "." + point["@id"]
@@ -437,7 +464,7 @@ class modelicaJSONVisitor(modelicaVisitor):
     def visitTerminal(self, ctx:antlr4.tree.Tree.TerminalNodeImpl):
         return self.convert_output(ctx.getText())
 
-    def convert_output(self,text):
+    def convert_output(self, text):
         if type(text) is not str:
             return text
         try:
