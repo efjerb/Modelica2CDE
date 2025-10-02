@@ -1,4 +1,5 @@
 import os
+import json
 import antlr4
 from modelica2cde.antlr_scripts.modelicaIOvisitor import modelicaIOvisitor
 from modelica2cde.antlr_scripts.modelicaLexer import modelicaLexer
