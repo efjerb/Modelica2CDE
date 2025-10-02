@@ -1,6 +1,6 @@
 within ModelPackage;
 model AHU
-  extends RambollDefaults.Ventilation.K08_H06_M57_N101_BaseClass;
+  extends AHU_BaseClass;
   Buildings.Controls.OBC.CDL.Interfaces.RealInput supFanSpeed annotation (
     Placement(visible = true, transformation(origin = {-210, 90}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {40, -120}, extent = {{-20, -20}, {20, 20}}, rotation = 90)));
   Buildings.Controls.OBC.CDL.Interfaces.RealInput retFanSpeed annotation (
