@@ -797,7 +797,7 @@
         {
             "modelicaName": "zoneCtrl2",
             "@type": [
-                "CtrllSeqLib.ZoneController"
+                "CtrlLib.ZoneController"
             ],
             "@id": "inst:zoneCtrl2",
             "points": [
@@ -850,7 +850,7 @@
         {
             "modelicaName": "zoneCtrl3",
             "@type": [
-                "CtrllSeqLib.ZoneController"
+                "CtrlLib.ZoneController"
             ],
             "@id": "inst:zoneCtrl3",
             "points": [
@@ -903,7 +903,7 @@
         {
             "modelicaName": "zoneCtrl4",
             "@type": [
-                "CtrllSeqLib.ZoneController"
+                "CtrlLib.ZoneController"
             ],
             "@id": "inst:zoneCtrl4",
             "points": [
@@ -939,7 +939,7 @@
         {
             "modelicaName": "ahuCtrl",
             "@type": [
-                "CtrllSeqLib.AHUController"
+                "CtrlLib.AHUController"
             ],
             "@id": "inst:ahuCtrl",
             "points": [
@@ -1020,7 +1020,7 @@
         {
             "modelicaName": "zoneCtrl1",
             "@type": [
-                "CtrllSeqLib.ZoneController"
+                "CtrlLib.ZoneController"
             ],
             "@id": "inst:zoneCtrl1",
             "points": [

@@ -137,20 +137,20 @@ model HTR9VEN02 "Auto-generated model"
   Zone           roomR08_06_o annotation (Placement(
         transformation(extent={{64,-18},{104,22}})),_CDE(iri="inst:R08.06_o", rdfType={"rec:Room"}));
 
-  CtrllSeqLib.ZoneController zoneCtrl2
+  CtrlLib.ZoneController zoneCtrl2
     annotation (Placement(transformation(extent={{114,2},{134,22}})),  __cdl(
         generatePointlist=true));
-  CtrllSeqLib.ZoneController zoneCtrl3
+  CtrlLib.ZoneController zoneCtrl3
     annotation (Placement(transformation(extent={{114,62},{134,82}})),__cdl(
         generatePointlist=true));
-  CtrllSeqLib.ZoneController zoneCtrl4
+  CtrlLib.ZoneController zoneCtrl4
     annotation (Placement(transformation(extent={{114,122},{134,142}})),
                                                                        __cdl(
         generatePointlist=true));
-  CtrllSeqLib.AHUController ahuCtrl(retPreStp(k=returnPressureSetpoint))
+  CtrlLib.AHUController ahuCtrl(retPreStp(k=returnPressureSetpoint))
                                     annotation (Placement(transformation(extent={{-36,24},
             {22,118}})),             __cdl(generatePointlist=true));
-  CtrllSeqLib.ZoneController zoneCtrl1
+  CtrlLib.ZoneController zoneCtrl1
     annotation (Placement(transformation(extent={{114,-58},{134,-38}})),__cdl(
         generatePointlist=true));
 equation

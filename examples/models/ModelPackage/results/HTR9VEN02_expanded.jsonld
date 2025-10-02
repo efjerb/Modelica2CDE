@@ -825,7 +825,7 @@
         },
         {
             "modelicaName": "zoneCtrl2",
-            "modelica_class": "CtrllSeqLib.ZoneController",
+            "modelica_class": "CtrlLib.ZoneController",
             "@type": [
                 "ctrlLib:ZoneController"
             ],
@@ -926,7 +926,7 @@
         },
         {
             "modelicaName": "zoneCtrl3",
-            "modelica_class": "CtrllSeqLib.ZoneController",
+            "modelica_class": "CtrlLib.ZoneController",
             "@type": [
                 "ctrlLib:ZoneController"
             ],
@@ -1962,7 +1962,7 @@
         },
         {
             "modelicaName": "zoneCtrl4",
-            "modelica_class": "CtrllSeqLib.ZoneController",
+            "modelica_class": "CtrlLib.ZoneController",
             "@type": [
                 "ctrlLib:ZoneController"
             ],
@@ -2043,7 +2043,7 @@
         },
         {
             "modelicaName": "ahuCtrl",
-            "modelica_class": "CtrllSeqLib.AHUController",
+            "modelica_class": "CtrlLib.AHUController",
             "@type": [
                 "ctrlLib:AHUController"
             ],
@@ -2183,7 +2183,7 @@
         },
         {
             "modelicaName": "zoneCtrl1",
-            "modelica_class": "CtrllSeqLib.ZoneController",
+            "modelica_class": "CtrlLib.ZoneController",
             "@type": [
                 "ctrlLib:ZoneController"
             ],
