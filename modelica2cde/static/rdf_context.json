@@ -7,7 +7,7 @@
         },
         "points": "https://brickschema.org/schema/Brick#hasPoint",
         "connectedTo": {
-            "@id": "S231P:isConnectedTo",
+            "@id": "ex:connectedTo",
             "@type": "@id"
         },
         "description": "ex:Description",
@@ -15,7 +15,7 @@
         "ctrlLib": "https://example.com/ctrlLib#",
         "brick": "https://brickschema.org/schema/Brick#",
         "tl": "https://example.com/tl#",
-        "ex": "https://example.com/#",
+        "ex": "https://example.com/ex#",
         "inst": "https://example.com/inst#",
         "S231P": "http://data.ashrae.org/S231P#"
     }

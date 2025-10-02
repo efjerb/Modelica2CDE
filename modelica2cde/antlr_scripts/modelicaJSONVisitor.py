@@ -16,10 +16,18 @@ class modelicaJSONVisitor(modelicaVisitor):
             # self.omc.sendExpression(f'setModelicaPath("{os.getenv("OPENMODELICALIBRARY")}")')
             self.omc.loadModel("RambollDefaults")
             self.omc.loadModel("ToolchainLib")
-            self.omc.loadModel("CtrllSeqLib")
-        self.output = {}
-        super().__init__()
+            self.omc.loadModel("CtrlLib")
+        context_path = os.path.join(os.path.dirname(__file__), "..", "static", "rdf_context.json")
+        context_file = open(os.path.abspath(context_path), "r")
+        self.context = json.load(context_file)
+        context_file.close()
 
+        self.output = {}    
+        
+        super().__init__()
+    def prepare_output(self):
+        
+        self.output = {**self.context, "@graph": self.output["Elements"]}    
     def expand_model(self, component):
         file_path = self.get_model_path(component["@type"])
         if file_path is None:

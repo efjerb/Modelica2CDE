@@ -24,13 +24,7 @@ if __name__ == '__main__':
     dir = os.path.dirname(file_path)
 
     model_name = os.path.basename(file_path).split('.')[0]
-
-    context_file = open("examples/rdf_context.json","r")
-    context = json.load(context_file)
-    context_file.close()
-
-    res = {**context, "@graph": res["Elements"]}    
-
+    
     fp = open(os.path.join(dir,"results",f"{model_name}.jsonld"), "w")
     json.dump(res, fp,indent=4)
     fp.close()

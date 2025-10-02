@@ -17,4 +17,5 @@ def create_modelica_JSON(file_path, get_point_lists):
 
     modelicaJSON.prefix_ids(modelicaJSON.output,"inst",":")
     modelicaJSON.create_input_outputs(modelicaJSON.output)
+    modelicaJSON.prepare_output()
     return modelicaJSON.output
