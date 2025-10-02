@@ -709,9 +709,9 @@
         },
         {
             "modelicaName": "roomR08_01",
-            "modelica_class": "ToolchainLib.RoomDetached",
+            "modelica_class": "Zone",
             "@type": [
-                "tl:RoomDetached",
+                "Zone",
                 "rec:Room"
             ],
             "@id": "inst:R08.01",
@@ -738,9 +738,9 @@
         },
         {
             "modelicaName": "roomR08_07",
-            "modelica_class": "ToolchainLib.RoomDetached",
+            "modelica_class": "Zone",
             "@type": [
-                "tl:RoomDetached",
+                "Zone",
                 "rec:Room"
             ],
             "@id": "inst:R08.07",
@@ -767,9 +767,9 @@
         },
         {
             "modelicaName": "roomR08_06_n",
-            "modelica_class": "ToolchainLib.RoomDetached",
+            "modelica_class": "Zone",
             "@type": [
-                "tl:RoomDetached",
+                "Zone",
                 "rec:Room"
             ],
             "@id": "inst:R08.06_n",
@@ -796,9 +796,9 @@
         },
         {
             "modelicaName": "roomR08_06_o",
-            "modelica_class": "ToolchainLib.RoomDetached",
+            "modelica_class": "Zone",
             "@type": [
-                "tl:RoomDetached",
+                "Zone",
                 "rec:Room"
             ],
             "@id": "inst:R08.06_o",
