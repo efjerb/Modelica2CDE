@@ -17,6 +17,9 @@ Alternatively, the script in `run_example.py` can be used to parse the models in
 
 To support generation of point list for components in the model, OpenModelica must be installed, and the [Modelica Buildings Library](https://simulationresearch.lbl.gov/modelica/) must be located in the path used by OpenModelica (you should be able to set the `MODELICAPATH` to include your library folder). Remember to define an `OPENMODELICAHOME` environment variable pointing to the OpenModelica installation folder. Any libraries must be imported in the `modelicaJSONVisitor` initializer function.
 
+## Examples folder
+The `examples/models` folder contains two models, `VEN09_02` and `VEN09_02_expanded`, that use the same system, with and without expansion of the `zoneCtrl3` block. The containing package, `ModelPackage`, also includes models for the AHU and Zones. The `example/libraries` folder includes the `CtrlLib` library. To run the examples, this library must be copied to the Modelica path, as described above.
+
 ## Support and limitations
 Currently, only files with single models are supported, and many other limitations exist, since this is supposed to be a simpler and more modifiable version of the modelica-json tool. Hopefully, the experienced user can mitigate these limitations on their own.
 
