@@ -198,6 +198,12 @@ class modelicaJSONVisitor(modelicaVisitor):
                 if name in t:
                     type[i] = t.replace(name,names[name])
         return type
+    
+    def ensure_list(self, object):
+        if isinstance(object, list):
+            return object
+        else:
+            return [object]
 
     def visitComponent_clause(self, ctx: modelicaParser.Component_clauseContext):
         variability = self.visitType_prefix(ctx.type_prefix())
@@ -207,11 +213,11 @@ class modelicaJSONVisitor(modelicaVisitor):
         
         component["@type"] = [component["modelica_class"]]
 
-        if component.get("annotation",{}).get("_CDE",{}).get("rdfType") is not None:
-            component["@type"] = component["@type"] + component.get("annotation",{}).get("_CDE",{}).get("rdfType")["value"]
+        if component.get("annotation",{}).get("__semantic",{}).get("rdfType") is not None:
+            component["@type"] = component["@type"] + self.ensure_list(component.get("annotation",{}).get("__semantic",{}).get("rdfType")["value"])
             
-        if component.get("annotation",{}).get("_CDE",{}).get("iri") is not None:
-            component["@id"] = str(component.get("annotation",{}).get("_CDE",{}).get("iri")["value"])
+        if component.get("annotation",{}).get("__semantic",{}).get("iri") is not None:
+            component["@id"] = str(component.get("annotation",{}).get("__semantic",{}).get("iri")["value"])
         else:
             component["@id"] = component["modelicaName"]
 
@@ -230,7 +236,7 @@ class modelicaJSONVisitor(modelicaVisitor):
         
         
         # Expand component model, if specified in annotations:
-        if component.get("annotation",{}).get("_CDE",{}).get("expand",{}).get("value") == "true":
+        if component.get("annotation",{}).get("__semantic",{}).get("expand",{}).get("value") == "true":
             if "Elements" not in component.keys():
                 component["Elements"] = []
             component["Elements"].append(self.expand_model(component))

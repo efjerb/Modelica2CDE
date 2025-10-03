@@ -14,7 +14,7 @@ model VEN09_02_expanded "Auto-generated model"
     redeclare package MediumC = MediumCooling,
     retFan(addPowerToMedium=false),
     supFan(addPowerToMedium=false)) annotation (Placement(transformation(extent
-          ={{-40,-62},{40,-22}})), _CDE(iri="inst:AHU09.02", rdfType={"brick:AHU", "brick:Equipment"}));
+          ={{-40,-62},{40,-22}})), __semantic(iri="inst:AHU09.02", rdfType={"brick:AHU", "brick:Equipment"}));
 
   parameter Modelica.Units.SI.PressureDifference motDampR08_01_VAV01_1_damper_dp_nom(displayUnit="Pa") = 15552000.0;
   Buildings.Fluid.Actuators.Dampers.Exponential motDampR08_01_VAV01_1(
@@ -23,7 +23,7 @@ model VEN09_02_expanded "Auto-generated model"
       y_start=0,
       dpDamper_nominal=motDampR08_01_VAV01_1_damper_dp_nom,
       dpFixed_nominal=0) annotation (Placement(transformation(extent={{144,102},
-            {164,122}})),_CDE(iri="inst:R08.01_VAV01_1", rdfType={"brick:VAV", "brick:Equipment"}));
+            {164,122}})),__semantic(iri="inst:R08.01_VAV01_1", rdfType={"brick:VAV", "brick:Equipment"}));
 
   parameter Modelica.Units.SI.PressureDifference motDampR08_06_n_VAV01_1_damper_dp_nom(displayUnit="Pa") = 15552000.0;
   Buildings.Fluid.Actuators.Dampers.Exponential motDampR08_06_n_VAV01_1(
@@ -32,7 +32,7 @@ model VEN09_02_expanded "Auto-generated model"
       y_start=0,
       dpDamper_nominal=motDampR08_06_n_VAV01_1_damper_dp_nom,
       dpFixed_nominal=0) annotation (Placement(transformation(extent={{144,42},
-            {164,62}})), _CDE(iri="inst:R08.06_n_VAV01_1", rdfType={"brick:VAV", "brick:Equipment"}));
+            {164,62}})), __semantic(iri="inst:R08.06_n_VAV01_1", rdfType={"brick:VAV", "brick:Equipment"}));
 
   parameter Modelica.Units.SI.PressureDifference motDampR08_06_n_VAV01_2_damper_dp_nom(displayUnit="Pa") = 15552000.0;
   Buildings.Fluid.Actuators.Dampers.Exponential motDampR08_06_n_VAV01_2(
@@ -41,7 +41,7 @@ model VEN09_02_expanded "Auto-generated model"
       y_start=0,
       dpDamper_nominal=motDampR08_06_n_VAV01_2_damper_dp_nom,
       dpFixed_nominal=0) annotation (Placement(transformation(extent={{174,42},
-            {194,62}})), _CDE(iri="inst:R08.06_n_VAV01_2", rdfType={"brick:VAV", "brick:Equipment"}));
+            {194,62}})), __semantic(iri="inst:R08.06_n_VAV01_2", rdfType={"brick:VAV", "brick:Equipment"}));
 
   parameter Modelica.Units.SI.PressureDifference motDampR08_06_n_VAV01_3_damper_dp_nom(displayUnit="Pa") = 15552000.0;
   Buildings.Fluid.Actuators.Dampers.Exponential motDampR08_06_n_VAV01_3(
@@ -50,7 +50,7 @@ model VEN09_02_expanded "Auto-generated model"
       y_start=0,
       dpDamper_nominal=motDampR08_06_n_VAV01_3_damper_dp_nom,
       dpFixed_nominal=0) annotation (Placement(transformation(extent={{204,42},
-            {224,62}})), _CDE(iri="inst:R08.06_n_VAV01_3", rdfType={"brick:VAV", "brick:Equipment"}));
+            {224,62}})), __semantic(iri="inst:R08.06_n_VAV01_3", rdfType={"brick:VAV", "brick:Equipment"}));
 
   parameter Modelica.Units.SI.PressureDifference motDampR08_06_n_VAV01_4_damper_dp_nom(displayUnit="Pa") = 15552000.0;
   Buildings.Fluid.Actuators.Dampers.Exponential motDampR08_06_n_VAV01_4(
@@ -59,7 +59,7 @@ model VEN09_02_expanded "Auto-generated model"
       y_start=0,
       dpDamper_nominal=motDampR08_06_n_VAV01_4_damper_dp_nom,
       dpFixed_nominal=0) annotation (Placement(transformation(extent={{234,42},
-            {254,62}})), _CDE(iri="inst:R08.06_n_VAV01_4", rdfType={"brick:VAV", "brick:Equipment"}));
+            {254,62}})), __semantic(iri="inst:R08.06_n_VAV01_4", rdfType={"brick:VAV", "brick:Equipment"}));
 
   parameter Modelica.Units.SI.PressureDifference motDampR08_06_o_VAV01_1_damper_dp_nom(displayUnit="Pa") = 15552000.0;
   Buildings.Fluid.Actuators.Dampers.Exponential motDampR08_06_o_VAV01_1(
@@ -68,7 +68,7 @@ model VEN09_02_expanded "Auto-generated model"
       y_start=0,
       dpDamper_nominal=motDampR08_06_o_VAV01_1_damper_dp_nom,
       dpFixed_nominal=0) annotation (Placement(transformation(extent={{144,-18},
-            {164,2}})),   _CDE(iri="inst:R08.06_o_VAV01_1", rdfType={"brick:VAV", "brick:Equipment"}));
+            {164,2}})),   __semantic(iri="inst:R08.06_o_VAV01_1", rdfType={"brick:VAV", "brick:Equipment"}));
 
   parameter Modelica.Units.SI.PressureDifference motDampR08_06_o_VAV01_2_damper_dp_nom(displayUnit="Pa") = 15552000.0;
   Buildings.Fluid.Actuators.Dampers.Exponential motDampR08_06_o_VAV01_2(
@@ -77,7 +77,7 @@ model VEN09_02_expanded "Auto-generated model"
       y_start=0,
       dpDamper_nominal=motDampR08_06_o_VAV01_2_damper_dp_nom,
       dpFixed_nominal=0) annotation (Placement(transformation(extent={{174,-18},
-            {194,2}})),   _CDE(iri="inst:R08.06_o_VAV01_2", rdfType={"brick:VAV", "brick:Equipment"}));
+            {194,2}})),   __semantic(iri="inst:R08.06_o_VAV01_2", rdfType={"brick:VAV", "brick:Equipment"}));
 
   parameter Modelica.Units.SI.PressureDifference motDampR08_06_o_VAV01_3_damper_dp_nom(displayUnit="Pa") = 15552000.0;
   Buildings.Fluid.Actuators.Dampers.Exponential motDampR08_06_o_VAV01_3(
@@ -86,7 +86,7 @@ model VEN09_02_expanded "Auto-generated model"
       y_start=0,
       dpDamper_nominal=motDampR08_06_o_VAV01_3_damper_dp_nom,
       dpFixed_nominal=0) annotation (Placement(transformation(extent={{204,-18},
-            {224,2}})),   _CDE(iri="inst:R08.06_o_VAV01_3", rdfType={"brick:VAV", "brick:Equipment"}));
+            {224,2}})),   __semantic(iri="inst:R08.06_o_VAV01_3", rdfType={"brick:VAV", "brick:Equipment"}));
 
   parameter Modelica.Units.SI.PressureDifference motDampR08_06_o_VAV01_4_damper_dp_nom(displayUnit="Pa") = 15552000.0;
   Buildings.Fluid.Actuators.Dampers.Exponential motDampR08_06_o_VAV01_4(
@@ -95,7 +95,7 @@ model VEN09_02_expanded "Auto-generated model"
       y_start=0,
       dpDamper_nominal=motDampR08_06_o_VAV01_4_damper_dp_nom,
       dpFixed_nominal=0) annotation (Placement(transformation(extent={{234,-18},
-            {254,2}})),   _CDE(iri="inst:R08.06_o_VAV01_4", rdfType={"brick:VAV", "brick:Equipment"}));
+            {254,2}})),   __semantic(iri="inst:R08.06_o_VAV01_4", rdfType={"brick:VAV", "brick:Equipment"}));
 
   parameter Modelica.Units.SI.PressureDifference motDampR08_07_VAV01_1_damper_dp_nom(displayUnit="Pa") = 15552000.0;
   Buildings.Fluid.Actuators.Dampers.Exponential motDampR08_07_VAV01_1(
@@ -104,7 +104,7 @@ model VEN09_02_expanded "Auto-generated model"
       y_start=0,
       dpDamper_nominal=motDampR08_07_VAV01_1_damper_dp_nom,
       dpFixed_nominal=0) annotation (Placement(transformation(extent={{144,-78},
-            {164,-58}})), _CDE(iri="inst:R08.07_VAV01_1", rdfType={"brick:VAV", "brick:Equipment"}));
+            {164,-58}})), __semantic(iri="inst:R08.07_VAV01_1", rdfType={"brick:VAV", "brick:Equipment"}));
 
   parameter Modelica.Units.SI.PressureDifference motDampR08_07_VAV01_2_damper_dp_nom(displayUnit="Pa") = 15552000.0;
   Buildings.Fluid.Actuators.Dampers.Exponential motDampR08_07_VAV01_2(
@@ -113,7 +113,7 @@ model VEN09_02_expanded "Auto-generated model"
       y_start=0,
       dpDamper_nominal=motDampR08_07_VAV01_2_damper_dp_nom,
       dpFixed_nominal=0) annotation (Placement(transformation(extent={{174,-78},
-            {194,-58}})), _CDE(iri="inst:R08.07_VAV01_2", rdfType={"brick:VAV", "brick:Equipment"}));
+            {194,-58}})), __semantic(iri="inst:R08.07_VAV01_2", rdfType={"brick:VAV", "brick:Equipment"}));
 
   parameter Modelica.Units.SI.PressureDifference motDampR08_07_VAV01_3_damper_dp_nom(displayUnit="Pa") = 15552000.0;
   Buildings.Fluid.Actuators.Dampers.Exponential motDampR08_07_VAV01_3(
@@ -122,20 +122,20 @@ model VEN09_02_expanded "Auto-generated model"
       y_start=0,
       dpDamper_nominal=motDampR08_07_VAV01_3_damper_dp_nom,
       dpFixed_nominal=0) annotation (Placement(transformation(extent={{204,-78},
-            {224,-58}})), _CDE(iri="inst:R08.07_VAV01_3", rdfType={"brick:VAV", "brick:Equipment"}));
+            {224,-58}})), __semantic(iri="inst:R08.07_VAV01_3", rdfType={"brick:VAV", "brick:Equipment"}));
 
   Zone           roomR08_01 annotation (Placement(
         transformation(extent={{64,102},{104,142}})),
-                                                    _CDE(iri="inst:R08.01", rdfType={"rec:Room"}));
+                                                    __semantic(iri="inst:R08.01", rdfType={"rec:Room"}));
 
   Zone           roomR08_07 annotation (Placement(
-        transformation(extent={{64,-78},{104,-38}})), _CDE(iri="inst:R08.07", rdfType={"rec:Room"}));
+        transformation(extent={{64,-78},{104,-38}})), __semantic(iri="inst:R08.07", rdfType={"rec:Room"}));
 
   Zone           roomR08_06_n annotation (Placement(
-        transformation(extent={{64,42},{104,82}})),_CDE(iri="inst:R08.06_n", rdfType={"rec:Room"}));
+        transformation(extent={{64,42},{104,82}})),__semantic(iri="inst:R08.06_n", rdfType={"rec:Room"}));
 
   Zone           roomR08_06_o annotation (Placement(
-        transformation(extent={{64,-18},{104,22}})),_CDE(iri="inst:R08.06_o", rdfType={"rec:Room"}));
+        transformation(extent={{64,-18},{104,22}})),__semantic(iri="inst:R08.06_o", rdfType={"rec:Room"}));
 
   CtrlLib.ZoneController zoneCtrl2
     annotation (Placement(transformation(extent={{114,2},{134,22}})),  __cdl(
@@ -144,7 +144,7 @@ model VEN09_02_expanded "Auto-generated model"
     annotation (
     Placement(transformation(extent={{114,62},{134,82}})),
     __cdl(generatePointlist=true),
-    _CDE(expand=true));
+    __semantic(expand=true));
   CtrlLib.ZoneController zoneCtrl4
     annotation (Placement(transformation(extent={{114,122},{134,142}})),
                                                                        __cdl(
