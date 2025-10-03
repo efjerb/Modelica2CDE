@@ -4,7 +4,7 @@ import modelica2cde as m2c
 
 if __name__ == '__main__':
 
-    file_path = "examples\\models\\ModelPackage\\HTR9VEN02_expanded.mo"
+    file_path = "examples\\models\\ModelPackage\\VEN09_02_expanded.mo"
     get_point_lists = True
     
     res = m2c.create_modelica_JSON(file_path = file_path, get_point_lists = get_point_lists)
