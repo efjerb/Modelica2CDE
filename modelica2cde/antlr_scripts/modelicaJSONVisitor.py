@@ -11,13 +11,12 @@ class modelicaJSONVisitor(modelicaVisitor):
     def __init__(self, include_connections = False, get_point_lists = True) -> None:
         self.include_connections = include_connections
         self.get_point_lists = get_point_lists
-        if self.get_point_lists:
-            self.omc = OMCSessionZMQ()
-            self.omc.loadModel("Buildings")
-            # self.omc.sendExpression(f'setModelicaPath("{os.getenv("OPENMODELICALIBRARY")}")')
-            self.omc.loadModel("RambollDefaults")
-            self.omc.loadModel("ToolchainLib")
-            self.omc.loadModel("CtrlLib")
+        
+        # Load libraries - add additional libraries here
+        self.omc = OMCSessionZMQ()
+        self.omc.loadModel("Buildings")
+        self.omc.loadModel("CtrlLib")
+        
         context_path = os.path.join(os.path.dirname(__file__), "..", "static", "rdf_context.json")
         context_file = open(os.path.abspath(context_path), "r")
         self.context = json.load(context_file)
