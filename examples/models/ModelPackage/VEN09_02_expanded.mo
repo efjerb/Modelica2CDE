@@ -1,5 +1,5 @@
 within ModelPackage;
-model HTR9VEN02_expanded "Auto-generated model"
+model VEN09_02_expanded "Auto-generated model"
 
   package MediumHeating = Buildings.Media.Water(T_default=273.15+70) annotation (
       __Dymola_choicesAllMatching=true);
@@ -225,4 +225,4 @@ equation
   annotation (                                                                                           experiment(StartTime=0,StopTime=86400, __Dymola_Algorithm="Dassl"),
     Diagram(coordinateSystem(extent={{-300,-120},{300,180}})),
     Icon(coordinateSystem(extent={{-300,-120},{300,180}})));
-end HTR9VEN02_expanded;
+end VEN09_02_expanded;
