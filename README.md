@@ -22,5 +22,3 @@ The `examples/models` folder contains two models, `VEN09_02` and `VEN09_02_expan
 
 ## Support and limitations
 Currently, only files with single models are supported, and many other limitations exist, since this is supposed to be a simpler and more modifiable version of the modelica-json tool. Hopefully, the experienced user can mitigate these limitations on their own.
-
-This version has only accomplished to generate a JSON file - in the future, it is expected that the program can output RDF-based data, aligned with [BRICK](https://brickschema.org/) and CDL.
