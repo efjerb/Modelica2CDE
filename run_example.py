@@ -1,18 +1,6 @@
 import os
 import json
-import argparse
 import modelica2cde as m2c
-
-def parse_args():
-    parser = argparse.ArgumentParser(description="Creates a JSON file of the given Modelica file.")
-    parser.add_argument(
-        "-f", "--file", help="Path to the Modelica file", required=True
-    )
-    parser.add_argument(
-        "-gp", "--getpoints", help="Generate pointlists?", action="store_true"
-    )
-    args = vars(parser.parse_args())
-    return args
 
 if __name__ == '__main__':
 
